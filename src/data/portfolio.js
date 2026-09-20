@@ -10,7 +10,7 @@ export const portfolioData = {
     bio: "I am a passionate MERN Stack Developer with a solid foundation in computer applications (BCA). I enjoy turning complex ideas into clean, functional, user-centric full-stack web applications. Dedicated to continuous learning, clean architecture, and modern development standards.",
     email: "yash.dev.contact26@gmail.com",
     location: "India",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/yashtank075-ai",
     linkedinUrl: "https://www.linkedin.com/in/yash-tank-abab5b308",
     resumeUrl: "/yash_tank_resume.pdf",
   },

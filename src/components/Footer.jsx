@@ -18,7 +18,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#050914] text-slate-100 dark:bg-[#050914] dark:text-slate-100 border-t border-white/10 pt-16 pb-12 relative transition-colors duration-300">
+    <footer className="bg-[#050914] text-slate-100 dark:bg-white dark:text-slate-900 border-t border-white/10 dark:border-slate-200 pt-16 pb-12 relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-12 border-b border-white/10 dark:border-slate-200">
           
