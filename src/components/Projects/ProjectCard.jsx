@@ -64,7 +64,12 @@ export default function ProjectCard({ project, index }) {
         <div className={`lg:col-span-6 ${isEven ? 'lg:order-2' : 'lg:order-1'} space-y-5 text-left`}>
           
           {/* Badge & Category */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
+            {index === 0 && (
+              <span className="px-3.5 py-1 text-xs font-mono font-bold rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-sm border border-blue-400/30">
+                FEATURED PROJECT
+              </span>
+            )}
             <span className={`px-3.5 py-1 text-xs font-mono font-semibold rounded-full transition-all duration-300 ${
               isHovered
                 ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-md shadow-cyan-500/20'
@@ -83,6 +88,11 @@ export default function ProjectCard({ project, index }) {
           }`}>
             {project.title}
           </h3>
+
+          {/* My Contribution Note */}
+          <div className="text-xs font-mono text-cyan-400/90 bg-cyan-500/10 px-3 py-1.5 rounded-lg border border-cyan-500/20 inline-block">
+            <strong>My Contribution:</strong> End-to-end full-stack development, database schema design, and REST API integration.
+          </div>
 
           {/* Description */}
           <p className={`text-base leading-relaxed transition-colors duration-300 ${
@@ -124,6 +134,32 @@ export default function ProjectCard({ project, index }) {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Action Links (GitHub & Live Demo) */}
+          <div className="pt-2 flex items-center gap-3">
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 border border-white/10 text-slate-200 hover:text-white hover:border-cyan-400/50 transition-all shadow-sm"
+              >
+                <Code className="w-3.5 h-3.5 text-cyan-400" />
+                <span>View Source Code</span>
+              </a>
+            )}
+            {project.liveUrl && project.liveUrl !== '#' && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow-md shadow-blue-500/20 transition-all"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Live Demo</span>
+              </a>
+            )}
           </div>
 
         </div>

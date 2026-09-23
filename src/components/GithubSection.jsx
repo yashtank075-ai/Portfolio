@@ -20,8 +20,6 @@ export default function GithubSection() {
           className="p-8 sm:p-12 rounded-3xl premium-card space-y-10 overflow-hidden"
         >
           <div className="premium-card-accent" />
-          {/* Background Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
           {/* Top Info Header */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10 border-b border-slate-200 dark:border-white/10 pb-8">

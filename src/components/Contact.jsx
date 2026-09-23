@@ -113,7 +113,7 @@ export default function Contact() {
             <span>GET IN TOUCH</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-slate-900 dark:text-slate-100">
-            Let's Build Something <span className="text-blue-600 dark:text-blue-400">Together.</span>
+            Have an idea? <span className="text-blue-600 dark:text-cyan-400">Let's build something useful.</span>
           </h2>
           <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
             I'm open to full-stack developer opportunities, internships, and exciting software projects. Reach out and let's start a conversation!
@@ -272,7 +272,7 @@ export default function Contact() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {/* Name */}
                       <div className="space-y-1.5 text-left">
-                        <label className="text-xs sm:text-sm font-mono font-medium text-slate-700 dark:text-slate-300">
+                        <label className="text-xs sm:text-sm font-mono font-medium text-slate-700 dark:text-slate-200">
                           Your Name <span className="text-red-500 dark:text-red-400">*</span>
                         </label>
                         <input
@@ -282,9 +282,9 @@ export default function Contact() {
                           onChange={handleChange}
                           placeholder="Rahul Patel"
                           disabled={status === 'loading'}
-                          className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/90 border ${
-                            errors.name ? 'border-red-500' : 'border-slate-200 dark:border-white/10 focus:border-blue-500'
-                          } text-slate-900 dark:text-slate-100 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors disabled:opacity-50`}
+                          className={`w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-[#050812] border ${
+                            errors.name ? 'border-red-500' : 'border-slate-300 dark:border-white/15 focus:border-cyan-400'
+                          } text-slate-900 dark:text-slate-100 placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400/30 transition-colors disabled:opacity-50`}
                         />
                         {errors.name && (
                           <p className="text-xs text-red-500 dark:text-red-400 flex items-center gap-1 mt-1">
@@ -295,7 +295,7 @@ export default function Contact() {
 
                       {/* Email */}
                       <div className="space-y-1.5 text-left">
-                        <label className="text-xs sm:text-sm font-mono font-medium text-slate-700 dark:text-slate-300">
+                        <label className="text-xs sm:text-sm font-mono font-medium text-slate-700 dark:text-slate-200">
                           Your Email <span className="text-red-500 dark:text-red-400">*</span>
                         </label>
                         <input
@@ -305,9 +305,9 @@ export default function Contact() {
                           onChange={handleChange}
                           placeholder="rahul@example.com"
                           disabled={status === 'loading'}
-                          className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/90 border ${
-                            errors.email ? 'border-red-500' : 'border-slate-200 dark:border-white/10 focus:border-blue-500'
-                          } text-slate-900 dark:text-slate-100 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors disabled:opacity-50`}
+                          className={`w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-[#050812] border ${
+                            errors.email ? 'border-red-500' : 'border-slate-300 dark:border-white/15 focus:border-cyan-400'
+                          } text-slate-900 dark:text-slate-100 placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400/30 transition-colors disabled:opacity-50`}
                         />
                         {errors.email && (
                           <p className="text-xs text-red-500 dark:text-red-400 flex items-center gap-1 mt-1">
@@ -319,7 +319,7 @@ export default function Contact() {
 
                     {/* Subject */}
                     <div className="space-y-1.5 text-left">
-                      <label className="text-xs sm:text-sm font-mono font-medium text-slate-700 dark:text-slate-300">
+                      <label className="text-xs sm:text-sm font-mono font-medium text-slate-700 dark:text-slate-200">
                         Subject <span className="text-red-500 dark:text-red-400">*</span>
                       </label>
                       <input
@@ -327,11 +327,11 @@ export default function Contact() {
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        placeholder="Website Development / Job Opportunity"
+                        placeholder="Website Project / Job Opportunity"
                         disabled={status === 'loading'}
-                        className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/90 border ${
-                          errors.subject ? 'border-red-500' : 'border-slate-200 dark:border-white/10 focus:border-blue-500'
-                        } text-slate-900 dark:text-slate-100 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors disabled:opacity-50`}
+                        className={`w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-[#050812] border ${
+                          errors.subject ? 'border-red-500' : 'border-slate-300 dark:border-white/15 focus:border-cyan-400'
+                        } text-slate-900 dark:text-slate-100 placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400/30 transition-colors disabled:opacity-50`}
                       />
                       {errors.subject && (
                         <p className="text-xs text-red-500 dark:text-red-400 flex items-center gap-1 mt-1">
@@ -342,7 +342,7 @@ export default function Contact() {
 
                     {/* Message */}
                     <div className="space-y-1.5 text-left">
-                      <label className="text-xs sm:text-sm font-mono font-medium text-slate-700 dark:text-slate-300">
+                      <label className="text-xs sm:text-sm font-mono font-medium text-slate-700 dark:text-slate-200">
                         Message <span className="text-red-500 dark:text-red-400">*</span>
                       </label>
                       <textarea
@@ -350,11 +350,11 @@ export default function Contact() {
                         rows="4"
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="I would like to discuss a website project..."
+                        placeholder="I would like to discuss a project..."
                         disabled={status === 'loading'}
-                        className={`w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/90 border ${
-                          errors.message ? 'border-red-500' : 'border-slate-200 dark:border-white/10 focus:border-blue-500'
-                        } text-slate-900 dark:text-slate-100 placeholder:text-slate-400 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors disabled:opacity-50`}
+                        className={`w-full px-4 py-3 rounded-xl bg-slate-100 dark:bg-[#050812] border ${
+                          errors.message ? 'border-red-500' : 'border-slate-300 dark:border-white/15 focus:border-cyan-400'
+                        } text-slate-900 dark:text-slate-100 placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-400/30 transition-colors disabled:opacity-50`}
                       />
                       {errors.message && (
                         <p className="text-xs text-red-500 dark:text-red-400 flex items-center gap-1 mt-1">

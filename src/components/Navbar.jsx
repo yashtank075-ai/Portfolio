@@ -99,14 +99,14 @@ export default function Navbar({ theme, toggleTheme }) {
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-white/80 dark:bg-[#0c1220]/80 px-4 py-2 rounded-full border border-slate-200 dark:border-white/10 backdrop-blur-xl shadow-lg">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-white/80 dark:bg-[#0c1220]/80 px-2.5 xl:px-4 py-1.5 xl:py-2 rounded-full border border-slate-200 dark:border-white/10 backdrop-blur-xl shadow-lg shrink-0">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
               return (
                 <button
                   key={item.label}
                   onClick={() => handleNavClick(item.href)}
-                  className={`relative px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
+                  className={`relative px-2.5 xl:px-4 py-1.5 text-xs xl:text-sm font-medium rounded-full transition-all duration-200 shrink-0 ${
                     isActive
                       ? 'text-blue-600 dark:text-white font-semibold'
                       : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
@@ -126,14 +126,14 @@ export default function Navbar({ theme, toggleTheme }) {
           </nav>
 
           {/* Right Action Controls */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-1.5 xl:gap-3 shrink-0">
             {/* Social icons */}
             <a
               href={portfolioData.personal.githubUrl}
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub Profile"
-              className="p-2.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-white/5 rounded-xl border border-transparent hover:border-slate-300 dark:hover:border-white/10 transition-all"
+              className="p-2 xl:p-2.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-white/5 rounded-xl border border-transparent hover:border-slate-300 dark:hover:border-white/10 transition-all shrink-0"
             >
               <Github className="w-4 h-4" />
             </a>
@@ -142,7 +142,7 @@ export default function Navbar({ theme, toggleTheme }) {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn Profile"
-              className="p-2.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-white/5 rounded-xl border border-transparent hover:border-slate-300 dark:hover:border-white/10 transition-all"
+              className="p-2 xl:p-2.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-white/5 rounded-xl border border-transparent hover:border-slate-300 dark:hover:border-white/10 transition-all shrink-0"
             >
               <Linkedin className="w-4 h-4" />
             </a>
@@ -151,7 +151,7 @@ export default function Navbar({ theme, toggleTheme }) {
             <button
               onClick={toggleTheme}
               aria-label="Toggle dark/light theme"
-              className="p-2.5 text-slate-600 dark:text-slate-400 hover:text-amber-500 dark:hover:text-amber-400 hover:bg-slate-200/50 dark:hover:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 transition-all shadow-sm"
+              className="p-2 xl:p-2.5 text-slate-600 dark:text-slate-400 hover:text-amber-500 dark:hover:text-amber-400 hover:bg-slate-200/50 dark:hover:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 transition-all shadow-sm shrink-0"
             >
               {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
             </button>
@@ -161,7 +161,7 @@ export default function Navbar({ theme, toggleTheme }) {
               href={portfolioData.personal.resumeUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all border border-blue-400/30"
+              className="inline-flex items-center gap-1.5 xl:gap-2 px-3 xl:px-4 py-2 text-xs font-semibold rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all border border-blue-400/30 shrink-0"
             >
               <FileText className="w-3.5 h-3.5" />
               <span>Resume</span>
@@ -170,7 +170,7 @@ export default function Navbar({ theme, toggleTheme }) {
           </div>
 
           {/* Mobile Right Controls & Hamburger */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2 shrink-0">
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
@@ -198,7 +198,7 @@ export default function Navbar({ theme, toggleTheme }) {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-[#070c18]/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden"
+            className="lg:hidden bg-[#070c18]/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden"
           >
             <div className="px-6 py-6 space-y-3">
               {navItems.map((item) => (

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import GlobalAtmosphere from './components/GlobalAtmosphere';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import QuickStats from './components/QuickStats';
@@ -12,7 +13,6 @@ import Education from './components/Education';
 import CurrentlyBuilding from './components/CurrentlyBuilding';
 import GithubSection from './components/GithubSection';
 import Contact from './components/Contact';
-import CTA from './components/CTA';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -37,9 +37,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#050914] text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-500/30 selection:text-blue-300 transition-colors duration-300">
+    <div className="relative min-h-screen bg-slate-50 dark:bg-[#04060b] text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-500/30 selection:text-blue-300 transition-colors duration-300">
+      <GlobalAtmosphere />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <QuickStats />
         <About />
@@ -52,7 +53,6 @@ export default function App() {
         <CurrentlyBuilding />
         <GithubSection />
         <Contact />
-        <CTA />
       </main>
       <Footer />
     </div>

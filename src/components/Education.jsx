@@ -32,8 +32,6 @@ export default function Education() {
           className="max-w-4xl mx-auto p-8 sm:p-12 rounded-3xl premium-card hover-education-card space-y-8 overflow-hidden"
         >
           <div className="premium-card-accent" />
-          {/* Subtle Glow */}
-          <div className="absolute top-0 right-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
           {/* Header Row */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-white/10 pb-6">

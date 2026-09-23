@@ -235,8 +235,8 @@ export const portfolioData = {
       description: "Refining custom hooks, performance memoization, and component library architectures."
     },
     {
-      topic: "MongoDB Query Optimization",
-      description: "Indexing strategies, aggregation pipelines, and schema relationships with Mongoose."
+      topic: "MongoDB & Data Modeling",
+      description: "Indexing strategies, document schema design, and data relationships with Mongoose ODM."
     }
   ],
 
