@@ -74,12 +74,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 space-y-7 text-left"
           >
-            {/* Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-600 dark:text-cyan-300 text-xs sm:text-sm font-mono font-medium tracking-wider backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-cyan-400" />
-              <span>FULL-STACK MERN DEVELOPER • BCA GRADUATE</span>
-            </div>
-
+          
             {/* Greetings & Headline */}
             <div className="space-y-3">
               <h2 className="text-xl sm:text-2xl font-medium font-heading tracking-tight text-slate-700 dark:text-slate-300">

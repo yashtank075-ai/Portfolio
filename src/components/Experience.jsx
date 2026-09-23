@@ -10,9 +10,7 @@ export default function Experience() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-mono font-medium">
-            <span>PRACTICAL EXPERIENCE</span>
-          </div>
+
           <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 dark:text-slate-100">
             Experience & <span className="text-blue-600 dark:text-blue-400">Development Journey</span>
           </h2>

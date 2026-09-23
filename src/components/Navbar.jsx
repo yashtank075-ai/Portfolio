@@ -15,34 +15,20 @@ const navItems = [
 
 export default function Navbar({ theme, toggleTheme }) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setIsScrolled(currentScrollY > 20);
-
-      if (currentScrollY > 120) {
-        if (currentScrollY > lastScrollY && !mobileMenuOpen) {
-          setVisible(false);
-        } else {
-          setVisible(true);
-        }
-      } else {
-        setVisible(true);
-      }
-      lastScrollY = currentScrollY;
 
       const sections = navItems.map(item => item.href.substring(1));
       const current = sections.find(section => {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          return rect.top <= 160 && rect.bottom >= 160;
+          return rect.top <= 200 && rect.bottom >= 100;
         }
         return false;
       });
@@ -53,7 +39,7 @@ export default function Navbar({ theme, toggleTheme }) {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [mobileMenuOpen]);
+  }, []);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -77,11 +63,9 @@ export default function Navbar({ theme, toggleTheme }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform ${
-        visible ? 'translate-y-0' : '-translate-y-full'
-      } ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 dark:bg-[#050914]/90 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 py-3.5 sm:py-4 shadow-lg'
+          ? 'bg-[#050914]/90 backdrop-blur-xl border-b border-white/10 py-3.5 sm:py-4 shadow-2xl'
           : 'bg-transparent py-5 sm:py-6'
       }`}
     >

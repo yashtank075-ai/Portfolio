@@ -1,219 +1,287 @@
 import React from 'react';
-import { ShoppingBag, BookOpen, Shirt, Film, Search, Star, Plus, CheckCircle, Database, Server, UserCheck } from 'lucide-react';
+import { Utensils, BookOpen, Shirt, Lock, Check } from 'lucide-react';
 
 export default function ProjectPreviewGraphic({ projectId }) {
   if (projectId === 'food-ordering') {
     return (
-      <div className="w-full h-auto min-h-[280px] sm:h-96 bg-[#0b101c] rounded-2xl border border-white/10 p-4 sm:p-5 flex flex-col justify-between overflow-hidden relative group shadow-2xl">
-        <div className="absolute -top-12 -right-12 w-48 h-48 bg-amber-500/15 rounded-full blur-3xl group-hover:bg-amber-500/25 transition-all duration-500" />
-        
-        {/* Header Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-white/10 z-10">
+      <div className="w-full bg-[#0b101c] rounded-2xl border border-white/10 p-5 sm:p-6 space-y-4 font-mono shadow-2xl relative overflow-hidden group/graphic text-left">
+        {/* Subtle background glow */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none group-hover/graphic:bg-cyan-500/15 transition-all duration-500" />
+
+        {/* Console Header Bar */}
+        <div className="flex items-center justify-between border-b border-white/10 pb-3 relative z-10">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-md shrink-0">
-              <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
+            <div className="p-2 rounded-lg bg-[#141d2e] border border-white/10 text-cyan-400">
+              <Utensils className="w-4 h-4" />
+            </div>
+            <span className="text-xs sm:text-sm font-bold text-slate-100 font-sans">
+              QuickBite Console Preview
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2 text-xs text-emerald-400 font-mono">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="text-[11px] font-medium hidden sm:inline">Cart State: Active (2 Items)</span>
+            <span className="text-[11px] font-medium sm:hidden">Active (2 Items)</span>
+          </div>
+        </div>
+
+        {/* Dual Product Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 relative z-10">
+          {/* Card 1 */}
+          <div className="p-4 rounded-xl bg-[#121927] border border-white/10 space-y-2.5 hover:border-cyan-500/40 transition-colors">
+            <div className="flex justify-between items-center">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0d1d18] border border-emerald-500/30 text-emerald-400 uppercase font-semibold">
+                ARTISAN CHOICE
+              </span>
             </div>
             <div>
-              <div className="text-xs sm:text-sm font-bold text-slate-100">BiteExpress MERN App</div>
-              <div className="text-[10px] sm:text-xs text-amber-400 font-mono">REST API: /api/v1/food/menu</div>
+              <div className="text-sm font-bold text-slate-100 font-sans">Margherita Pizza</div>
+              <div className="text-xs text-slate-400 font-sans">Fresh basil, mozzarella, marinara</div>
+            </div>
+            <div className="flex justify-between items-center pt-1">
+              <span className="text-lg font-bold text-white font-mono">$12.99</span>
+              <span className="text-xs font-mono bg-[#192234] border border-white/10 px-2.5 py-1 rounded-lg text-slate-200 flex items-center gap-1">
+                Qty: 1 <Check className="w-3 h-3 text-cyan-400" />
+              </span>
             </div>
           </div>
-          <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs font-mono rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shrink-0">
-            MongoDB
-          </span>
-        </div>
 
-        {/* Content Preview Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-auto py-3 z-10">
-          {[
-            { title: "Margherita Pizza", price: "$12.99", tag: "Popular", bg: "bg-amber-500/10 border-amber-500/25" },
-            { title: "Special Burger", price: "$9.50", tag: "Fast Delivery", bg: "bg-orange-500/10 border-orange-500/25" },
-            { title: "Pasta Primavera", price: "$14.20", tag: "Chef Choice", bg: "bg-amber-500/10 border-amber-500/25" },
-            { title: "Fresh Smoothie", price: "$5.99", tag: "Beverage", bg: "bg-orange-500/10 border-orange-500/25" }
-          ].map((item, idx) => (
-            <div key={idx} className={`p-2.5 sm:p-3.5 rounded-xl border ${item.bg} backdrop-blur-md flex items-center justify-between sm:flex-col sm:justify-between transition-transform group-hover:scale-[1.02] duration-300 shadow-sm gap-2`}>
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start w-full">
-                <span className="text-xs sm:text-sm font-semibold text-slate-100 truncate">{item.title}</span>
-                <span className="text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono font-medium self-start sm:self-auto mt-0.5 sm:mt-0">{item.tag}</span>
-              </div>
-              <div className="flex items-center justify-between w-full mt-0 sm:mt-2">
-                <span className="text-xs sm:text-sm font-bold text-amber-400 font-mono">{item.price}</span>
-                <button className="w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs hover:bg-amber-400 transition-colors shadow-sm shrink-0">
-                  +
-                </button>
-              </div>
+          {/* Card 2 */}
+          <div className="p-4 rounded-xl bg-[#121927] border border-white/10 space-y-2.5 hover:border-cyan-500/40 transition-colors">
+            <div className="flex justify-between items-center">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0d1828] border border-cyan-500/30 text-cyan-400 uppercase font-semibold">
+                CHEF SPECIAL
+              </span>
             </div>
-          ))}
+            <div>
+              <div className="text-sm font-bold text-slate-100 font-sans">Signature Burger</div>
+              <div className="text-xs text-slate-400 font-sans">Double patty, caramelized onions</div>
+            </div>
+            <div className="flex justify-between items-center pt-1">
+              <span className="text-lg font-bold text-white font-mono">$9.50</span>
+              <span className="text-xs font-mono bg-[#192234] border border-white/10 px-2.5 py-1 rounded-lg text-slate-200 flex items-center gap-1">
+                Qty: 1 <Check className="w-3 h-3 text-cyan-400" />
+              </span>
+            </div>
+          </div>
         </div>
 
-        {/* Footer Cart Bar */}
-        <div className="pt-2.5 border-t border-white/10 flex items-center justify-between z-10 bg-slate-900/80 rounded-xl px-3 sm:px-4 py-2">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[11px] sm:text-sm text-slate-200 font-medium">2 Items in Cart</span>
+        {/* Bottom Order Calculation Bar */}
+        <div className="p-4 rounded-xl bg-[#121927] border border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs relative z-10">
+          <div className="flex items-center gap-4">
+            <div>
+              <div className="text-[10px] text-slate-400 font-sans uppercase tracking-wider">Subtotal</div>
+              <div className="font-bold text-white font-mono text-sm">$22.49</div>
+            </div>
+            <div className="h-6 w-px bg-white/10" />
+            <div>
+              <div className="text-[10px] text-slate-400 font-sans uppercase tracking-wider">Estimated Tax</div>
+              <div className="font-bold text-white font-mono text-sm">$1.80</div>
+            </div>
           </div>
-          <span className="text-[11px] sm:text-sm font-mono font-bold text-emerald-400">Total: $22.49</span>
+
+          <div className="flex items-center gap-3">
+            <div>
+              <div className="text-[10px] text-slate-400 font-sans uppercase tracking-wider">Total</div>
+              <div className="font-bold text-cyan-300 font-mono text-base sm:text-lg">$24.29</div>
+            </div>
+            <div className="flex items-center gap-1.5 text-emerald-400 text-xs font-semibold bg-[#0a1814] border border-emerald-500/30 px-3 py-1.5 rounded-lg">
+              <Lock className="w-3.5 h-3.5" />
+              <span>Ready for Mongo Checkout</span>
+            </div>
+          </div>
         </div>
+
       </div>
     );
   }
 
   if (projectId === 'library-management') {
     return (
-      <div className="w-full h-auto min-h-[280px] sm:h-96 bg-[#0b101c] rounded-2xl border border-white/10 p-4 sm:p-5 flex flex-col justify-between overflow-hidden relative group shadow-2xl">
-        <div className="absolute -top-12 -right-12 w-48 h-48 bg-blue-500/15 rounded-full blur-3xl group-hover:bg-blue-500/25 transition-all duration-500" />
-        
-        {/* Header */}
-        <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-white/10 z-10">
+      <div className="w-full bg-[#0b101c] rounded-2xl border border-white/10 p-5 sm:p-6 space-y-4 font-mono shadow-2xl relative overflow-hidden group/graphic text-left">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none group-hover/graphic:bg-blue-500/15 transition-all duration-500" />
+
+        {/* Console Header Bar */}
+        <div className="flex items-center justify-between border-b border-white/10 pb-3 relative z-10">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-md shrink-0">
-              <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
+            <div className="p-2 rounded-lg bg-[#141d2e] border border-white/10 text-blue-400">
+              <BookOpen className="w-4 h-4" />
             </div>
-            <div>
-              <div className="text-xs sm:text-sm font-bold text-slate-100">LibTrack Admin</div>
-              <div className="text-[10px] sm:text-xs text-blue-400 font-mono">Issued & Returned</div>
-            </div>
+            <span className="text-xs sm:text-sm font-bold text-slate-100 font-sans">
+              LibTrack Console Preview
+            </span>
           </div>
-          <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs font-mono rounded-md bg-blue-500/20 text-blue-300 border border-blue-500/30 shrink-0">
-            JWT Auth
-          </span>
+
+          <div className="flex items-center gap-2 text-xs text-emerald-400 font-mono">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="text-[11px] font-medium">Loans State: Active (184 Books)</span>
+          </div>
         </div>
 
-        {/* Content list */}
-        <div className="space-y-2.5 my-auto py-3 z-10">
-          {[
-            { title: "Clean Code — Robert Martin", student: "Yash Tank (BCA)", status: "Issued", color: "text-amber-400 bg-amber-400/10 border-amber-400/20" },
-            { title: "Design Patterns — GoF", student: "Alex Rivers", status: "Returned", color: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20" },
-            { title: "MongoDB In Action", student: "Sarah Jenkins", status: "Issued", color: "text-amber-400 bg-amber-400/10 border-amber-400/20" }
-          ].map((book, idx) => (
-            <div key={idx} className="p-2.5 sm:p-3 rounded-xl bg-slate-900/90 border border-white/10 flex items-center justify-between transition-transform group-hover:scale-[1.01] duration-300 gap-2">
-              <div className="flex items-center gap-2.5 min-w-0">
-                <div className="w-1.5 h-6 rounded-full bg-blue-500 shrink-0" />
-                <div className="min-w-0">
-                  <div className="text-xs sm:text-sm font-semibold text-slate-100 truncate">{book.title}</div>
-                  <div className="text-[10px] sm:text-xs text-slate-400 font-mono truncate">Student: {book.student}</div>
-                </div>
-              </div>
-              <span className={`text-[10px] sm:text-xs px-2 py-0.5 rounded-md font-mono font-medium border shrink-0 ${book.color}`}>
-                {book.status}
+        {/* Dual Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 relative z-10">
+          {/* Card 1 */}
+          <div className="p-4 rounded-xl bg-[#121927] border border-white/10 space-y-2.5 hover:border-blue-500/40 transition-colors">
+            <div className="flex justify-between items-center">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0d1828] border border-blue-500/30 text-blue-400 uppercase font-semibold">
+                FEATURED BOOK
               </span>
             </div>
-          ))}
+            <div>
+              <div className="text-sm font-bold text-slate-100 font-sans">Clean Code</div>
+              <div className="text-xs text-slate-400 font-sans">Robert C. Martin • Student #104</div>
+            </div>
+            <div className="flex justify-between items-center pt-1">
+              <span className="text-xs font-mono text-slate-300">Ref: BK-9201</span>
+              <span className="text-xs font-mono bg-[#192234] border border-amber-500/30 text-amber-300 px-2.5 py-1 rounded-lg flex items-center gap-1">
+                Issued <Check className="w-3 h-3 text-amber-400" />
+              </span>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="p-4 rounded-xl bg-[#121927] border border-white/10 space-y-2.5 hover:border-blue-500/40 transition-colors">
+            <div className="flex justify-between items-center">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0d1d18] border border-emerald-500/30 text-emerald-400 uppercase font-semibold">
+                NEW ARRIVAL
+              </span>
+            </div>
+            <div>
+              <div className="text-sm font-bold text-slate-100 font-sans">Design Patterns</div>
+              <div className="text-xs text-slate-400 font-sans">Gang of Four • CS Dept</div>
+            </div>
+            <div className="flex justify-between items-center pt-1">
+              <span className="text-xs font-mono text-slate-300">Ref: BK-4012</span>
+              <span className="text-xs font-mono bg-[#192234] border border-emerald-500/30 text-emerald-300 px-2.5 py-1 rounded-lg flex items-center gap-1">
+                Available <Check className="w-3 h-3 text-emerald-400" />
+              </span>
+            </div>
+          </div>
         </div>
 
-        {/* Status bar */}
-        <div className="pt-2.5 border-t border-white/10 flex items-center justify-between z-10 bg-slate-900/80 rounded-xl px-3 sm:px-4 py-2 text-[11px] sm:text-xs">
-          <span className="text-slate-300">Total Books: <strong className="text-slate-100 font-mono">1,240</strong></span>
-          <span className="text-slate-300">Loans: <strong className="text-blue-400 font-mono">184</strong></span>
+        {/* Bottom Summary Bar */}
+        <div className="p-4 rounded-xl bg-[#121927] border border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs relative z-10">
+          <div className="flex items-center gap-4">
+            <div>
+              <div className="text-[10px] text-slate-400 font-sans uppercase tracking-wider">Catalog</div>
+              <div className="font-bold text-white font-mono text-sm">1,240</div>
+            </div>
+            <div className="h-6 w-px bg-white/10" />
+            <div>
+              <div className="text-[10px] text-slate-400 font-sans uppercase tracking-wider">Active Loans</div>
+              <div className="font-bold text-blue-400 font-mono text-sm">184</div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-1.5 text-emerald-400 text-xs font-semibold bg-[#0a1814] border border-emerald-500/30 px-3 py-1.5 rounded-lg">
+            <Lock className="w-3.5 h-3.5" />
+            <span>Ready for JWT Auth</span>
+          </div>
         </div>
+
       </div>
     );
   }
 
-  if (projectId === 'ecommerce-clothing') {
-    return (
-      <div className="w-full h-auto min-h-[280px] sm:h-96 bg-[#0b101c] rounded-2xl border border-white/10 p-4 sm:p-5 flex flex-col justify-between overflow-hidden relative group shadow-2xl">
-        <div className="absolute -top-12 -right-12 w-48 h-48 bg-purple-500/15 rounded-full blur-3xl group-hover:bg-purple-500/25 transition-all duration-500" />
-        
-        {/* Header */}
-        <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-white/10 z-10">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-md shrink-0">
-              <Shirt className="w-4 h-4 sm:w-5 sm:h-5" />
-            </div>
-            <div>
-              <div className="text-xs sm:text-sm font-bold text-slate-100">Aura Fashion E-Commerce</div>
-              <div className="text-[10px] sm:text-xs text-purple-400 font-mono">React + Redux State</div>
-            </div>
+  // E-Commerce Clothing Website or Fallback
+  return (
+    <div className="w-full bg-[#0b101c] rounded-2xl border border-white/10 p-5 sm:p-6 space-y-4 font-mono shadow-2xl relative overflow-hidden group/graphic text-left">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none group-hover/graphic:bg-purple-500/15 transition-all duration-500" />
+
+      {/* Console Header Bar */}
+      <div className="flex items-center justify-between border-b border-white/10 pb-3 relative z-10">
+        <div className="flex items-center gap-2.5">
+          <div className="p-2 rounded-lg bg-[#141d2e] border border-white/10 text-purple-400">
+            <Shirt className="w-4 h-4" />
           </div>
-          <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs font-mono rounded-md bg-purple-500/20 text-purple-300 border border-purple-500/30 shrink-0">
-            Store
+          <span className="text-xs sm:text-sm font-bold text-slate-100 font-sans">
+            Aura Fashion Console Preview
           </span>
         </div>
 
-        {/* Grid Preview */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-auto py-3 z-10">
-          {[
-            { title: "Minimal Hoodie", tag: "Black / L", price: "$49", rating: "4.9" },
-            { title: "Oversized Denim", tag: "Blue / M", price: "$65", rating: "4.8" },
-            { title: "Cotton Tee", tag: "White / S", price: "$29", rating: "5.0" },
-            { title: "Urban Jacket", tag: "Charcoal / XL", price: "$89", rating: "4.7" }
-          ].map((prod, idx) => (
-            <div key={idx} className="p-2.5 sm:p-3 rounded-xl bg-slate-900/90 border border-purple-500/20 flex items-center justify-between sm:flex-col sm:justify-between transition-transform group-hover:scale-[1.02] duration-300 gap-2">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start w-full min-w-0">
-                <div className="min-w-0">
-                  <div className="text-xs sm:text-sm font-semibold text-slate-100 truncate">{prod.title}</div>
-                  <div className="text-[9px] sm:text-[10px] text-slate-400 font-mono mt-0.5">{prod.tag}</div>
-                </div>
-                <div className="flex items-center gap-1 text-[10px] sm:text-xs text-amber-400 font-mono mt-0.5 sm:mt-0 shrink-0">
-                  <Star className="w-3 h-3 fill-amber-400" /> {prod.rating}
-                </div>
-              </div>
-              <div className="flex items-center justify-between w-full mt-0 sm:mt-2">
-                <span className="text-xs sm:text-sm font-bold text-purple-300 font-mono">{prod.price}</span>
-                <span className="text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 font-mono shrink-0">In Stock</span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Footer */}
-        <div className="pt-2.5 border-t border-white/10 flex items-center justify-between z-10 bg-slate-900/80 rounded-xl px-3 sm:px-4 py-2 text-[11px] sm:text-xs">
-          <span className="text-slate-300">Category Filter</span>
-          <span className="font-mono text-purple-400 font-semibold">MongoDB Product DB</span>
+        <div className="flex items-center gap-2 text-xs text-emerald-400 font-mono">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span className="text-[11px] font-medium">Cart State: Active (2 Items)</span>
         </div>
       </div>
-    );
-  }
 
-  // Movie browser default
-  return (
-    <div className="w-full h-auto min-h-[280px] sm:h-96 bg-[#0b101c] rounded-2xl border border-white/10 p-4 sm:p-5 flex flex-col justify-between overflow-hidden relative group shadow-2xl">
-      <div className="absolute -top-12 -right-12 w-48 h-48 bg-cyan-500/15 rounded-full blur-3xl group-hover:bg-cyan-500/25 transition-all duration-500" />
-      
-      {/* Header with Search */}
-      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-white/10 z-10">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-md shrink-0">
-            <Film className="w-4 h-4 sm:w-5 sm:h-5" />
+      {/* Dual Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 relative z-10">
+        {/* Card 1 */}
+        <div className="p-4 rounded-xl bg-[#121927] border border-white/10 space-y-2.5 hover:border-purple-500/40 transition-colors">
+          <div className="flex justify-between items-center">
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#1d1228] border border-purple-500/30 text-purple-300 uppercase font-semibold">
+              BESTSELLER
+            </span>
           </div>
           <div>
-            <div className="text-xs sm:text-sm font-bold text-slate-100">CineSearch Explorer</div>
-            <div className="text-[10px] sm:text-xs text-cyan-400 font-mono">External REST API</div>
+            <div className="text-sm font-bold text-slate-100 font-sans">Minimalist Hoodie</div>
+            <div className="text-xs text-slate-400 font-sans">100% Organic Cotton • Black / L</div>
+          </div>
+          <div className="flex justify-between items-center pt-1">
+            <span className="text-lg font-bold text-white font-mono">$49.00</span>
+            <span className="text-xs font-mono bg-[#192234] border border-white/10 px-2.5 py-1 rounded-lg text-slate-200 flex items-center gap-1">
+              Qty: 1 <Check className="w-3 h-3 text-purple-400" />
+            </span>
           </div>
         </div>
-        <div className="flex items-center gap-1 bg-slate-900 px-2.5 py-1 rounded-lg border border-white/10 shrink-0">
-          <Search className="w-3 h-3 text-slate-400" />
-          <span className="text-[10px] sm:text-xs text-slate-400 font-mono">Search...</span>
+
+        {/* Card 2 */}
+        <div className="p-4 rounded-xl bg-[#121927] border border-white/10 space-y-2.5 hover:border-purple-500/40 transition-colors">
+          <div className="flex justify-between items-center">
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0d1828] border border-cyan-500/30 text-cyan-400 uppercase font-semibold">
+              NEW RELEASE
+            </span>
+          </div>
+          <div>
+            <div className="text-sm font-bold text-slate-100 font-sans">Oversized Denim</div>
+            <div className="text-xs text-slate-400 font-sans">Vintage Indigo Wash • Size M</div>
+          </div>
+          <div className="flex justify-between items-center pt-1">
+            <span className="text-lg font-bold text-white font-mono">$65.00</span>
+            <span className="text-xs font-mono bg-[#192234] border border-white/10 px-2.5 py-1 rounded-lg text-slate-200 flex items-center gap-1">
+              Qty: 1 <Check className="w-3 h-3 text-purple-400" />
+            </span>
+          </div>
         </div>
       </div>
 
-      {/* Cards preview */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 my-auto py-3 z-10">
-        {[
-          { title: "Interstellar", year: "2014", genre: "Sci-Fi", score: "8.7" },
-          { title: "The Dark Knight", year: "2008", genre: "Action", score: "9.0" },
-          { title: "Inception", year: "2010", genre: "Sci-Fi", score: "8.8" },
-          { title: "Oppenheimer", year: "2023", genre: "Drama", score: "8.9" }
-        ].map((movie, idx) => (
-          <div key={idx} className="p-2.5 sm:p-3 rounded-xl bg-slate-900/90 border border-cyan-500/20 flex items-center justify-between sm:flex-col sm:justify-between transition-transform group-hover:scale-[1.02] duration-300 gap-2">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start w-full min-w-0">
-              <span className="text-xs sm:text-sm font-semibold text-slate-100 truncate">{movie.title}</span>
-              <span className="text-[9px] sm:text-xs px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono shrink-0 self-start sm:self-auto mt-0.5 sm:mt-0">{movie.score} ★</span>
-            </div>
-            <div className="flex items-center justify-between w-full mt-0 sm:mt-2">
-              <span className="text-[10px] sm:text-xs text-slate-400 font-mono">{movie.year}</span>
-              <span className="text-[10px] sm:text-xs text-cyan-400 font-medium">{movie.genre}</span>
-            </div>
+      {/* Bottom Calculation Bar */}
+      <div className="p-4 rounded-xl bg-[#121927] border border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs relative z-10">
+        <div className="flex items-center gap-4">
+          <div>
+            <div className="text-[10px] text-slate-400 font-sans uppercase tracking-wider">Subtotal</div>
+            <div className="font-bold text-white font-mono text-sm">$114.00</div>
           </div>
-        ))}
+          <div className="h-6 w-px bg-white/10" />
+          <div>
+            <div className="text-[10px] text-slate-400 font-sans uppercase tracking-wider">Shipping</div>
+            <div className="font-bold text-emerald-400 font-mono text-sm">FREE</div>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <div>
+            <div className="text-[10px] text-slate-400 font-sans uppercase tracking-wider">Total</div>
+            <div className="font-bold text-purple-300 font-mono text-base sm:text-lg">$114.00</div>
+          </div>
+          <div className="flex items-center gap-1.5 text-emerald-400 text-xs font-semibold bg-[#0a1814] border border-emerald-500/30 px-3 py-1.5 rounded-lg">
+            <Lock className="w-3.5 h-3.5" />
+            <span>Ready for Checkout</span>
+          </div>
+        </div>
       </div>
 
-      {/* Footer */}
-      <div className="pt-2.5 border-t border-white/10 flex items-center justify-between z-10 bg-slate-900/80 rounded-xl px-3 sm:px-4 py-2 text-[11px] sm:text-xs">
-        <span className="text-slate-300">API Status: <span className="text-emerald-400 font-mono font-bold">200 OK</span></span>
-        <span className="font-mono text-cyan-400 font-semibold">Live Search</span>
-      </div>
     </div>
   );
 }
