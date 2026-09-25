@@ -1,9 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Layers, Database, Cpu, Atom, Code2, Sparkles, GitBranch, Network } from 'lucide-react';
-import { portfolioData } from '../data/portfolio';
-
-const stackIcons = [Atom, Cpu, Layers, Database];
+import React from 'react';
+import { Layers, Database, Cpu, Atom, Code2, Sparkles, GitBranch, Network } from 'lucide-react';
 
 export default function TechStack() {
   const [hoveredTech, setHoveredTech] = React.useState(null);

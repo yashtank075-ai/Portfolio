@@ -1,18 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, FileText, Mail, Code2, Terminal, Database, Check, Copy, Sparkles, Activity, Cpu, Server, Layers } from 'lucide-react';
+import { ArrowRight, FileText, Mail, Terminal, Database, Cpu, Layers } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { portfolioData } from '../data/portfolio';
 
-const tabs = [
-  { id: 'code', label: 'developer.js', icon: Code2 },
-  { id: 'api', label: 'api_status.json', icon: Terminal },
-  { id: 'db', label: 'schema.js', icon: Database }
-];
-
 export default function Hero() {
-  const [activeTab, setActiveTab] = useState('code');
-  const [copied, setCopied] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0, rawX: 0, rawY: 0 });
 
   const handleMouseMove = (e) => {
@@ -20,42 +12,6 @@ export default function Hero() {
     const x = e.clientX - (rect.left + rect.width / 2);
     const y = e.clientY - (rect.top + rect.height / 2);
     setMousePos({ x, y, rawX: e.clientX - rect.left, rawY: e.clientY - rect.top });
-  };
-
-  const codeSnippet = `const developer = {
-  name: "Yash Tank",
-  degree: "BCA",
-  role: "MERN Stack Developer",
-  status: "Available for Opportunities",
-  stack: ["MongoDB", "Express.js", "React.js", "Node.js"],
-  architecture: "RESTful APIs & Responsive UI",
-  builds: function() {
-    return "Clean, Functional, User-Centric Web Apps";
-  }
-};`;
-
-  const apiSnippet = `{
-  "status": 200,
-  "developer": "Yash Tank",
-  "stack": "MERN",
-  "api_ready": true,
-  "endpoints": ["/api/v1/projects", "/api/v1/contact"]
-}`;
-
-  const dbSnippet = `const UserSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  role: { type: String, default: "Developer" },
-  skills: [{ type: String }],
-  available: { type: Boolean, default: true }
-});`;
-
-  const handleCopy = () => {
-    let content = codeSnippet;
-    if (activeTab === 'api') content = apiSnippet;
-    if (activeTab === 'db') content = dbSnippet;
-    navigator.clipboard.writeText(content);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
   };
 
   return (

@@ -1,11 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Code2, Palette, FileCode2, Atom, Sparkles, 
-  Server, Cpu, Network, Database, Layers, 
-  GitBranch, Terminal, Send, UserCheck, ArrowDown
-} from 'lucide-react';
-import { Github } from './Icons';
+import { Atom, Server, Database, Layers, UserCheck } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
 
 export default function Skills() {

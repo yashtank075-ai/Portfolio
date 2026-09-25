@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, MapPin, Code2, ArrowRight, ArrowUpRight, ExternalLink, Play, Send, CheckCircle2, AlertCircle, Loader2, RotateCcw } from 'lucide-react';
+import { Mail, Code2, ArrowRight, ArrowUpRight, ExternalLink, Play, Send, CheckCircle2, AlertCircle, Loader2, RotateCcw } from 'lucide-react';
 import { Linkedin } from './Icons';
 import { portfolioData } from '../data/portfolio';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, ArrowRight, Code } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
 
 export default function CurrentlyBuilding() {
@@ -37,7 +37,7 @@ export default function CurrentlyBuilding() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {portfolioData.currentlyBuilding.map((item, idx) => (
+            {portfolioData.currentlyBuilding.map((item) => (
               <div
                 key={item.topic}
                 className="p-5 rounded-2xl premium-card hover-building-card space-y-2 overflow-hidden"
