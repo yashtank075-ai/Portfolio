@@ -5,7 +5,7 @@ import { portfolioData } from '../data/portfolio';
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-12 lg:py-16 relative">
+    <section id="experience" className="pt-8 pb-12 lg:pt-10 lg:pb-14 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -28,7 +28,7 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: idx * 0.08 }}
-              className="p-6 sm:p-7 rounded-2xl bg-white/70 dark:bg-[#080d19]/80 border border-slate-200 dark:border-white/10 hover:border-blue-500/40 backdrop-blur-xl transition-all duration-300 space-y-3 shadow-md"
+              className="p-4 sm:p-7 rounded-2xl bg-white/70 dark:bg-[#080d19]/80 border border-slate-200 dark:border-white/10 hover:border-blue-500/40 backdrop-blur-xl transition-all duration-300 space-y-3 shadow-md"
             >
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-white/10 pb-3">
                 <div className="flex items-center gap-3">

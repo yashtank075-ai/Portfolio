@@ -77,10 +77,10 @@ export default function Hero() {
           
             {/* Greetings & Headline */}
             <div className="space-y-3">
-              <h2 className="text-xl sm:text-2xl font-medium font-heading tracking-tight text-slate-700 dark:text-slate-300">
+              <h2 className="text-lg sm:text-2xl font-medium font-heading tracking-tight text-slate-700 dark:text-slate-300">
                 Hi, I'm <span className="text-blue-600 dark:text-cyan-400 font-semibold">Yash Tank</span>
               </h2>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-heading text-slate-900 dark:text-slate-100 leading-[1.15]">
+              <h1 className="text-2xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight font-heading text-slate-900 dark:text-slate-100 leading-[1.15] break-words">
                 Building Modern Web Experiences with <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-400">MERN</span>
               </h1>
             </div>
@@ -91,10 +91,10 @@ export default function Hero() {
             </p>
 
             {/* Call-to-Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
               <a
                 href="#projects"
-                className="group relative inline-flex items-center gap-2.5 px-7 py-3.5 text-sm sm:text-base font-semibold rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white shadow-lg shadow-blue-500/20 hover:shadow-blue-500/35 active:scale-[0.98] transition-all border border-blue-400/30"
+                className="group relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 min-h-[44px] text-sm sm:text-base font-semibold rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white shadow-lg shadow-blue-500/20 hover:shadow-blue-500/35 active:scale-[0.98] transition-all border border-blue-400/30 w-full sm:w-auto text-center"
               >
                 <span>View My Work</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
@@ -102,7 +102,7 @@ export default function Hero() {
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 text-sm sm:text-base font-semibold rounded-xl bg-slate-100 dark:bg-slate-900/90 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-800 dark:text-cyan-300 border border-slate-300 dark:border-white/10 transition-all shadow-sm"
+                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 min-h-[44px] text-sm sm:text-base font-semibold rounded-xl bg-slate-100 dark:bg-slate-900/90 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-800 dark:text-cyan-300 border border-slate-300 dark:border-white/10 transition-all shadow-sm w-full sm:w-auto text-center"
               >
                 <Mail className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
                 <span>Let's Connect</span>
@@ -112,7 +112,7 @@ export default function Hero() {
                 href={portfolioData.personal.resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 text-sm sm:text-base font-semibold rounded-xl bg-white dark:bg-[#0c1220] hover:bg-slate-100 dark:hover:bg-[#11192d] text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white border border-slate-300 dark:border-white/15 transition-all shadow-md"
+                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 min-h-[44px] text-sm sm:text-base font-semibold rounded-xl bg-white dark:bg-[#0c1220] hover:bg-slate-100 dark:hover:bg-[#11192d] text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white border border-slate-300 dark:border-white/15 transition-all shadow-md w-full sm:w-auto text-center"
               >
                 <FileText className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 <span>Download Resume</span>
@@ -127,7 +127,7 @@ export default function Hero() {
                   href={portfolioData.personal.githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-white/10 hover:border-blue-500/50 text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white transition-all text-xs sm:text-sm shadow-sm"
+                  className="flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-white/10 hover:border-blue-500/50 text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white transition-all text-xs sm:text-sm shadow-sm"
                 >
                   <Github className="w-4 h-4 text-slate-600 dark:text-slate-300" />
                   <span>GitHub</span>
@@ -136,14 +136,14 @@ export default function Hero() {
                   href={portfolioData.personal.linkedinUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-white/10 hover:border-blue-500/50 text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white transition-all text-xs sm:text-sm shadow-sm"
+                  className="flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-white/10 hover:border-blue-500/50 text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white transition-all text-xs sm:text-sm shadow-sm"
                 >
                   <Linkedin className="w-4 h-4 text-slate-600 dark:text-slate-300" />
                   <span>LinkedIn</span>
                 </a>
                 <a
                   href={`mailto:${portfolioData.personal.email}`}
-                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-white/10 hover:border-blue-500/50 text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white transition-all text-xs sm:text-sm shadow-sm"
+                  className="flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-white/10 hover:border-blue-500/50 text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white transition-all text-xs sm:text-sm shadow-sm"
                 >
                   <Mail className="w-4 h-4 text-slate-600 dark:text-slate-300" />
                   <span>Email</span>
@@ -157,21 +157,21 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 relative mt-4 lg:mt-0"
+            className="lg:col-span-5 relative mt-4 lg:mt-0 w-full"
             style={{
               transform: `translate3d(${-mousePos.x * 0.01}px, ${-mousePos.y * 0.01}px, 0)`
             }}
           >
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#080d19]/90 border border-white/10 shadow-2xl backdrop-blur-xl space-y-6 text-left">
+            <div className="p-4 sm:p-6 lg:p-8 rounded-3xl bg-white/80 dark:bg-[#080d19]/90 border border-slate-200 dark:border-white/10 shadow-xl backdrop-blur-xl space-y-6 text-left w-full overflow-hidden">
               {/* Header Label */}
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+              <div className="flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-4 flex-wrap gap-2">
                 <div className="flex items-center gap-2.5">
-                  <Terminal className="w-4 h-4 text-cyan-400" />
-                  <span className="text-xs font-mono font-semibold tracking-wider text-slate-300 uppercase">
+                  <Terminal className="w-4 h-4 text-blue-600 dark:text-cyan-400 shrink-0" />
+                  <span className="text-xs font-mono font-semibold tracking-wider text-slate-700 dark:text-slate-300 uppercase">
                     System Architecture
                   </span>
                 </div>
-                <span className="text-[11px] font-mono text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-cyan-500/20">
+                <span className="text-[11px] font-mono text-blue-600 dark:text-cyan-400 bg-blue-500/10 dark:bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-blue-500/20 dark:border-cyan-500/20 shrink-0">
                   MERN Stack
                 </span>
               </div>
@@ -180,62 +180,62 @@ export default function Hero() {
               <div className="space-y-3 font-mono text-xs">
                 
                 {/* 1. Client Layer */}
-                <div className="p-3.5 rounded-xl bg-slate-900/80 border border-cyan-500/25 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400">
+                <div className="p-3 sm:p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-cyan-500/25 flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2 shadow-sm">
+                  <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                    <div className="p-2 rounded-lg bg-blue-500/10 dark:bg-cyan-500/10 text-blue-600 dark:text-cyan-400 shrink-0">
                       <Layers className="w-4 h-4" />
                     </div>
-                    <div>
-                      <div className="font-semibold text-slate-100">Frontend Layer</div>
-                      <div className="text-[11px] text-slate-400 font-sans">React.js & Tailwind CSS</div>
+                    <div className="min-w-0">
+                      <div className="font-semibold text-slate-900 dark:text-slate-100 truncate">Frontend Layer</div>
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 font-sans truncate">React.js & Tailwind CSS</div>
                     </div>
                   </div>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-white/10">Client</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10 shrink-0">Client</span>
                 </div>
 
                 {/* Arrow Down */}
-                <div className="flex justify-center text-slate-500 py-0.5">
-                  <span className="text-cyan-400/80 font-bold">↓</span>
+                <div className="flex justify-center text-slate-400 dark:text-slate-500 py-0.5">
+                  <span className="text-blue-500 dark:text-cyan-400/80 font-bold">↓</span>
                 </div>
 
                 {/* 2. API Services Layer */}
-                <div className="p-3.5 rounded-xl bg-slate-900/80 border border-indigo-500/25 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-400">
+                <div className="p-3 sm:p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-indigo-500/25 flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2 shadow-sm">
+                  <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                    <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shrink-0">
                       <Cpu className="w-4 h-4" />
                     </div>
-                    <div>
-                      <div className="font-semibold text-slate-100">API Layer</div>
-                      <div className="text-[11px] text-slate-400 font-sans">Node.js & Express REST Endpoints</div>
+                    <div className="min-w-0">
+                      <div className="font-semibold text-slate-900 dark:text-slate-100 truncate">API Layer</div>
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 font-sans truncate">Node.js & Express REST Endpoints</div>
                     </div>
                   </div>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-white/10">Server</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10 shrink-0">Server</span>
                 </div>
 
                 {/* Arrow Down */}
-                <div className="flex justify-center text-slate-500 py-0.5">
-                  <span className="text-indigo-400/80 font-bold">↓</span>
+                <div className="flex justify-center text-slate-400 dark:text-slate-500 py-0.5">
+                  <span className="text-indigo-500 dark:text-indigo-400/80 font-bold">↓</span>
                 </div>
 
                 {/* 3. Database Layer */}
-                <div className="p-3.5 rounded-xl bg-slate-900/80 border border-emerald-500/25 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
+                <div className="p-3 sm:p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-emerald-500/25 flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2 shadow-sm">
+                  <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                    <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shrink-0">
                       <Database className="w-4 h-4" />
                     </div>
-                    <div>
-                      <div className="font-semibold text-slate-100">Database Layer</div>
-                      <div className="text-[11px] text-slate-400 font-sans">MongoDB & Mongoose ODM</div>
+                    <div className="min-w-0">
+                      <div className="font-semibold text-slate-900 dark:text-slate-100 truncate">Database Layer</div>
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 font-sans truncate">MongoDB & Mongoose ODM</div>
                     </div>
                   </div>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-white/10">Database</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10 shrink-0">Database</span>
                 </div>
               </div>
 
               {/* Quiet Footer Detail */}
-              <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <div className="pt-2 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
                 <span>Architecture</span>
-                <span className="text-slate-300 font-sans">Modular & Scalable</span>
+                <span className="text-slate-700 dark:text-slate-300 font-sans">Modular & Scalable</span>
               </div>
             </div>
           </motion.div>

@@ -20,7 +20,7 @@ export default function About() {
     <section 
       id="about" 
       onMouseMove={handleMouseMove}
-      className="py-24 lg:py-32 relative overflow-hidden"
+      className="py-16 lg:py-20 relative overflow-hidden"
     >
       {/* Dynamic Cursor Spotlight Reveal Background */}
       <div 
@@ -61,7 +61,7 @@ export default function About() {
                 With a solid academic foundation in <strong className="text-slate-900 dark:text-slate-100 font-semibold">Bachelor of Computer Applications (BCA)</strong>, I have cultivated a thorough understanding of computer science fundamentals, object-oriented programming, database management, and modern web application development.
               </p>
               <p className="text-slate-600 dark:text-slate-300 text-base">
-                I am driven by turning complex ideas into intuitive, responsive, and fully functional web products. My practical experience comes from building complete end-to-end applications—from designing dynamic React client interfaces to architecting REST APIs and MongoDB data models.
+                I am driven by turning complex ideas into intuitive, responsive, and fully functional web products. My practical experience comes from building complete end-to-end applications from designing dynamic React client interfaces to architecting REST APIs and MongoDB data models.
               </p>
             </div>
 
@@ -125,9 +125,9 @@ export default function About() {
                       idx === 0 ? 'bg-amber-400' : idx === 1 ? 'bg-cyan-400' : idx === 2 ? 'bg-indigo-500' : 'bg-emerald-400'
                     }`} />
 
-                    <div className="flex items-center justify-between mb-1">
-                      <div className="flex items-center gap-2.5">
-                        <div className={`p-1.5 rounded-lg text-slate-700 dark:text-slate-300 transition-transform duration-300 ${
+                    <div className="flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-1.5 mb-1">
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <div className={`p-1.5 rounded-lg text-slate-700 dark:text-slate-300 transition-transform duration-300 shrink-0 ${
                           idx === 0 ? 'group-hover:rotate-12 group-hover:text-amber-400' :
                           idx === 1 ? 'group-hover:scale-110 group-hover:text-cyan-400' :
                           idx === 2 ? 'group-hover:-translate-y-0.5 group-hover:text-indigo-400' :
@@ -135,11 +135,11 @@ export default function About() {
                         }`}>
                           <IconComponent className="w-4 h-4" />
                         </div>
-                        <h4 className="text-base font-bold text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-colors">
+                        <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-colors truncate">
                           {fact.title}
                         </h4>
                       </div>
-                      <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-cyan-400 font-semibold">
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-cyan-400 font-semibold shrink-0">
                         {fact.tag}
                       </span>
                     </div>
@@ -176,7 +176,7 @@ export default function About() {
                 return (
                   <div
                     key={item.step}
-                    className="group relative p-6 rounded-2xl bg-white/70 dark:bg-[#0c1220]/70 border border-slate-200 dark:border-white/10 hover:border-blue-500/50 backdrop-blur-md transition-all duration-300 text-left"
+                    className="group relative p-5 sm:p-6 rounded-2xl bg-white/70 dark:bg-[#0c1220]/70 border border-slate-200 dark:border-white/10 hover:border-blue-500/50 backdrop-blur-md transition-all duration-300 text-left"
                   >
                     {/* Node Dot Header */}
                     <div className="flex items-center justify-between mb-4">

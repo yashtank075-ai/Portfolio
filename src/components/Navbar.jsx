@@ -65,7 +65,7 @@ export default function Navbar({ theme, toggleTheme }) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#050914]/90 backdrop-blur-xl border-b border-white/10 py-3.5 sm:py-4 shadow-2xl'
+          ? 'bg-white/90 dark:bg-[#050914]/90 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 py-3.5 sm:py-4 shadow-xl'
           : 'bg-transparent py-5 sm:py-6'
       }`}
     >
@@ -158,15 +158,15 @@ export default function Navbar({ theme, toggleTheme }) {
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="p-2 text-slate-600 dark:text-slate-400 hover:text-amber-500 rounded-lg border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/80"
+              className="w-11 h-11 flex items-center justify-center rounded-xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/80 text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors"
             >
-              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
+              {theme === 'dark' ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-slate-700" />}
             </button>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Open Mobile Menu"
-              className="p-2.5 rounded-xl border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-slate-900/90 text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white focus:outline-none"
+              aria-label={mobileMenuOpen ? "Close Mobile Menu" : "Open Mobile Menu"}
+              className="w-11 h-11 flex items-center justify-center rounded-xl border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-slate-900/90 text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white focus:outline-none transition-colors"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -182,26 +182,26 @@ export default function Navbar({ theme, toggleTheme }) {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-[#070c18]/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden"
+            className="lg:hidden bg-white/95 dark:bg-[#070c18]/95 backdrop-blur-2xl border-b border-slate-200 dark:border-white/10 overflow-hidden shadow-xl"
           >
-            <div className="px-6 py-6 space-y-3">
+            <div className="px-4 sm:px-6 py-5 space-y-2.5">
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => handleNavClick(item.href)}
-                  className="w-full text-left py-3 px-4 text-base font-medium text-slate-200 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                  className="w-full text-left py-3 px-4 min-h-[44px] flex items-center text-base font-medium text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-xl transition-all"
                 >
                   {item.label}
                 </button>
               ))}
 
-              <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
+              <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-col gap-3">
                 <a
                   href={portfolioData.personal.resumeUrl}
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-blue-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/30"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 min-h-[44px] rounded-xl bg-blue-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/30 active:scale-[0.98] transition-all"
                 >
                   <FileText className="w-4 h-4" /> Download Resume
                 </a>
@@ -211,7 +211,8 @@ export default function Navbar({ theme, toggleTheme }) {
                     href={portfolioData.personal.githubUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-3 text-slate-300 hover:text-white rounded-xl bg-slate-900 border border-white/10"
+                    aria-label="GitHub Profile"
+                    className="w-11 h-11 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 transition-all"
                   >
                     <Github className="w-5 h-5" />
                   </a>
@@ -219,7 +220,8 @@ export default function Navbar({ theme, toggleTheme }) {
                     href={portfolioData.personal.linkedinUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-3 text-slate-300 hover:text-white rounded-xl bg-slate-900 border border-white/10"
+                    aria-label="LinkedIn Profile"
+                    className="w-11 h-11 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 transition-all"
                   >
                     <Linkedin className="w-5 h-5" />
                   </a>

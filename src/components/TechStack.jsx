@@ -23,7 +23,7 @@ export default function TechStack() {
   const doubleItems = [...marqueeItems, ...marqueeItems];
 
   return (
-    <section className="py-12 relative overflow-hidden bg-white/70 dark:bg-[#070c18] border-y border-slate-200 dark:border-white/10">
+    <section className="py-12 relative overflow-hidden w-full max-w-full bg-white/70 dark:bg-[#070c18] border-y border-slate-200 dark:border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
         <span className="text-xs font-mono font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">
           INFINITE MERN PIPELINE • HOVER TO PAUSE &amp; EXAMINE
@@ -31,10 +31,10 @@ export default function TechStack() {
       </div>
 
       {/* Infinite Horizontal Marquee Track */}
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full max-w-full overflow-hidden">
         {/* Gradient Fades on Edges */}
-        <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-white dark:from-[#070c18] to-transparent z-20 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-white dark:from-[#070c18] to-transparent z-20 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 left-0 w-8 sm:w-24 bg-gradient-to-r from-white dark:from-[#070c18] to-transparent z-20 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-8 sm:w-24 bg-gradient-to-l from-white dark:from-[#070c18] to-transparent z-20 pointer-events-none" />
 
         <div className="animate-marquee flex items-center gap-6 py-2">
           {doubleItems.map((tech, idx) => {

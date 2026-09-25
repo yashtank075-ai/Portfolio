@@ -39,7 +39,7 @@ export default function Services() {
   ];
 
   return (
-    <section className="py-12 lg:py-16 relative">
+    <section className="pt-10 pb-8 lg:pt-12 lg:pb-10 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -64,13 +64,13 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="group relative p-7 sm:p-8 rounded-3xl bg-white/70 dark:bg-[#080d19]/80 border border-slate-200 dark:border-white/10 hover:border-cyan-400/40 backdrop-blur-xl transition-all duration-300 space-y-5 text-left shadow-lg overflow-hidden"
+                className="group relative p-5 sm:p-7 lg:p-8 rounded-3xl bg-white/70 dark:bg-[#080d19]/80 border border-slate-200 dark:border-white/10 hover:border-cyan-400/40 backdrop-blur-xl transition-all duration-300 space-y-5 text-left shadow-lg overflow-hidden"
               >
                 {/* Accent line */}
                 <div className="premium-card-accent" />
 
                 {/* Card Header: Number + Icon + Tag */}
-                <div className="flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-4">
+                <div className="flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2 border-b border-slate-200 dark:border-white/10 pb-4">
                   <div className="flex items-center gap-3">
                     <span className="text-2xl font-extrabold font-mono text-cyan-500 dark:text-cyan-400">
                       {item.num}
@@ -79,7 +79,7 @@ export default function Services() {
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
-                  <span className="text-xs font-mono px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10">
+                  <span className="text-xs font-mono px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 shrink-0">
                     {item.tag}
                   </span>
                 </div>

@@ -15,26 +15,29 @@ export default function Projects() {
   const filteredProjects = portfolioData.projects.filter((project) => {
     if (activeFilter === 'all') return true;
     if (activeFilter === 'fullstack') return project.type === 'fullstack';
-    if (activeFilter === 'frontend') return project.type === 'frontend';
+    if (activeFilter === 'frontend') return project.stack.includes('React.js') || project.type === 'fullstack';
     return true;
   });
 
+  const featuredProject = filteredProjects[0];
+  const secondaryProjects = filteredProjects.slice(1);
+
   return (
-    <section id="projects" className="py-20 lg:py-28 relative bg-[#050811] text-slate-100">
+    <section id="projects" className="pt-12 pb-10 lg:pt-16 lg:pb-12 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-white">
-            Featured <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-300">Projects</span>
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-slate-900 dark:text-white">
+            Featured <span className="text-blue-600 dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r dark:from-blue-400 dark:via-cyan-400 dark:to-indigo-300">Projects</span>
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-            A selection of applications I've built while learning and working with modern web technologies.
+          <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
+            A selection of authentic applications I've built while working with modern MERN web technologies.
           </p>
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex justify-center items-center gap-2.5 mb-14 flex-wrap">
+        <div className="flex justify-center items-center gap-2.5 mb-10 flex-wrap">
           {filterOptions.map((filter) => {
             const isActive = activeFilter === filter.id;
             return (
@@ -44,7 +47,7 @@ export default function Projects() {
                 className={`relative px-5 py-2.5 text-xs sm:text-sm font-medium rounded-xl transition-all ${
                   isActive
                     ? 'text-white font-semibold'
-                    : 'text-slate-400 hover:text-white bg-[#0e1524] border border-white/10 shadow-sm'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white bg-white dark:bg-[#0e1524] border border-slate-200 dark:border-white/10 shadow-sm'
                 }`}
               >
                 {isActive && (
@@ -60,12 +63,22 @@ export default function Projects() {
           })}
         </div>
 
-        {/* Project Cards List */}
-        <div className="space-y-12">
+        {/* Project Cards Layout: 1 Large Featured + 2 Secondary Grid */}
+        <div className="space-y-8">
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, idx) => (
-              <ProjectCard key={project.id} project={project} index={idx} />
-            ))}
+            {/* 1 Large Primary Featured Project */}
+            {featuredProject && (
+              <ProjectCard key={featuredProject.id} project={featuredProject} index={0} isFeatured={true} />
+            )}
+
+            {/* 2 Secondary Projects Side-by-Side */}
+            {secondaryProjects.length > 0 && (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-2">
+                {secondaryProjects.map((project, idx) => (
+                  <ProjectCard key={project.id} project={project} index={idx + 1} isFeatured={false} />
+                ))}
+              </div>
+            )}
           </AnimatePresence>
         </div>
 

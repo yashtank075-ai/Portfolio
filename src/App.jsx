@@ -37,10 +37,10 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-slate-50 dark:bg-[#04060b] text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-500/30 selection:text-blue-300 transition-colors duration-300">
+    <div className="relative min-h-screen bg-slate-50 dark:bg-[#04060b] text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-500/30 selection:text-blue-300 transition-colors duration-300 overflow-x-hidden w-full max-w-full">
       <GlobalAtmosphere />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <main className="relative z-10">
+      <main className="relative z-10 w-full max-w-full overflow-x-hidden">
         <Hero />
         <QuickStats />
         <About />

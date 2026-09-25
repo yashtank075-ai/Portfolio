@@ -14,16 +14,16 @@ export default function CurrentlyBuilding() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="p-8 sm:p-10 rounded-3xl premium-card space-y-6 overflow-hidden"
+          className="p-5 sm:p-8 lg:p-10 rounded-3xl premium-card space-y-6 overflow-hidden text-left"
         >
           <div className="premium-card-accent" />
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-white/10 pb-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
                 <Sparkles className="w-5 h-5" />
               </div>
-              <div>
-                <h3 className="text-xl font-bold font-heading text-slate-900 dark:text-slate-100">
+              <div className="min-w-0">
+                <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 dark:text-slate-100 truncate">
                   Currently Learning & Building
                 </h3>
                 <p className="text-xs font-mono text-blue-600 dark:text-blue-400">

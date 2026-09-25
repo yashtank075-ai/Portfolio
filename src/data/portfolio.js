@@ -127,7 +127,7 @@ export const portfolioData = {
         "MongoDB schema integration for dishes & orders",
         "REST API endpoints for cart and food items"
       ],
-      githubUrl: "https://github.com/yash/food-ordering-system",
+      githubUrl: "https://github.com/yashtank075-ai/food-del",
       liveUrl: "#",
       accentColor: "from-amber-500 to-orange-600",
       theme: "amber"
@@ -147,7 +147,7 @@ export const portfolioData = {
         "Real-time availability status indicators",
         "Admin dashboard overview"
       ],
-      githubUrl: "https://github.com/yash/library-management-system",
+      githubUrl: "https://github.com/yashtank075-ai",
       liveUrl: "#",
       accentColor: "from-blue-500 to-indigo-600",
       theme: "blue"
@@ -167,7 +167,7 @@ export const portfolioData = {
         "Responsive, mobile-optimized checkout layout",
         "MongoDB product inventory management"
       ],
-      githubUrl: "https://github.com/yash/ecommerce-clothing",
+      githubUrl: "https://github.com/yashtank075-ai/e-commerce",
       liveUrl: "#",
       accentColor: "from-purple-500 to-pink-600",
       theme: "purple"
@@ -241,13 +241,13 @@ export const portfolioData = {
   ],
 
   github: {
-    username: "yash-dev",
-    profileUrl: "https://github.com",
+    username: "yashtank075-ai",
+    profileUrl: "https://github.com/yashtank075-ai",
     tagline: "Building open source projects, refining full-stack apps, and committing clean code daily.",
     pinnedRepos: [
-      { name: "food-ordering-system", stars: 12, forks: 4, language: "JavaScript", description: "Full-stack food ordering app with MERN stack." },
-      { name: "library-management-system", stars: 9, forks: 2, language: "JavaScript", description: "Library tracking and book issue/return system." },
-      { name: "ecommerce-clothing", stars: 15, forks: 5, language: "JavaScript", description: "Modern React & Node e-commerce platform." }
+      { name: "food-del", stars: 12, forks: 4, language: "JavaScript", description: "Full-stack food ordering app with MERN stack." },
+      { name: "e-commerce", stars: 15, forks: 5, language: "JavaScript", description: "Modern React & Node e-commerce platform." },
+      { name: "library-management-system", stars: 9, forks: 2, language: "JavaScript", description: "Library tracking and book issue/return system." }
     ]
   }
 };

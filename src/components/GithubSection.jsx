@@ -8,7 +8,7 @@ export default function GithubSection() {
   const { username, profileUrl, tagline, pinnedRepos } = portfolioData.github;
 
   return (
-    <section className="py-20 lg:py-28 relative">
+    <section className="py-12 lg:py-16 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Card Wrapper */}
@@ -17,7 +17,7 @@ export default function GithubSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="p-8 sm:p-12 rounded-3xl premium-card space-y-10 overflow-hidden"
+          className="p-5 sm:p-8 lg:p-12 rounded-3xl premium-card space-y-10 overflow-hidden text-left"
         >
           <div className="premium-card-accent" />
 
@@ -28,10 +28,10 @@ export default function GithubSection() {
                 <Github className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                 <span>GITHUB ECOSYSTEM</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 dark:text-slate-100">
+              <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-slate-900 dark:text-slate-100">
                 Code. Build. <span className="text-blue-600 dark:text-blue-400">Improve.</span>
               </h2>
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
+              <p className="text-xs sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
                 {tagline}
               </p>
             </div>
@@ -40,11 +40,11 @@ export default function GithubSection() {
               href={profileUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm border border-slate-700 hover:border-blue-500/40 shadow-lg transition-all group self-start md:self-auto"
+              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 min-h-[44px] rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm border border-slate-700 hover:border-blue-500/40 shadow-lg transition-all group w-full sm:w-auto text-center"
             >
-              <Github className="w-4 h-4 text-blue-400" />
+              <Github className="w-4 h-4 text-blue-400 shrink-0" />
               <span>Visit @{username} Profile</span>
-              <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
             </a>
           </div>
 

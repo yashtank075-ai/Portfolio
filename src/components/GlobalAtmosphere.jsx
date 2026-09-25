@@ -151,11 +151,20 @@ export default function GlobalAtmosphere() {
     >
       {/* LAYER 1: Deep Atmospheric Tonal Gradient Base */}
       <div 
-        className="absolute inset-0 opacity-100 transition-all duration-1000"
+        className="absolute inset-0 opacity-100 transition-all duration-1000 dark:block hidden"
         style={{
           background: `
             radial-gradient(120% 120% at ${currentConfig.accentX} ${currentConfig.accentY}, rgba(15, 25, 45, 0.9) 0%, rgba(6, 10, 18, 0.97) 50%, rgba(4, 6, 11, 1) 100%),
             linear-gradient(180deg, rgba(9, 16, 30, 0.7) 0%, rgba(3, 5, 10, 0.95) 100%)
+          `
+        }}
+      />
+      <div 
+        className="absolute inset-0 opacity-100 transition-all duration-1000 dark:hidden block"
+        style={{
+          background: `
+            radial-gradient(120% 120% at ${currentConfig.accentX} ${currentConfig.accentY}, rgba(224, 242, 254, 0.6) 0%, rgba(241, 245, 249, 0.9) 50%, rgba(248, 250, 252, 1) 100%),
+            linear-gradient(180deg, rgba(238, 242, 255, 0.5) 0%, rgba(248, 250, 252, 1) 100%)
           `
         }}
       />
@@ -172,8 +181,8 @@ export default function GlobalAtmosphere() {
           transition={{ duration: 1.2, ease: 'easeOut' }}
           className={`absolute rounded-[40%] blur-[80px] md:blur-[110px] transition-all duration-1000 ${currentConfig.light1}`}
           style={{
-            background: `linear-gradient(135deg, rgba(28, 45, 76, 0.6) 0%, rgba(12, 22, 40, 0.3) 60%, transparent 100%)`,
-            border: '1px solid rgba(255, 255, 255, 0.04)',
+            background: `linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(99, 102, 241, 0.08) 60%, transparent 100%)`,
+            border: '1px solid rgba(59, 130, 246, 0.05)',
           }}
         />
 
@@ -186,7 +195,7 @@ export default function GlobalAtmosphere() {
           transition={{ duration: 1.2, ease: 'easeOut' }}
           className={`absolute rounded-[45%] blur-[70px] md:blur-[100px] transition-all duration-1000 ${currentConfig.light2}`}
           style={{
-            background: `linear-gradient(225deg, ${currentConfig.planeAccent} 0%, rgba(14, 24, 42, 0.35) 50%, transparent 90%)`,
+            background: `linear-gradient(225deg, ${currentConfig.planeAccent} 0%, rgba(59, 130, 246, 0.08) 50%, transparent 90%)`,
           }}
         />
 
@@ -194,13 +203,13 @@ export default function GlobalAtmosphere() {
         <div 
           className="absolute top-1/3 left-[-20%] w-[140vw] h-[250px] rotate-[-7deg] opacity-30 blur-[60px] pointer-events-none"
           style={{
-            background: 'linear-gradient(90deg, transparent 0%, rgba(38, 64, 105, 0.4) 50%, transparent 100%)'
+            background: 'linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.15) 50%, transparent 100%)'
           }}
         />
       </div>
 
       {/* LAYER 3: Precise Technical Contour Lines SVG */}
-      <div className="absolute inset-0 opacity-60 dark:opacity-50">
+      <div className="absolute inset-0 opacity-40 dark:opacity-50">
         <svg 
           className="w-full h-full" 
           viewBox="0 0 1440 900" 
@@ -209,7 +218,7 @@ export default function GlobalAtmosphere() {
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* Architectural Surface Contours */}
-          <g stroke="currentColor" className="text-slate-400/35 dark:text-cyan-300/25" strokeWidth="0.85">
+          <g stroke="currentColor" className="text-blue-500/20 dark:text-cyan-300/25" strokeWidth="0.85">
             {/* Curved Surface Flow Line 1 */}
             <path 
               d="M-100 150 C 350 400, 850 -50, 1540 220" 
@@ -250,7 +259,7 @@ export default function GlobalAtmosphere() {
         <div
           className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
           style={{
-            background: `radial-gradient(750px circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(56, 189, 248, 0.045), rgba(15, 23, 42, 0.01) 60%, transparent 80%)`,
+            background: `radial-gradient(750px circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0.01) 60%, transparent 80%)`,
           }}
         />
       )}
@@ -275,7 +284,7 @@ export default function GlobalAtmosphere() {
       <div 
         className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
         style={{
-          background: 'linear-gradient(to top, rgba(4, 6, 11, 0.8) 0%, transparent 100%)'
+          background: 'linear-gradient(to top, var(--bg-primary) 0%, transparent 100%)'
         }}
       />
     </div>
