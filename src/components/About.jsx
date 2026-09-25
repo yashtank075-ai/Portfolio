@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Code2, BookOpen, Layers, Rocket, CheckCircle2, GraduationCap, Server, Database, Sparkles } from 'lucide-react';
+import { Code2, BookOpen, Layers, Rocket, CheckCircle2, GraduationCap, Server, Sparkles } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
 
 const journeyIcons = [BookOpen, Code2, Layers, Rocket];

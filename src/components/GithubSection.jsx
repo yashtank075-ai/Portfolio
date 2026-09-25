@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, GitFork, ExternalLink, Code2, GitCommit, ShieldCheck } from 'lucide-react';
+import { Star, GitFork, ExternalLink, GitCommit, ShieldCheck } from 'lucide-react';
 import { Github } from './Icons';
 import { portfolioData } from '../data/portfolio';
 
