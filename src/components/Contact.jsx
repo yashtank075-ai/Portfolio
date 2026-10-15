@@ -236,11 +236,11 @@ export default function Contact() {
           {/* Right Column: Functional Contact Form */}
           <div className="lg:col-span-7 w-full">
             <div className="editorial-card p-5 sm:p-7 lg:p-8 space-y-5">
-              <div className="border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)] pb-4 flex items-center justify-between">
+              <div className="border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)] pb-4 flex flex-wrap items-center justify-between gap-2">
                 <span className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold">
                   Send a Message / Discuss a Project
                 </span>
-                <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">
+                <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] shrink-0">
                   Response SLA: &lt; 24h
                 </span>
               </div>
