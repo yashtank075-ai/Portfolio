@@ -11,9 +11,9 @@ export default function ProjectCard({ project, isFeatured = false }) {
       }`}
     >
       {/* Top Meta Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)] pb-4 mb-6">
-        <div className="flex items-center gap-2.5">
-          <span className="font-mono text-xs sm:text-sm font-bold text-[#8C734B] dark:text-[#D9C8A5]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)] pb-4 mb-6">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="font-mono text-xs sm:text-sm font-bold text-[#8C734B] dark:text-[#D9C8A5] shrink-0">
             {project.index} //
           </span>
           <span className="font-mono text-xs uppercase tracking-wider text-[#3D3B35] dark:text-[#D4D0C5] font-semibold">
@@ -21,16 +21,16 @@ export default function ProjectCard({ project, isFeatured = false }) {
           </span>
         </div>
         
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`View ${project.title} source code on GitHub`}
-              className="inline-flex items-center gap-2 px-3.5 py-2 font-mono text-xs font-semibold text-[#171714] dark:text-[#F5F2EB] bg-[#EFECE3] dark:bg-[#1E1E1A] hover:bg-[#E8E4DB] dark:hover:bg-[#262621] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.18)] transition-colors min-h-[40px]"
+              className="inline-flex items-center justify-center gap-2 px-3.5 py-2 font-mono text-xs font-semibold text-[#171714] dark:text-[#F5F2EB] bg-[#EFECE3] dark:bg-[#1E1E1A] hover:bg-[#E8E4DB] dark:hover:bg-[#262621] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.18)] transition-colors min-h-[38px] shrink-0"
             >
-              <Github className="w-4 h-4" />
+              <Github className="w-4 h-4 shrink-0" />
               <span>GitHub Source</span>
             </a>
           )}
@@ -40,10 +40,10 @@ export default function ProjectCard({ project, isFeatured = false }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Open ${project.title} live website`}
-              className="inline-flex items-center gap-2 px-4 py-2 font-mono text-xs font-semibold text-[#FAF8F3] bg-[#171714] dark:bg-[#F5F2EB] dark:text-[#171714] hover:bg-[#8C734B] dark:hover:bg-[#D9C8A5] transition-colors min-h-[40px]"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2 font-mono text-xs font-semibold text-[#FAF8F3] bg-[#171714] dark:bg-[#F5F2EB] dark:text-[#171714] hover:bg-[#8C734B] dark:hover:bg-[#D9C8A5] transition-colors min-h-[38px] shrink-0"
             >
               <span>{project.liveLabel || 'Explore Project'}</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="w-4 h-4 shrink-0" />
             </a>
           )}
         </div>

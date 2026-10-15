@@ -128,9 +128,9 @@ export default function About() {
                 </div>
                 <div className="space-y-1.5">
                   {portfolioData.skills.frontend.map((item) => (
-                    <div key={item.name} className="flex items-center justify-between py-1.5 border-b border-[#D8D3C8]/50 dark:border-[rgba(245,242,235,0.06)] text-xs sm:text-sm">
-                      <span className="font-sans text-[#171714] dark:text-[#F5F2EB] font-medium">{item.name}</span>
-                      <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">{item.detail}</span>
+                    <div key={item.name} className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-2 sm:py-1.5 border-b border-[#D8D3C8]/50 dark:border-[rgba(245,242,235,0.06)] text-xs sm:text-sm gap-1 sm:gap-4">
+                      <span className="font-sans text-[#171714] dark:text-[#F5F2EB] font-medium shrink-0">{item.name}</span>
+                      <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] sm:text-right">{item.detail}</span>
                     </div>
                   ))}
                 </div>
@@ -144,9 +144,9 @@ export default function About() {
                 </div>
                 <div className="space-y-1.5">
                   {portfolioData.skills.backend.map((item) => (
-                    <div key={item.name} className="flex items-center justify-between py-1.5 border-b border-[#D8D3C8]/50 dark:border-[rgba(245,242,235,0.06)] text-xs sm:text-sm">
-                      <span className="font-sans text-[#171714] dark:text-[#F5F2EB] font-medium">{item.name}</span>
-                      <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">{item.detail}</span>
+                    <div key={item.name} className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-2 sm:py-1.5 border-b border-[#D8D3C8]/50 dark:border-[rgba(245,242,235,0.06)] text-xs sm:text-sm gap-1 sm:gap-4">
+                      <span className="font-sans text-[#171714] dark:text-[#F5F2EB] font-medium shrink-0">{item.name}</span>
+                      <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] sm:text-right">{item.detail}</span>
                     </div>
                   ))}
                 </div>
@@ -160,9 +160,9 @@ export default function About() {
                 </div>
                 <div className="space-y-1.5">
                   {portfolioData.skills.database.map((item) => (
-                    <div key={item.name} className="flex items-center justify-between py-1.5 border-b border-[#D8D3C8]/50 dark:border-[rgba(245,242,235,0.06)] text-xs sm:text-sm">
-                      <span className="font-sans text-[#171714] dark:text-[#F5F2EB] font-medium">{item.name}</span>
-                      <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">{item.detail}</span>
+                    <div key={item.name} className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-2 sm:py-1.5 border-b border-[#D8D3C8]/50 dark:border-[rgba(245,242,235,0.06)] text-xs sm:text-sm gap-1 sm:gap-4">
+                      <span className="font-sans text-[#171714] dark:text-[#F5F2EB] font-medium shrink-0">{item.name}</span>
+                      <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] sm:text-right">{item.detail}</span>
                     </div>
                   ))}
                 </div>
@@ -176,9 +176,9 @@ export default function About() {
                 </div>
                 <div className="space-y-1.5">
                   {portfolioData.skills.tools.map((item) => (
-                    <div key={item.name} className="flex items-center justify-between py-1.5 border-b border-[#D8D3C8]/50 dark:border-[rgba(245,242,235,0.06)] text-xs sm:text-sm">
-                      <span className="font-sans text-[#171714] dark:text-[#F5F2EB] font-medium">{item.name}</span>
-                      <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">{item.detail}</span>
+                    <div key={item.name} className="flex flex-col sm:flex-row sm:items-center sm:justify-between py-2 sm:py-1.5 border-b border-[#D8D3C8]/50 dark:border-[rgba(245,242,235,0.06)] text-xs sm:text-sm gap-1 sm:gap-4">
+                      <span className="font-sans text-[#171714] dark:text-[#F5F2EB] font-medium shrink-0">{item.name}</span>
+                      <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] sm:text-right">{item.detail}</span>
                     </div>
                   ))}
                 </div>

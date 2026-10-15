@@ -12,19 +12,21 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Status & Discipline Row */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] pb-4 mb-7 text-left">
-          <div className="editorial-tag text-xs">
-            <span className="w-2 h-2 rounded-full bg-[#8C734B] dark:bg-[#D9C8A5]" />
-            <span className="font-semibold text-[#171714] dark:text-[#F5F2EB]">
-              YASH TANK
-            </span>
-            <span className="text-[#5A574F] dark:text-[#A8A49A]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] pb-4 mb-7 text-left">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#8C734B] dark:bg-[#D9C8A5] shrink-0" />
+              <span className="font-semibold text-[#171714] dark:text-[#F5F2EB]">
+                YASH TANK
+              </span>
+            </div>
+            <span className="text-[#5A574F] dark:text-[#A8A49A] text-[11px] sm:text-xs">
               // MERN &amp; FULL-STACK DEVELOPER
             </span>
           </div>
-          <div className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] flex items-center gap-2.5">
+          <div className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] flex flex-wrap items-center gap-x-2 gap-y-1">
             <span>{portfolioData.personal.location}</span>
-            <span className="text-[#8C734B] dark:text-[#D9C8A5]">●</span>
+            <span className="text-[#8C734B] dark:text-[#D9C8A5] shrink-0">●</span>
             <span className="font-semibold text-[#171714] dark:text-[#F5F2EB]">
               Available for Full-Time Roles &amp; Projects
             </span>
@@ -46,23 +48,23 @@ export default function Hero() {
             </p>
 
             {/* Clear Action CTAs */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-1">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 pt-1">
               {/* Primary: View Projects */}
               <a
                 href="#work"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#171714] dark:bg-[#F5F2EB] text-[#F5F2EB] dark:text-[#171714] hover:bg-[#8C734B] dark:hover:bg-[#D9C8A5] transition-all font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#171714] dark:bg-[#F5F2EB] text-[#F5F2EB] dark:text-[#171714] hover:bg-[#8C734B] dark:hover:bg-[#D9C8A5] transition-all font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider text-center"
               >
                 <span>View Selected Work</span>
-                <ArrowDown className="w-4 h-4" />
+                <ArrowDown className="w-4 h-4 shrink-0" />
               </a>
 
               {/* Secondary: Discuss a Project / Contact */}
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#171714] dark:border-[#F5F2EB] text-[#171714] dark:text-[#F5F2EB] hover:border-[#8C734B] hover:text-[#8C734B] dark:hover:border-[#D9C8A5] dark:hover:text-[#D9C8A5] transition-all font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#171714] dark:border-[#F5F2EB] text-[#171714] dark:text-[#F5F2EB] hover:border-[#8C734B] hover:text-[#8C734B] dark:hover:border-[#D9C8A5] dark:hover:text-[#D9C8A5] transition-all font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider text-center"
               >
                 <span>Discuss a Project</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4 shrink-0" />
               </a>
 
               {/* Tertiary: Download Resume */}
@@ -70,9 +72,9 @@ export default function Hero() {
                 href={portfolioData.personal.resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3.5 border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.2)] text-[#3D3B35] dark:text-[#D4D0C5] hover:text-[#171714] dark:hover:text-[#F5F2EB] hover:border-[#8C734B] dark:hover:border-[#D9C8A5] transition-colors font-mono text-xs sm:text-sm"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.2)] text-[#3D3B35] dark:text-[#D4D0C5] hover:text-[#171714] dark:hover:text-[#F5F2EB] hover:border-[#8C734B] dark:hover:border-[#D9C8A5] transition-colors font-mono text-xs sm:text-sm text-center"
               >
-                <FileText className="w-4 h-4 text-[#8C734B] dark:text-[#D9C8A5]" />
+                <FileText className="w-4 h-4 text-[#8C734B] dark:text-[#D9C8A5] shrink-0" />
                 <span>Download Resume (PDF)</span>
               </a>
             </div>

@@ -149,20 +149,22 @@ export default function Navbar({ theme, toggleTheme }) {
           {/* Mobile Menu & Theme Toggle */}
           <div className="flex items-center gap-2 md:hidden">
             <button
+              type="button"
               onClick={toggleTheme}
-              aria-label="Toggle theme"
-              className="w-9 h-9 flex items-center justify-center border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] text-[#171714] dark:text-[#F5F2EB]"
+              aria-label={`Switch to ${theme === 'dark' ? 'Warm Ivory' : 'Noir Luxury'} mode`}
+              className="w-10 h-10 flex items-center justify-center border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.18)] text-[#171714] dark:text-[#F5F2EB] bg-[#FAF8F3] dark:bg-[#1E1E1A] active:scale-95 transition-all"
             >
-              {theme === 'dark' ? <Sun className="w-4 h-4 text-[#D9C8A5]" /> : <Moon className="w-4 h-4 text-[#5A574F]" />}
+              {theme === 'dark' ? <Sun className="w-4 h-4 text-[#D9C8A5]" /> : <Moon className="w-4 h-4 text-[#423F39]" />}
             </button>
 
             <button
+              type="button"
               ref={buttonRef}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
               aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
-              className="w-10 h-10 flex items-center justify-center border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] text-[#171714] dark:text-[#F5F2EB]"
+              className="w-10 h-10 flex items-center justify-center border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.18)] text-[#171714] dark:text-[#F5F2EB] bg-[#FAF8F3] dark:bg-[#1E1E1A] active:scale-95 transition-all"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -176,7 +178,7 @@ export default function Navbar({ theme, toggleTheme }) {
         <div 
           id="mobile-navigation"
           ref={menuRef}
-          className="fixed inset-0 top-[73px] bg-[#F5F2EB] dark:bg-[#121210] border-t border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] p-6 z-50 flex flex-col justify-between overflow-y-auto md:hidden"
+          className="fixed inset-x-0 top-[73px] bottom-0 bg-[#F5F2EB] dark:bg-[#121210] border-t border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] p-6 z-50 flex flex-col justify-between overflow-y-auto md:hidden"
         >
           <nav className="space-y-6 pt-4 text-left" aria-label="Mobile Navigation Links">
             {navItems.map((item, idx) => (
