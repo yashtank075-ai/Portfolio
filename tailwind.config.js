@@ -8,42 +8,49 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: {
-          bg: '#090d16',
-          card: '#111827',
-          surface: '#172033',
-          border: 'rgba(255, 255, 255, 0.08)',
-          'border-bright': 'rgba(255, 255, 255, 0.16)',
+        ivory: {
+          DEFAULT: '#F5F2EB',
+          elevated: '#FAF8F3',
+          warm: '#EFECE3',
         },
-        accent: {
-          blue: '#3b82f6',
-          violet: '#6366f1',
-          cyan: '#06b6d4',
-          emerald: '#10b981',
-          gradient: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)',
-        }
+        ink: {
+          DEFAULT: '#171714',
+          muted: '#2A2925',
+          deep: '#0E0E0C',
+        },
+        stone: {
+          surface: '#E8E4DB',
+          subtle: '#DFDBD1',
+          rule: '#D8D3C8',
+        },
+        brass: {
+          DEFAULT: '#D9C8A5',
+          dark: '#8C734B',
+          rich: '#9B804E',
+          muted: '#C5B492',
+          tint: 'rgba(217, 200, 165, 0.15)',
+        },
+        warmgray: {
+          DEFAULT: '#5A574F',
+          light: '#767268',
+          dark: '#3D3B35',
+        },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        heading: ['Outfit', 'Inter', 'sans-serif'],
-        mono: ['"Fira Code"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"JetBrains Mono"', '"Fira Code"', 'ui-monospace', 'monospace'],
       },
       boxShadow: {
-        'glow-sm': '0 0 20px -5px rgba(59, 130, 246, 0.3)',
-        'glow-md': '0 0 35px -5px rgba(99, 102, 241, 0.35)',
-        'glow-lg': '0 0 50px -5px rgba(59, 130, 246, 0.4)',
+        'editorial': '0 4px 20px -2px rgba(23, 23, 20, 0.05)',
+        'editorial-hover': '0 12px 32px -4px rgba(23, 23, 20, 0.09)',
+        'editorial-brass': '0 8px 24px -4px rgba(140, 115, 75, 0.15)',
       },
-      animation: {
-        'pulse-subtle': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 6s ease-in-out infinite',
-      },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-        }
+      transitionTimingFunction: {
+        'editorial': 'cubic-bezier(0.22, 1, 0.36, 1)',
       }
     },
   },
   plugins: [],
 }
+

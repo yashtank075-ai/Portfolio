@@ -1,14 +1,13 @@
 import React from 'react';
-import { Mail, ArrowUp } from 'lucide-react';
+import { ArrowUp, Mail } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { portfolioData } from '../data/portfolio';
 
-const navLinks = [
+const footerNav = [
+  { label: 'Work', href: '#work' },
   { label: 'About', href: '#about' },
-  { label: 'Stack', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Journey', href: '#experience' },
-  { label: 'Education', href: '#education' },
+  { label: 'Capabilities', href: '#services' },
+  { label: 'Methodology', href: '#process' },
   { label: 'Contact', href: '#contact' }
 ];
 
@@ -18,69 +17,72 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-100/80 dark:bg-[#050811] text-slate-800 dark:text-slate-100 border-t border-slate-200 dark:border-white/10 pt-16 pb-12 relative overflow-hidden">
-      {/* Background ambient glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-12 border-b border-slate-200 dark:border-white/10">
+    <footer className="border-t border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] bg-[#EFECE3] dark:bg-[#0E0E0C] text-[#171714] dark:text-[#F5F2EB] py-10 sm:py-12 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Main Footer Row */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-8 border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)]">
           
-          {/* Logo & Tagline */}
-          <div className="text-center md:text-left space-y-2">
-            <div className="flex items-center justify-center md:justify-start gap-2.5">
-              <span className="font-heading font-extrabold text-xl text-slate-900 dark:text-white tracking-tight">
-                {portfolioData.personal.name}
-              </span>
-            </div>
-            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-medium">
-              Building scalable web applications, one line of code at a time.
+          {/* Identity Colophon */}
+          <div className="space-y-1.5 text-left">
+            <span className="font-serif text-2xl font-normal text-[#171714] dark:text-[#F5F2EB]">
+              {portfolioData.personal.name}
+            </span>
+            <p className="font-mono text-xs sm:text-sm text-[#423F39] dark:text-[#C4C0B6]">
+              MERN Stack Developer &amp; Website Developer • Surat, Gujarat, India
             </p>
           </div>
 
-          {/* Quick Nav Links */}
-          <div className="flex items-center gap-5 sm:gap-6 flex-wrap justify-center font-semibold text-xs sm:text-sm">
-            {navLinks.map((link) => (
+          {/* Navigation Links */}
+          <nav 
+            className="flex flex-wrap items-center gap-6 font-sans text-xs sm:text-sm uppercase tracking-wider text-[#423F39] dark:text-[#C4C0B6] font-semibold"
+            aria-label="Footer Navigation"
+          >
+            {footerNav.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors duration-200"
+                className="hover:text-[#171714] dark:hover:text-[#F5F2EB] transition-colors"
               >
                 {link.label}
               </a>
             ))}
-          </div>
+          </nav>
 
-          {/* Social Icons & Back to top */}
+          {/* Social Channels & Back to Top */}
           <div className="flex items-center gap-3">
             <a
               href={portfolioData.personal.githubUrl}
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub Profile"
-              className="w-11 h-11 flex items-center justify-center rounded-xl bg-white dark:bg-[#101827] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:border-blue-400/40 dark:hover:border-cyan-500/40 transition-all shadow-sm shrink-0"
+              className="w-10 h-10 flex items-center justify-center border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] text-[#423F39] dark:text-[#C4C0B6] hover:text-[#171714] dark:hover:text-[#F5F2EB] hover:border-[#8C734B] dark:hover:border-[#D9C8A5] transition-colors"
             >
-              <Github className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+              <Github className="w-4 h-4" />
             </a>
+
             <a
               href={portfolioData.personal.linkedinUrl}
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn Profile"
-              className="w-11 h-11 flex items-center justify-center rounded-xl bg-white dark:bg-[#101827] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:border-blue-400/40 dark:hover:border-cyan-500/40 transition-all shadow-sm shrink-0"
+              className="w-10 h-10 flex items-center justify-center border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] text-[#423F39] dark:text-[#C4C0B6] hover:text-[#171714] dark:hover:text-[#F5F2EB] hover:border-[#8C734B] dark:hover:border-[#D9C8A5] transition-colors"
             >
-              <Linkedin className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+              <Linkedin className="w-4 h-4" />
             </a>
+
             <a
               href={`mailto:${portfolioData.personal.email}`}
-              aria-label="Send Email"
-              className="w-11 h-11 flex items-center justify-center rounded-xl bg-white dark:bg-[#101827] border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:border-blue-400/40 dark:hover:border-cyan-500/40 transition-all shadow-sm shrink-0"
+              aria-label="Send direct email"
+              className="w-10 h-10 flex items-center justify-center border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] text-[#423F39] dark:text-[#C4C0B6] hover:text-[#171714] dark:hover:text-[#F5F2EB] hover:border-[#8C734B] dark:hover:border-[#D9C8A5] transition-colors"
             >
-              <Mail className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+              <Mail className="w-4 h-4" />
             </a>
+
             <button
               onClick={scrollToTop}
-              aria-label="Back to top"
-              className="w-11 h-11 flex items-center justify-center rounded-xl bg-blue-500/10 dark:bg-[#162238] border border-blue-500/30 dark:border-cyan-500/30 text-blue-600 dark:text-cyan-400 hover:bg-blue-600 dark:hover:bg-cyan-500 hover:text-white dark:hover:text-slate-950 transition-all ml-1 shadow-md shrink-0"
+              aria-label="Return to top of page"
+              className="w-10 h-10 flex items-center justify-center bg-[#171714] text-[#FAF8F3] dark:bg-[#F5F2EB] dark:text-[#171714] hover:bg-[#8C734B] dark:hover:bg-[#D9C8A5] transition-colors ml-2"
             >
               <ArrowUp className="w-4 h-4" />
             </button>
@@ -88,10 +90,14 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom copyright line */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-700 dark:text-slate-300 text-center sm:text-left font-medium">
-          <span>&copy; {new Date().getFullYear()} {portfolioData.personal.name}. All rights reserved.</span>
-          <span className="text-slate-700 dark:text-slate-300">Crafted with React.js, Node.js & Tailwind CSS</span>
+        {/* Colophon & Copyright */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] text-center sm:text-left">
+          <span>
+            &copy; {new Date().getFullYear()} {portfolioData.personal.name}. All rights reserved.
+          </span>
+          <span>
+            Handcrafted with React.js, Node.js &amp; Tailwind CSS.
+          </span>
         </div>
 
       </div>

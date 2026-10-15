@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon, FileText, ArrowUpRight } from 'lucide-react';
-import { Github, Linkedin } from './Icons';
+import React, { useState, useEffect, useRef } from 'react';
+import { Menu, X, ArrowUpRight, Sun, Moon, FileText } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
 
 const navItems = [
-  { label: 'Home', href: '#home' },
+  { label: 'Work', href: '#work' },
   { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Experience', href: '#experience' },
+  { label: 'Capabilities', href: '#services' },
+  { label: 'Process', href: '#process' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -17,18 +14,19 @@ export default function Navbar({ theme, toggleTheme }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setIsScrolled(currentScrollY > 20);
+      setIsScrolled(window.scrollY > 20);
 
-      const sections = navItems.map(item => item.href.substring(1));
-      const current = sections.find(section => {
-        const el = document.getElementById(section);
+      const sectionIds = ['home', 'work', 'about', 'services', 'process', 'contact'];
+      const current = sectionIds.find((id) => {
+        const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          return rect.top <= 200 && rect.bottom >= 100;
+          return rect.top <= 180 && rect.bottom >= 80;
         }
         return false;
       });
@@ -41,15 +39,25 @@ export default function Navbar({ theme, toggleTheme }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  // Keyboard navigation & lock scroll for mobile menu
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+        buttonRef.current?.focus();
+      }
+    };
+
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
     } else {
       document.body.style.overflow = '';
     }
+
     return () => {
       document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [mobileMenuOpen]);
 
@@ -65,172 +73,151 @@ export default function Navbar({ theme, toggleTheme }) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 dark:bg-[#050914]/90 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 py-3.5 sm:py-4 shadow-xl'
-          : 'bg-transparent py-5 sm:py-6'
+          ? 'bg-[#F5F2EB]/95 dark:bg-[#121210]/95 backdrop-blur-md border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] py-4 shadow-sm'
+          : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo */}
+          {/* Wordmark */}
           <a
             href="#home"
-            className="group flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-xl px-1"
+            className="group flex items-baseline gap-2.5 text-left focus:outline-none"
+            aria-label="Yash Tank - Home"
           >
-            <span className="font-heading font-extrabold text-2xl tracking-wider text-slate-900 dark:text-slate-100 group-hover:text-blue-500 transition-colors">
-              {portfolioData.personal.logo}
+            <span className="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-[#171714] dark:text-[#F5F2EB] group-hover:text-[#8C734B] dark:group-hover:text-[#D9C8A5] transition-colors">
+              {portfolioData.personal.name}
             </span>
           </a>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-white/80 dark:bg-[#0c1220]/80 px-2.5 xl:px-4 py-1.5 xl:py-2 rounded-full border border-slate-200 dark:border-white/10 backdrop-blur-xl shadow-lg shrink-0">
+          {/* Desktop Navigation Links */}
+          <nav 
+            className="hidden md:flex items-center gap-7 font-sans text-xs sm:text-sm tracking-wider uppercase font-semibold"
+            aria-label="Primary Navigation"
+          >
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
               return (
                 <button
                   key={item.label}
                   onClick={() => handleNavClick(item.href)}
-                  className={`relative px-2.5 xl:px-4 py-1.5 text-xs xl:text-sm font-medium rounded-full transition-all duration-200 shrink-0 ${
+                  className={`editorial-link text-xs sm:text-sm transition-colors py-1 ${
                     isActive
-                      ? 'text-blue-600 dark:text-white font-semibold'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
+                      ? 'text-[#8C734B] dark:text-[#D9C8A5] font-bold'
+                      : 'text-[#423F39] dark:text-[#C4C0B6] hover:text-[#171714] dark:hover:text-[#F5F2EB]'
                   }`}
                 >
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeIndicator"
-                      className="absolute inset-0 bg-blue-100 dark:bg-blue-600/35 border border-blue-300 dark:border-blue-400/50 rounded-full"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10">{item.label}</span>
+                  {item.label}
                 </button>
               );
             })}
           </nav>
 
-          {/* Right Action Controls */}
-          <div className="hidden lg:flex items-center gap-1.5 xl:gap-3 shrink-0">
-            {/* Social icons */}
-            <a
-              href={portfolioData.personal.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub Profile"
-              className="p-2 xl:p-2.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-white/5 rounded-xl border border-transparent hover:border-slate-300 dark:hover:border-white/10 transition-all shrink-0"
-            >
-              <Github className="w-4 h-4" />
-            </a>
-            <a
-              href={portfolioData.personal.linkedinUrl}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn Profile"
-              className="p-2 xl:p-2.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200/50 dark:hover:bg-white/5 rounded-xl border border-transparent hover:border-slate-300 dark:hover:border-white/10 transition-all shrink-0"
-            >
-              <Linkedin className="w-4 h-4" />
-            </a>
-
-            {/* Theme Toggle */}
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center gap-3">
+            {/* Theme Toggle (Ivory / Noir) */}
             <button
               onClick={toggleTheme}
-              aria-label="Toggle dark/light theme"
-              className="p-2 xl:p-2.5 text-slate-600 dark:text-slate-400 hover:text-amber-500 dark:hover:text-amber-400 hover:bg-slate-200/50 dark:hover:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 transition-all shadow-sm shrink-0"
+              aria-label={`Switch to ${theme === 'dark' ? 'Warm Ivory' : 'Noir Luxury'} mode`}
+              className="w-10 h-10 flex items-center justify-center border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.18)] text-[#171714] dark:text-[#F5F2EB] hover:border-[#8C734B] dark:hover:border-[#D9C8A5] transition-colors"
             >
-              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
+              {theme === 'dark' ? <Sun className="w-4 h-4 text-[#D9C8A5]" /> : <Moon className="w-4 h-4 text-[#423F39]" />}
             </button>
 
-            {/* Resume Button */}
+            {/* Resume Link */}
             <a
               href={portfolioData.personal.resumeUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 xl:gap-2 px-3 xl:px-4 py-2 text-xs font-semibold rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all border border-blue-400/30 shrink-0"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 font-mono text-xs sm:text-sm border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.18)] text-[#171714] dark:text-[#F5F2EB] hover:bg-[#E8E4DB] dark:hover:bg-[#1E1E1A] transition-colors min-h-[40px]"
             >
-              <FileText className="w-3.5 h-3.5" />
+              <FileText className="w-4 h-4 text-[#8C734B] dark:text-[#D9C8A5]" />
               <span>Resume</span>
-              <ArrowUpRight className="w-3 h-3 text-blue-200" />
+            </a>
+
+            {/* Contact Action */}
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-1.5 px-4 py-2 font-mono text-xs sm:text-sm bg-[#171714] dark:bg-[#F5F2EB] text-[#F5F2EB] dark:text-[#171714] hover:bg-[#8C734B] dark:hover:bg-[#D9C8A5] transition-colors font-semibold min-h-[40px]"
+            >
+              <span>Contact</span>
+              <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
 
-          {/* Mobile Right Controls & Hamburger */}
-          <div className="flex lg:hidden items-center gap-2 shrink-0">
+          {/* Mobile Menu & Theme Toggle */}
+          <div className="flex items-center gap-2 md:hidden">
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="w-11 h-11 flex items-center justify-center rounded-xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/80 text-slate-600 dark:text-slate-400 hover:text-amber-500 transition-colors"
+              className="w-9 h-9 flex items-center justify-center border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] text-[#171714] dark:text-[#F5F2EB]"
             >
-              {theme === 'dark' ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-slate-700" />}
+              {theme === 'dark' ? <Sun className="w-4 h-4 text-[#D9C8A5]" /> : <Moon className="w-4 h-4 text-[#5A574F]" />}
             </button>
 
             <button
+              ref={buttonRef}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? "Close Mobile Menu" : "Open Mobile Menu"}
-              className="w-11 h-11 flex items-center justify-center rounded-xl border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-slate-900/90 text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white focus:outline-none transition-colors"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
+              aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+              className="w-10 h-10 flex items-center justify-center border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] text-[#171714] dark:text-[#F5F2EB]"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
+
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white/95 dark:bg-[#070c18]/95 backdrop-blur-2xl border-b border-slate-200 dark:border-white/10 overflow-hidden shadow-xl"
-          >
-            <div className="px-4 sm:px-6 py-5 space-y-2.5">
-              {navItems.map((item) => (
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div 
+          id="mobile-navigation"
+          ref={menuRef}
+          className="fixed inset-0 top-[73px] bg-[#F5F2EB] dark:bg-[#121210] border-t border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] p-6 z-50 flex flex-col justify-between overflow-y-auto md:hidden"
+        >
+          <nav className="space-y-6 pt-4 text-left" aria-label="Mobile Navigation Links">
+            {navItems.map((item, idx) => (
+              <div key={item.label} className="border-b border-[#D8D3C8]/60 dark:border-[rgba(245,242,235,0.1)] pb-4">
                 <button
-                  key={item.label}
                   onClick={() => handleNavClick(item.href)}
-                  className="w-full text-left py-3 px-4 min-h-[44px] flex items-center text-base font-medium text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 rounded-xl transition-all"
+                  className="w-full text-left flex items-center justify-between font-serif text-3xl text-[#171714] dark:text-[#F5F2EB] hover:text-[#8C734B] dark:hover:text-[#D9C8A5] transition-colors"
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  <span className="font-mono text-xs text-[#8C734B] dark:text-[#D9C8A5]">
+                    0{idx + 1}
+                  </span>
                 </button>
-              ))}
-
-              <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-col gap-3">
-                <a
-                  href={portfolioData.personal.resumeUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 min-h-[44px] rounded-xl bg-blue-600 text-white font-semibold text-sm shadow-lg shadow-blue-500/30 active:scale-[0.98] transition-all"
-                >
-                  <FileText className="w-4 h-4" /> Download Resume
-                </a>
-
-                <div className="flex justify-center gap-4 pt-2">
-                  <a
-                    href={portfolioData.personal.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="GitHub Profile"
-                    className="w-11 h-11 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 transition-all"
-                  >
-                    <Github className="w-5 h-5" />
-                  </a>
-                  <a
-                    href={portfolioData.personal.linkedinUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="LinkedIn Profile"
-                    className="w-11 h-11 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 transition-all"
-                  >
-                    <Linkedin className="w-5 h-5" />
-                  </a>
-                </div>
               </div>
+            ))}
+          </nav>
+
+          <div className="pt-8 space-y-3 font-mono text-xs">
+            <a
+              href={portfolioData.personal.resumeUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full py-3 border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] flex items-center justify-center gap-2 text-[#171714] dark:text-[#F5F2EB]"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Download Full Resume</span>
+            </a>
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3 bg-[#171714] dark:bg-[#F5F2EB] text-[#F5F2EB] dark:text-[#171714] flex items-center justify-center gap-2 font-medium"
+            >
+              <span>Discuss a Project</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+            <div className="text-center text-[10px] text-[#5A574F] dark:text-[#A8A49A] pt-4">
+              {portfolioData.personal.email}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

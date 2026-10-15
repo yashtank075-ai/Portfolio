@@ -1,203 +1,182 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, FileText, Mail, Terminal, Database, Cpu, Layers } from 'lucide-react';
+import React from 'react';
+import { ArrowDown, ArrowUpRight, FileText, Mail } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { portfolioData } from '../data/portfolio';
 
 export default function Hero() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0, rawX: 0, rawY: 0 });
-
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - (rect.left + rect.width / 2);
-    const y = e.clientY - (rect.top + rect.height / 2);
-    setMousePos({ x, y, rawX: e.clientX - rect.left, rawY: e.clientY - rect.top });
-  };
-
   return (
     <section 
       id="home" 
-      onMouseMove={handleMouseMove}
-      className="relative min-h-[92vh] pt-32 pb-20 lg:pt-40 lg:pb-32 flex items-center overflow-hidden"
+      className="relative pt-24 pb-12 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 overflow-hidden border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)]"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
-          {/* LEFT COLUMN: Clean High-Contrast Typography & CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-7 space-y-7 text-left"
-          >
-          
-            {/* Greetings & Headline */}
-            <div className="space-y-3">
-              <h2 className="text-lg sm:text-2xl font-medium font-heading tracking-tight text-slate-700 dark:text-slate-300">
-                Hi, I'm <span className="text-blue-600 dark:text-cyan-400 font-semibold">Yash Tank</span>
-              </h2>
-              <h1 className="text-2xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight font-heading text-slate-900 dark:text-slate-100 leading-[1.15] break-words">
-                Building Modern Web Experiences with <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-400">MERN</span>
-              </h1>
-            </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Top Status & Discipline Row */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] pb-4 mb-7 text-left">
+          <div className="editorial-tag text-xs">
+            <span className="w-2 h-2 rounded-full bg-[#8C734B] dark:bg-[#D9C8A5]" />
+            <span className="font-semibold text-[#171714] dark:text-[#F5F2EB]">
+              YASH TANK
+            </span>
+            <span className="text-[#5A574F] dark:text-[#A8A49A]">
+              // MERN &amp; FULL-STACK DEVELOPER
+            </span>
+          </div>
+          <div className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] flex items-center gap-2.5">
+            <span>{portfolioData.personal.location}</span>
+            <span className="text-[#8C734B] dark:text-[#D9C8A5]">●</span>
+            <span className="font-semibold text-[#171714] dark:text-[#F5F2EB]">
+              Available for Full-Time Roles &amp; Projects
+            </span>
+          </div>
+        </div>
 
-            {/* Bio Text */}
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-2xl">
-              I specialize in turning complex requirements into clean, functional, user-centric web applications using React, Node.js, Express, and MongoDB with structured REST API design.
+        {/* Hero Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start text-left">
+          
+          {/* Main Editorial Headline & Copy */}
+          <div className="lg:col-span-8 space-y-6">
+            <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal text-[#171714] dark:text-[#F5F2EB] leading-[1.08] tracking-tight">
+              Thoughtful design. <br className="hidden sm:inline" />
+              Well-engineered web applications.
+            </h1>
+
+            <p className="font-sans text-base sm:text-lg lg:text-xl text-[#3D3B35] dark:text-[#D4D0C5] leading-relaxed max-w-2xl font-normal">
+              I develop full-stack applications and high-performance commercial websites using <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">React</strong>, <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Next.js</strong>, <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Node.js</strong>, <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Express</strong>, and <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">MongoDB</strong>. My approach prioritizes modular architecture, clean REST APIs, and tactile responsive design.
             </p>
 
-            {/* Call-to-Action Buttons */}
-            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
+            {/* Clear Action CTAs */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-1">
+              {/* Primary: View Projects */}
               <a
-                href="#projects"
-                className="group relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 min-h-[44px] text-sm sm:text-base font-semibold rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white shadow-lg shadow-blue-500/20 hover:shadow-blue-500/35 active:scale-[0.98] transition-all border border-blue-400/30 w-full sm:w-auto text-center"
+                href="#work"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#171714] dark:bg-[#F5F2EB] text-[#F5F2EB] dark:text-[#171714] hover:bg-[#8C734B] dark:hover:bg-[#D9C8A5] transition-all font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider"
               >
-                <span>View My Work</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
+                <span>View Selected Work</span>
+                <ArrowDown className="w-4 h-4" />
               </a>
 
+              {/* Secondary: Discuss a Project / Contact */}
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 min-h-[44px] text-sm sm:text-base font-semibold rounded-xl bg-slate-100 dark:bg-slate-900/90 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-800 dark:text-cyan-300 border border-slate-300 dark:border-white/10 transition-all shadow-sm w-full sm:w-auto text-center"
+                className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#171714] dark:border-[#F5F2EB] text-[#171714] dark:text-[#F5F2EB] hover:border-[#8C734B] hover:text-[#8C734B] dark:hover:border-[#D9C8A5] dark:hover:text-[#D9C8A5] transition-all font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider"
               >
-                <Mail className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
-                <span>Let's Connect</span>
+                <span>Discuss a Project</span>
+                <ArrowUpRight className="w-4 h-4" />
               </a>
 
+              {/* Tertiary: Download Resume */}
               <a
                 href={portfolioData.personal.resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 min-h-[44px] text-sm sm:text-base font-semibold rounded-xl bg-white dark:bg-[#0c1220] hover:bg-slate-100 dark:hover:bg-[#11192d] text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white border border-slate-300 dark:border-white/15 transition-all shadow-md w-full sm:w-auto text-center"
+                className="inline-flex items-center gap-2 px-5 py-3.5 border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.2)] text-[#3D3B35] dark:text-[#D4D0C5] hover:text-[#171714] dark:hover:text-[#F5F2EB] hover:border-[#8C734B] dark:hover:border-[#D9C8A5] transition-colors font-mono text-xs sm:text-sm"
               >
-                <FileText className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                <span>Download Resume</span>
+                <FileText className="w-4 h-4 text-[#8C734B] dark:text-[#D9C8A5]" />
+                <span>Download Resume (PDF)</span>
               </a>
             </div>
 
-            {/* Horizontal Social Connect Links */}
-            <div className="pt-5 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 border-t border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-medium">
-              <span className="text-slate-500 dark:text-slate-400 uppercase tracking-widest font-mono text-xs font-semibold">Connect:</span>
-              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-                <a
-                  href={portfolioData.personal.githubUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-white/10 hover:border-blue-500/50 text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white transition-all text-xs sm:text-sm shadow-sm"
-                >
-                  <Github className="w-4 h-4 text-slate-600 dark:text-slate-300" />
-                  <span>GitHub</span>
-                </a>
-                <a
-                  href={portfolioData.personal.linkedinUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-white/10 hover:border-blue-500/50 text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white transition-all text-xs sm:text-sm shadow-sm"
-                >
-                  <Linkedin className="w-4 h-4 text-slate-600 dark:text-slate-300" />
-                  <span>LinkedIn</span>
-                </a>
-                <a
-                  href={`mailto:${portfolioData.personal.email}`}
-                  className="flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-white/10 hover:border-blue-500/50 text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white transition-all text-xs sm:text-sm shadow-sm"
-                >
-                  <Mail className="w-4 h-4 text-slate-600 dark:text-slate-300" />
-                  <span>Email</span>
-                </a>
-              </div>
+            {/* Direct Connect Quick Links */}
+            <div className="pt-6 border-t border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] flex flex-wrap items-center gap-5 sm:gap-7 font-mono text-xs sm:text-sm text-[#423F39] dark:text-[#C4C0B6]">
+              <span className="uppercase tracking-wider text-xs text-[#8C734B] dark:text-[#D9C8A5] font-semibold">
+                Direct Channels:
+              </span>
+              <a
+                href={portfolioData.personal.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="editorial-link"
+              >
+                <Github className="w-4 h-4" />
+                <span>GitHub</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href={portfolioData.personal.linkedinUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="editorial-link"
+              >
+                <Linkedin className="w-4 h-4" />
+                <span>LinkedIn</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href={`mailto:${portfolioData.personal.email}`}
+                className="editorial-link"
+              >
+                <Mail className="w-4 h-4" />
+                <span>{portfolioData.personal.email}</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
             </div>
-          </motion.div>
+          </div>
 
-          {/* RIGHT COLUMN: Clean Static Technical Architecture Diagram */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 relative mt-4 lg:mt-0 w-full"
-            style={{
-              transform: `translate3d(${-mousePos.x * 0.01}px, ${-mousePos.y * 0.01}px, 0)`
-            }}
-          >
-            <div className="p-4 sm:p-6 lg:p-8 rounded-3xl bg-white/80 dark:bg-[#080d19]/90 border border-slate-200 dark:border-white/10 shadow-xl backdrop-blur-xl space-y-6 text-left w-full overflow-hidden">
-              {/* Header Label */}
-              <div className="flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-4 flex-wrap gap-2">
-                <div className="flex items-center gap-2.5">
-                  <Terminal className="w-4 h-4 text-blue-600 dark:text-cyan-400 shrink-0" />
-                  <span className="text-xs font-mono font-semibold tracking-wider text-slate-700 dark:text-slate-300 uppercase">
-                    System Architecture
-                  </span>
-                </div>
-                <span className="text-[11px] font-mono text-blue-600 dark:text-cyan-400 bg-blue-500/10 dark:bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-blue-500/20 dark:border-cyan-500/20 shrink-0">
-                  MERN Stack
+          {/* Right Column: Architectural Discipline Index */}
+          <div className="lg:col-span-4 space-y-6 w-full">
+            <div className="editorial-card p-6 sm:p-7 space-y-5">
+              <div className="flex items-center justify-between border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] pb-3">
+                <span className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold">
+                  Technical Architecture
+                </span>
+                <span className="font-mono text-xs text-[#8C734B] dark:text-[#D9C8A5] font-medium">
+                  FULL-STACK
                 </span>
               </div>
 
-              {/* Stack Architecture Flow Diagram */}
-              <div className="space-y-3 font-mono text-xs">
-                
-                {/* 1. Client Layer */}
-                <div className="p-3 sm:p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-cyan-500/25 flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2 shadow-sm">
-                  <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                    <div className="p-2 rounded-lg bg-blue-500/10 dark:bg-cyan-500/10 text-blue-600 dark:text-cyan-400 shrink-0">
-                      <Layers className="w-4 h-4" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="font-semibold text-slate-900 dark:text-slate-100 truncate">Frontend Layer</div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400 font-sans truncate">React.js & Tailwind CSS</div>
-                    </div>
+              <div className="space-y-4 font-mono text-xs sm:text-sm">
+                <div className="space-y-1">
+                  <div className="flex justify-between items-center text-[#171714] dark:text-[#F5F2EB]">
+                    <span className="font-bold text-xs uppercase tracking-wider">01 / Frontend</span>
+                    <span className="text-xs text-[#8C734B] dark:text-[#D9C8A5]">React &amp; Next.js</span>
                   </div>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10 shrink-0">Client</span>
+                  <p className="font-sans text-xs sm:text-sm text-[#423F39] dark:text-[#C4C0B6] leading-relaxed">
+                    Modular component systems, server-rendered views, custom hooks, and Tailwind design tokens.
+                  </p>
                 </div>
 
-                {/* Arrow Down */}
-                <div className="flex justify-center text-slate-400 dark:text-slate-500 py-0.5">
-                  <span className="text-blue-500 dark:text-cyan-400/80 font-bold">↓</span>
-                </div>
-
-                {/* 2. API Services Layer */}
-                <div className="p-3 sm:p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-indigo-500/25 flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2 shadow-sm">
-                  <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                    <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shrink-0">
-                      <Cpu className="w-4 h-4" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="font-semibold text-slate-900 dark:text-slate-100 truncate">API Layer</div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400 font-sans truncate">Node.js & Express REST Endpoints</div>
-                    </div>
+                <div className="pt-3 border-t border-[#D8D3C8]/60 dark:border-[rgba(245,242,235,0.08)] space-y-1">
+                  <div className="flex justify-between items-center text-[#171714] dark:text-[#F5F2EB]">
+                    <span className="font-bold text-xs uppercase tracking-wider">02 / Backend &amp; API</span>
+                    <span className="text-xs text-[#8C734B] dark:text-[#D9C8A5]">Node &amp; Express</span>
                   </div>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10 shrink-0">Server</span>
+                  <p className="font-sans text-xs sm:text-sm text-[#423F39] dark:text-[#C4C0B6] leading-relaxed">
+                    RESTful endpoints, middleware routing, rate-limiting, and defensive error handlers.
+                  </p>
                 </div>
 
-                {/* Arrow Down */}
-                <div className="flex justify-center text-slate-400 dark:text-slate-500 py-0.5">
-                  <span className="text-indigo-500 dark:text-indigo-400/80 font-bold">↓</span>
-                </div>
-
-                {/* 3. Database Layer */}
-                <div className="p-3 sm:p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-emerald-500/25 flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2 shadow-sm">
-                  <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                    <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shrink-0">
-                      <Database className="w-4 h-4" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="font-semibold text-slate-900 dark:text-slate-100 truncate">Database Layer</div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400 font-sans truncate">MongoDB & Mongoose ODM</div>
-                    </div>
+                <div className="pt-3 border-t border-[#D8D3C8]/60 dark:border-[rgba(245,242,235,0.08)] space-y-1">
+                  <div className="flex justify-between items-center text-[#171714] dark:text-[#F5F2EB]">
+                    <span className="font-bold text-xs uppercase tracking-wider">03 / Database Layer</span>
+                    <span className="text-xs text-[#8C734B] dark:text-[#D9C8A5]">MongoDB &amp; Mongoose</span>
                   </div>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-white/10 shrink-0">Database</span>
+                  <p className="font-sans text-xs sm:text-sm text-[#423F39] dark:text-[#C4C0B6] leading-relaxed">
+                    Flexible document schema modeling, collections indexing, and relationship integrity.
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-[#D8D3C8]/60 dark:border-[rgba(245,242,235,0.08)] space-y-1">
+                  <div className="flex justify-between items-center text-[#171714] dark:text-[#F5F2EB]">
+                    <span className="font-bold text-xs uppercase tracking-wider">04 / Academic Foundation</span>
+                    <span className="text-xs text-[#8C734B] dark:text-[#D9C8A5]">BCA Degree</span>
+                  </div>
+                  <p className="font-sans text-xs sm:text-sm text-[#423F39] dark:text-[#C4C0B6] leading-relaxed">
+                    Veer Narmad South Gujarat University. Core algorithms, DBMS, and software design.
+                  </p>
                 </div>
               </div>
 
-              {/* Quiet Footer Detail */}
-              <div className="pt-2 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
-                <span>Architecture</span>
-                <span className="text-slate-700 dark:text-slate-300 font-sans">Modular & Scalable</span>
+              <div className="pt-3 border-t border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] flex items-center justify-between font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">
+                <span>Status</span>
+                <span className="text-[#8C734B] dark:text-[#D9C8A5] font-semibold">Open for Discussion</span>
               </div>
             </div>
-          </motion.div>
+          </div>
+
         </div>
+
       </div>
     </section>
   );
 }
-

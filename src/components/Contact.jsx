@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Code2, ArrowRight, ArrowUpRight, ExternalLink, Play, Send, CheckCircle2, AlertCircle, Loader2, RotateCcw } from 'lucide-react';
-import { Linkedin } from './Icons';
+import { Mail, ArrowUpRight, CheckCircle2, AlertCircle, Loader2, RotateCcw, FileText } from 'lucide-react';
+import { Github, Linkedin } from './Icons';
 import { portfolioData } from '../data/portfolio';
 
 export default function Contact() {
@@ -10,11 +9,11 @@ export default function Contact() {
     email: '',
     subject: '',
     message: '',
-    _hp_company: '' // Invisible honeypot field for spam prevention
+    _hp_company: '' // Honeypot field for automated spam bots
   });
 
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState('idle'); // idle | loading | success | error
+  const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
   const [serverErrorMessage, setServerErrorMessage] = useState('');
 
   const handleChange = (e) => {
@@ -93,315 +92,332 @@ export default function Contact() {
         setFormData({ name: '', email: '', subject: '', message: '', _hp_company: '' });
       } else {
         setStatus('error');
-        setServerErrorMessage(data.message || 'Unable to send message. Please try again.');
+        setServerErrorMessage(data.message || 'Unable to deliver message. Please try again or email directly.');
       }
     } catch (err) {
-      console.error('[CONTACT API FETCH ERROR]', err);
+      console.error('[CONTACT API ERROR]', err);
       setStatus('error');
-      setServerErrorMessage('Unable to connect to server. Please check your connection and try again.');
+      setServerErrorMessage('Backend service unavailable. Please reach out directly at yash.dev.contact26@gmail.com.');
     }
   };
 
   return (
-    <section id="contact" className="pt-12 pb-16 lg:pt-16 lg:pb-24 relative overflow-hidden bg-slate-100/50 dark:bg-[#040711]/60">
-      {/* Background Glow */}
-      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="contact" className="py-12 sm:py-14 lg:py-16 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-start">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] pb-6 mb-8 sm:mb-10 text-left">
+          <div className="space-y-3">
+            <div className="editorial-tag text-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#8C734B] dark:bg-[#D9C8A5]" />
+              <span>05 // Contact</span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-[#171714] dark:text-[#F5F2EB] tracking-tight">
+              Contact &amp; Discuss a Project
+            </h2>
+          </div>
+          <p className="font-sans text-base sm:text-lg text-[#3D3B35] dark:text-[#D4D0C5] max-w-md leading-relaxed">
+            Whether inquiring about full-stack engineering roles, technical collaboration, or discussing a new web project, I welcome your message.
+          </p>
+        </div>
+
+        {/* 2-Column Spread: Direct Channels & Functional Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start text-left">
           
-          {/* LEFT COLUMN: DIALOGUE INITIATION & DIRECT CHANNELS */}
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 space-y-6 text-left"
-          >
-            {/* Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 dark:bg-[#101929] border border-blue-500/25 dark:border-cyan-500/30 text-blue-600 dark:text-cyan-400 text-xs font-mono font-semibold tracking-wider uppercase shadow-inner">
-              <span className="w-2 h-2 rounded-full bg-blue-500 dark:bg-cyan-400 animate-pulse" />
-              <span>Contact Me</span>
+          {/* Left Column: Verified Contact Coordinates */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="space-y-3">
+              <h3 className="font-serif text-2xl sm:text-3xl text-[#171714] dark:text-[#F5F2EB] font-normal">
+                Direct Communication Channels
+              </h3>
+              <p className="font-sans text-base sm:text-lg text-[#3D3B35] dark:text-[#D4D0C5] leading-relaxed">
+                I review all inquiries personally. For immediate reach, feel free to use direct email or connect through verified professional networks.
+              </p>
             </div>
 
-            {/* Main Headline */}
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-heading text-slate-900 dark:text-white tracking-tight leading-[1.15]">
-              Have an idea? <span className="text-blue-600 dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r dark:from-cyan-400 dark:via-blue-400 dark:to-indigo-300">Let's build something useful.</span>
-            </h2>
-
-            {/* Bio Paragraph */}
-            <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed font-sans font-normal max-w-xl">
-              Whether you are scouting for a reliable full-stack developer to join your engineering team or seeking a MERN specialist for web product delivery, I am always ready to talk architecture, scope, and implementation.
-            </p>
-
-            {/* Direct Channel Cards List */}
-            <div className="space-y-3 pt-2 font-mono">
-              
-              {/* Direct Email Card */}
+            <div className="space-y-3.5 font-mono text-xs sm:text-sm">
+              {/* Email */}
               <a
                 href={`mailto:${portfolioData.personal.email}`}
-                className="p-4 rounded-2xl bg-white dark:bg-[#0b101c] border border-slate-300 dark:border-white/15 hover:border-blue-500/50 dark:hover:border-cyan-500/40 flex items-center justify-between group transition-all duration-300 shadow-md"
+                className="editorial-card p-4 sm:p-5 flex items-center justify-between group transition-all"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-[#141d2e] border border-blue-100 dark:border-white/10 text-blue-600 dark:text-cyan-400 group-hover:scale-105 transition-transform shrink-0">
+                  <div className="w-9 h-9 bg-[#EFECE3] dark:bg-[#1E1E1A] text-[#8C734B] dark:text-[#D9C8A5] flex items-center justify-center shrink-0 border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)]">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-mono tracking-wider">Direct Email</div>
-                    <div className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-colors truncate">
+                    <span className="text-xs uppercase tracking-wider text-[#423F39] dark:text-[#C4C0B6] font-semibold block">
+                      Direct Email
+                    </span>
+                    <span className="font-bold text-[#171714] dark:text-[#F5F2EB] group-hover:text-[#8C734B] dark:group-hover:text-[#D9C8A5] transition-colors truncate block">
                       {portfolioData.personal.email}
-                    </div>
+                    </span>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-blue-600 dark:group-hover:text-cyan-400 group-hover:translate-x-1 transition-all shrink-0 ml-2" />
+                <ArrowUpRight className="w-4 h-4 text-[#423F39] dark:text-[#C4C0B6] group-hover:text-[#8C734B] dark:group-hover:text-[#D9C8A5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
               </a>
 
-              {/* Source Repositories Card */}
+              {/* GitHub */}
               <a
                 href={portfolioData.personal.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="p-4 rounded-2xl bg-white dark:bg-[#0b101c] border border-slate-300 dark:border-white/15 hover:border-blue-500/50 dark:hover:border-cyan-500/40 flex items-center justify-between group transition-all duration-300 shadow-md"
+                className="editorial-card p-4 sm:p-5 flex items-center justify-between group transition-all"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-[#141d2e] border border-blue-100 dark:border-white/10 text-blue-600 dark:text-cyan-400 group-hover:scale-105 transition-transform shrink-0">
-                    <Code2 className="w-4 h-4" />
+                  <div className="w-9 h-9 bg-[#EFECE3] dark:bg-[#1E1E1A] text-[#8C734B] dark:text-[#D9C8A5] flex items-center justify-center shrink-0 border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)]">
+                    <Github className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-mono tracking-wider">Source Repositories</div>
-                    <div className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-colors truncate">
+                    <span className="text-xs uppercase tracking-wider text-[#423F39] dark:text-[#C4C0B6] font-semibold block">
+                      Code Repositories
+                    </span>
+                    <span className="font-bold text-[#171714] dark:text-[#F5F2EB] group-hover:text-[#8C734B] dark:group-hover:text-[#D9C8A5] transition-colors truncate block">
                       github.com/yashtank075-ai
-                    </div>
+                    </span>
                   </div>
                 </div>
-                <ExternalLink className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors shrink-0 ml-2" />
+                <ArrowUpRight className="w-4 h-4 text-[#423F39] dark:text-[#C4C0B6] group-hover:text-[#8C734B] dark:group-hover:text-[#D9C8A5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
               </a>
 
-              {/* Professional Network Card */}
+              {/* LinkedIn */}
               <a
                 href={portfolioData.personal.linkedinUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="p-4 rounded-2xl bg-white dark:bg-[#0b101c] border border-slate-300 dark:border-white/15 hover:border-blue-500/50 dark:hover:border-cyan-500/40 flex items-center justify-between group transition-all duration-300 shadow-md"
+                className="editorial-card p-4 sm:p-5 flex items-center justify-between group transition-all"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-[#141d2e] border border-blue-100 dark:border-white/10 text-blue-600 dark:text-cyan-400 group-hover:scale-105 transition-transform shrink-0">
-                    <Linkedin className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
+                  <div className="w-9 h-9 bg-[#EFECE3] dark:bg-[#1E1E1A] text-[#8C734B] dark:text-[#D9C8A5] flex items-center justify-center shrink-0 border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)]">
+                    <Linkedin className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-mono tracking-wider">Professional Network</div>
-                    <div className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-colors truncate">
+                    <span className="text-xs uppercase tracking-wider text-[#423F39] dark:text-[#C4C0B6] font-semibold block">
+                      Professional Network
+                    </span>
+                    <span className="font-bold text-[#171714] dark:text-[#F5F2EB] group-hover:text-[#8C734B] dark:group-hover:text-[#D9C8A5] transition-colors truncate block">
                       linkedin.com/in/yash-tank
-                    </div>
+                    </span>
                   </div>
                 </div>
-                <ExternalLink className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors shrink-0 ml-2" />
+                <ArrowUpRight className="w-4 h-4 text-[#423F39] dark:text-[#C4C0B6] group-hover:text-[#8C734B] dark:group-hover:text-[#D9C8A5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
               </a>
-            
-            </div>
-          </motion.div>
 
-          {/* RIGHT COLUMN: INTERACTIVE FORM CONTAINER */}
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="lg:col-span-7 w-full"
-          >
-            <div className="p-4 sm:p-8 rounded-2xl bg-white dark:bg-[#0b101c] border border-slate-300 dark:border-white/15 shadow-2xl backdrop-blur-xl space-y-6 font-mono text-left w-full overflow-hidden">
-              
-              {/* Form Window Header */}
-              <div className="flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-3.5 flex-wrap gap-2">
-                <div className="flex items-center gap-2 text-slate-900 dark:text-slate-200 text-xs sm:text-sm font-mono font-bold">
-                  <Play className="w-3.5 h-3.5 text-blue-600 dark:text-cyan-400 fill-blue-600 dark:fill-cyan-400 shrink-0" />
-                  <span>Send Message to Yash</span>
+              {/* Resume */}
+              <a
+                href={portfolioData.personal.resumeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="editorial-card p-4 sm:p-5 flex items-center justify-between group transition-all"
+              >
+                <div className="flex items-center gap-3.5 min-w-0">
+                  <div className="w-9 h-9 bg-[#EFECE3] dark:bg-[#1E1E1A] text-[#8C734B] dark:text-[#D9C8A5] flex items-center justify-center shrink-0 border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)]">
+                    <FileText className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-xs uppercase tracking-wider text-[#423F39] dark:text-[#C4C0B6] font-semibold block">
+                      Curriculum Vitae
+                    </span>
+                    <span className="font-bold text-[#171714] dark:text-[#F5F2EB] group-hover:text-[#8C734B] dark:group-hover:text-[#D9C8A5] transition-colors truncate block">
+                      Download yash_tank_resume.pdf
+                    </span>
+                  </div>
                 </div>
-                <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 shrink-0">
+                <ArrowUpRight className="w-4 h-4 text-[#423F39] dark:text-[#C4C0B6] group-hover:text-[#8C734B] dark:group-hover:text-[#D9C8A5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
+              </a>
+            </div>
+
+            <div className="p-4 bg-[#FAF8F3] dark:bg-[#151512] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] space-y-1">
+              <span className="text-[#171714] dark:text-[#F5F2EB] font-bold block">Location &amp; Work Model:</span>
+              <span>Surat, India (IST UTC+5:30) • Open for full-time engineering roles, hybrid/remote positions, and commercial web client projects.</span>
+            </div>
+          </div>
+
+          {/* Right Column: Functional Contact Form */}
+          <div className="lg:col-span-7 w-full">
+            <div className="editorial-card p-5 sm:p-7 lg:p-8 space-y-5">
+              <div className="border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)] pb-4 flex items-center justify-between">
+                <span className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold">
+                  Send a Message / Discuss a Project
+                </span>
+                <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">
                   Response SLA: &lt; 24h
                 </span>
               </div>
 
-              <AnimatePresence mode="wait">
-                {status === 'success' ? (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.96 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="p-6 sm:p-8 rounded-xl bg-emerald-500/10 dark:bg-[#0d1d18] border border-emerald-500/30 text-center space-y-4 font-sans"
+              {status === 'success' ? (
+                <div className="p-8 text-center space-y-4 bg-[#EFECE3] dark:bg-[#1A1A16] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)]">
+                  <div className="w-12 h-12 rounded-full bg-[#171714] text-[#FAF8F3] dark:bg-[#F5F2EB] dark:text-[#171714] flex items-center justify-center mx-auto">
+                    <CheckCircle2 className="w-6 h-6 text-[#8C734B] dark:text-[#8C734B]" />
+                  </div>
+                  <h4 className="font-serif text-2xl text-[#171714] dark:text-[#F5F2EB] font-normal">
+                    Message Dispatched Successfully
+                  </h4>
+                  <p className="font-sans text-sm sm:text-base text-[#3D3B35] dark:text-[#D4D0C5] max-w-md mx-auto leading-relaxed">
+                    Thank you for reaching out. Your note has been delivered to my primary inbox. I will review your requirements and respond promptly.
+                  </p>
+                  <button
+                    onClick={() => setStatus('idle')}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 font-mono text-xs sm:text-sm border border-[#171714] dark:border-[#F5F2EB] text-[#171714] dark:text-[#F5F2EB] hover:bg-[#171714] hover:text-[#FAF8F3] dark:hover:bg-[#F5F2EB] dark:hover:text-[#171714] transition-colors"
                   >
-                    <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto shadow-lg">
-                      <CheckCircle2 className="w-6 h-6" />
-                    </div>
-                    <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white font-heading">Message Sent Successfully!</h4>
-                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-md mx-auto">
-                      Thank you for reaching out! Your inquiry has been dispatched directly to my inbox. I will review and respond shortly.
-                    </p>
-                    <button
-                      onClick={() => setStatus('idle')}
-                      className="px-5 py-2.5 min-h-[44px] rounded-xl bg-slate-100 dark:bg-[#141d2e] border border-slate-200 dark:border-white/10 text-xs font-mono font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white hover:border-blue-400/40 dark:hover:border-cyan-400/40 transition-all shadow-md inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+                    <RotateCcw className="w-3.5 h-3.5" />
+                    <span>Send Another Inquiry</span>
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                  {/* Invisible Honeypot Field */}
+                  <div style={{ display: 'none' }} aria-hidden="true">
+                    <label htmlFor="_hp_company">Do not fill this field</label>
+                    <input
+                      type="text"
+                      id="_hp_company"
+                      name="_hp_company"
+                      tabIndex="-1"
+                      value={formData._hp_company}
+                      onChange={handleChange}
+                      autoComplete="off"
+                    />
+                  </div>
+
+                  {/* Server error alert */}
+                  {status === 'error' && (
+                    <div 
+                      role="alert"
+                      className="p-4 bg-[#EFECE3] dark:bg-[#201818] border border-[#B85C5C] text-[#8C2A2A] dark:text-[#E07A7A] text-xs font-mono flex items-start gap-3"
                     >
-                      <RotateCcw className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
-                      <span>Send Another Message</span>
-                    </button>
-                  </motion.div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-                    {/* SPAM PROTECTION: Invisible Honeypot Field */}
-                    <div style={{ display: 'none' }} aria-hidden="true">
-                      <label htmlFor="_hp_company">Do not fill this field</label>
+                      <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block font-semibold mb-0.5">Delivery Notice</strong>
+                        <span>{serverErrorMessage}</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Row 1: Name and Email */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="space-y-1.5">
+                      <label className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold block">
+                        Full Name <span className="text-[#8C734B] dark:text-[#D9C8A5]">*</span>
+                      </label>
                       <input
                         type="text"
-                        id="_hp_company"
-                        name="_hp_company"
-                        tabIndex="-1"
-                        value={formData._hp_company}
+                        name="name"
+                        value={formData.name}
                         onChange={handleChange}
-                        autoComplete="off"
+                        placeholder="Alex Mercer"
+                        disabled={status === 'loading'}
+                        className={`w-full px-4 py-3 bg-[#FAF8F3] dark:bg-[#151512] border ${
+                          errors.name ? 'border-[#B85C5C]' : 'border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] focus:border-[#8C734B] dark:focus:border-[#D9C8A5]'
+                        } text-[#171714] dark:text-[#F5F2EB] placeholder:text-[#423F39]/50 font-sans text-base focus:outline-none transition-colors disabled:opacity-50`}
                       />
+                      {errors.name && (
+                        <p role="alert" className="font-mono text-xs text-[#8C2A2A] dark:text-[#E07A7A] mt-1 font-semibold">
+                          {errors.name}
+                        </p>
+                      )}
                     </div>
 
-                    {/* Server error alert banner */}
-                    {status === 'error' && (
-                      <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-300 text-xs flex items-start gap-3">
-                        <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-rose-500 dark:text-rose-400" />
-                        <div>
-                          <strong className="font-semibold block mb-0.5">Delivery Error</strong>
-                          <span>{serverErrorMessage || 'Unable to send message. Please try again.'}</span>
-                        </div>
-                      </div>
+                    <div className="space-y-1.5">
+                      <label className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold block">
+                        Email Address <span className="text-[#8C734B] dark:text-[#D9C8A5]">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="alex@company.com"
+                        disabled={status === 'loading'}
+                        className={`w-full px-4 py-3 bg-[#FAF8F3] dark:bg-[#151512] border ${
+                          errors.email ? 'border-[#B85C5C]' : 'border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] focus:border-[#8C734B] dark:focus:border-[#D9C8A5]'
+                        } text-[#171714] dark:text-[#F5F2EB] placeholder:text-[#423F39]/50 font-sans text-base focus:outline-none transition-colors disabled:opacity-50`}
+                      />
+                      {errors.email && (
+                        <p role="alert" className="font-mono text-xs text-[#8C2A2A] dark:text-[#E07A7A] mt-1 font-semibold">
+                          {errors.email}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Subject */}
+                  <div className="space-y-1.5">
+                    <label className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold block">
+                      Subject / Project Scope <span className="text-[#8C734B] dark:text-[#D9C8A5]">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="Engineering Role Opening / Website Project Scope"
+                      disabled={status === 'loading'}
+                      className={`w-full px-4 py-3 bg-[#FAF8F3] dark:bg-[#151512] border ${
+                        errors.subject ? 'border-[#B85C5C]' : 'border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] focus:border-[#8C734B] dark:focus:border-[#D9C8A5]'
+                      } text-[#171714] dark:text-[#F5F2EB] placeholder:text-[#423F39]/50 font-sans text-base focus:outline-none transition-colors disabled:opacity-50`}
+                    />
+                    {errors.subject && (
+                      <p role="alert" className="font-mono text-xs text-[#8C2A2A] dark:text-[#E07A7A] mt-1 font-semibold">
+                        {errors.subject}
+                      </p>
                     )}
+                  </div>
 
-                    {/* Row 1: Name & Email */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {/* Name */}
-                      <div className="space-y-1.5 text-left">
-                        <label className="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
-                          Your Name <span className="text-blue-600 dark:text-cyan-400">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          placeholder="Alex Mercer"
-                          disabled={status === 'loading'}
-                          className={`w-full px-3.5 sm:px-4 py-3 min-h-[44px] rounded-xl bg-slate-50 dark:bg-[#121927] border ${
-                            errors.name ? 'border-rose-500' : 'border-slate-200 dark:border-white/10 focus:border-blue-500 dark:focus:border-cyan-400'
-                          } text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-blue-500 dark:focus:ring-cyan-400 transition-colors disabled:opacity-50`}
-                        />
-                        {errors.name && (
-                          <p className="text-xs text-rose-500 dark:text-rose-400 font-sans flex items-center gap-1 mt-1">
-                            <AlertCircle className="w-3.5 h-3.5" /> {errors.name}
-                          </p>
-                        )}
-                      </div>
+                  {/* Message */}
+                  <div className="space-y-1.5">
+                    <label className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold block">
+                      Message &amp; Requirements <span className="text-[#8C734B] dark:text-[#D9C8A5]">*</span>
+                    </label>
+                    <textarea
+                      name="message"
+                      rows="5"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Hi Yash, we are evaluating candidates for a MERN stack role / interested in commissioning a web application..."
+                      disabled={status === 'loading'}
+                      className={`w-full px-4 py-3 bg-[#FAF8F3] dark:bg-[#151512] border ${
+                        errors.message ? 'border-[#B85C5C]' : 'border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] focus:border-[#8C734B] dark:focus:border-[#D9C8A5]'
+                      } text-[#171714] dark:text-[#F5F2EB] placeholder:text-[#423F39]/50 font-sans text-base focus:outline-none transition-colors disabled:opacity-50`}
+                    />
+                    {errors.message && (
+                      <p role="alert" className="font-mono text-xs text-[#8C2A2A] dark:text-[#E07A7A] mt-1 font-semibold">
+                        {errors.message}
+                      </p>
+                    )}
+                  </div>
 
-                      {/* Email */}
-                      <div className="space-y-1.5 text-left">
-                        <label className="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
-                          Your Email Address <span className="text-blue-600 dark:text-cyan-400">*</span>
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          placeholder="alex@company.com"
-                          disabled={status === 'loading'}
-                          className={`w-full px-3.5 sm:px-4 py-3 min-h-[44px] rounded-xl bg-slate-50 dark:bg-[#121927] border ${
-                            errors.email ? 'border-rose-500' : 'border-slate-200 dark:border-white/10 focus:border-blue-500 dark:focus:border-cyan-400'
-                          } text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-blue-500 dark:focus:ring-cyan-400 transition-colors disabled:opacity-50`}
-                        />
-                        {errors.email && (
-                          <p className="text-xs text-rose-500 dark:text-rose-400 font-sans flex items-center gap-1 mt-1">
-                            <AlertCircle className="w-3.5 h-3.5" /> {errors.email}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Row 2: Subject / Scope */}
-                    <div className="space-y-1.5 text-left">
-                      <label className="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
-                        Project Scope or Role Title <span className="text-blue-600 dark:text-cyan-400">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        placeholder="Full-Stack Engineer Opening / MERN Web Project"
-                        disabled={status === 'loading'}
-                        className={`w-full px-3.5 sm:px-4 py-3 min-h-[44px] rounded-xl bg-slate-50 dark:bg-[#121927] border ${
-                          errors.subject ? 'border-rose-500' : 'border-slate-200 dark:border-white/10 focus:border-blue-500 dark:focus:border-cyan-400'
-                        } text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-blue-500 dark:focus:ring-cyan-400 transition-colors disabled:opacity-50`}
-                      />
-                      {errors.subject && (
-                        <p className="text-xs text-rose-500 dark:text-rose-400 font-sans flex items-center gap-1 mt-1">
-                          <AlertCircle className="w-3.5 h-3.5" /> {errors.subject}
-                        </p>
+                  {/* Submit Button & Security Note */}
+                  <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                    <button
+                      type="submit"
+                      disabled={status === 'loading'}
+                      className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#171714] dark:bg-[#F5F2EB] text-[#F5F2EB] dark:text-[#171714] hover:bg-[#8C734B] dark:hover:bg-[#D9C8A5] transition-colors font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px]"
+                    >
+                      {status === 'loading' ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          <span>Dispatching...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Send Message</span>
+                          <ArrowUpRight className="w-4 h-4" />
+                        </>
                       )}
-                    </div>
+                    </button>
 
-                    {/* Row 3: Message */}
-                    <div className="space-y-1.5 text-left">
-                      <label className="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
-                        Message & Requirements <span className="text-blue-600 dark:text-cyan-400">*</span>
-                      </label>
-                      <textarea
-                        name="message"
-                        rows="5"
-                        value={formData.message}
-                        onChange={handleChange}
-                        placeholder="Hi Yash, we are looking for a MERN developer to help build..."
-                        disabled={status === 'loading'}
-                        className={`w-full px-3.5 sm:px-4 py-3 rounded-xl bg-slate-50 dark:bg-[#121927] border ${
-                          errors.message ? 'border-rose-500' : 'border-slate-200 dark:border-white/10 focus:border-blue-500 dark:focus:border-cyan-400'
-                        } text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 text-sm font-sans focus:outline-none focus:ring-1 focus:ring-blue-500 dark:focus:ring-cyan-400 transition-colors disabled:opacity-50`}
-                      />
-                      {errors.message && (
-                        <p className="text-xs text-rose-500 dark:text-rose-400 font-sans flex items-center gap-1 mt-1">
-                          <AlertCircle className="w-3.5 h-3.5" /> {errors.message}
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Submit Bar */}
-                    <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                      <button
-                        type="submit"
-                        disabled={status === 'loading'}
-                        className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 min-h-[44px] rounded-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold font-sans text-sm sm:text-base shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:brightness-110 active:scale-[0.98] transition-all border border-blue-400/30 disabled:opacity-60 disabled:cursor-not-allowed w-full sm:w-auto text-center"
-                      >
-                        {status === 'loading' ? (
-                          <>
-                            <Loader2 className="w-4 h-4 animate-spin text-white shrink-0" />
-                            <span>Sending...</span>
-                          </>
-                        ) : (
-                          <>
-                            <Send className="w-4 h-4 text-white shrink-0" />
-                            <span>Send Message</span>
-                            <ArrowUpRight className="w-4 h-4 text-blue-200 shrink-0" />
-                          </>
-                        )}
-                      </button>
-
-                      <span className="text-xs text-slate-500 font-mono text-center sm:text-right">
-                        Protected by client validation
-                      </span>
-                    </div>
-
-                  </form>
-                )}
-              </AnimatePresence>
+                    <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] text-center sm:text-right">
+                      Spam-protected • Encrypted REST transport
+                    </span>
+                  </div>
+                </form>
+              )}
             </div>
-          </motion.div>
+          </div>
 
         </div>
+
       </div>
     </section>
   );

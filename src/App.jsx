@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import GlobalAtmosphere from './components/GlobalAtmosphere';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import QuickStats from './components/QuickStats';
-import About from './components/About';
-import Skills from './components/Skills';
-import TechStack from './components/TechStack';
-import Services from './components/Services';
 import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Education from './components/Education';
-import CurrentlyBuilding from './components/CurrentlyBuilding';
-import GithubSection from './components/GithubSection';
+import About from './components/About';
+import Services from './components/Services';
+import Process from './components/Process';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('portfolio-theme') || 'dark';
+    return localStorage.getItem('portfolio-theme') || 'light';
   });
 
   useEffect(() => {
@@ -33,25 +26,18 @@ export default function App() {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
   return (
-    <div className="relative min-h-screen bg-slate-50 dark:bg-[#04060b] text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-500/30 selection:text-blue-300 transition-colors duration-300 overflow-x-hidden w-full max-w-full">
-      <GlobalAtmosphere />
+    <div className="min-h-screen bg-[#F5F2EB] dark:bg-[#121210] text-[#171714] dark:text-[#F5F2EB] font-sans antialiased selection:bg-[#D9C8A5] selection:text-[#171714] transition-colors duration-300 overflow-x-hidden w-full max-w-full">
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main className="relative z-10 w-full max-w-full overflow-x-hidden">
         <Hero />
-        <QuickStats />
-        <About />
-        <Skills />
-        <TechStack />
-        <Services />
         <Projects />
-        <Experience />
-        <Education />
-        <CurrentlyBuilding />
-        <GithubSection />
+        <About />
+        <Services />
+        <Process />
         <Contact />
       </main>
       <Footer />
