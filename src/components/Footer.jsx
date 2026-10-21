@@ -54,8 +54,8 @@ export default function Footer() {
             <a
               href={portfolioData.personal.githubUrl}
               target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub Profile"
+              rel="noopener noreferrer"
+              aria-label="View Yash Tank GitHub Profile (opens in new tab)"
               className="w-10 h-10 flex items-center justify-center border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] text-[#423F39] dark:text-[#C4C0B6] hover:text-[#171714] dark:hover:text-[#F5F2EB] hover:border-[#8C734B] dark:hover:border-[#D9C8A5] transition-colors"
             >
               <Github className="w-4 h-4" />
@@ -64,8 +64,8 @@ export default function Footer() {
             <a
               href={portfolioData.personal.linkedinUrl}
               target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn Profile"
+              rel="noopener noreferrer"
+              aria-label="View Yash Tank LinkedIn Profile (opens in new tab)"
               className="w-10 h-10 flex items-center justify-center border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] text-[#423F39] dark:text-[#C4C0B6] hover:text-[#171714] dark:hover:text-[#F5F2EB] hover:border-[#8C734B] dark:hover:border-[#D9C8A5] transition-colors"
             >
               <Linkedin className="w-4 h-4" />
@@ -73,7 +73,7 @@ export default function Footer() {
 
             <a
               href={`mailto:${portfolioData.personal.email}`}
-              aria-label="Send direct email"
+              aria-label={`Send direct email to ${portfolioData.personal.email}`}
               className="w-10 h-10 flex items-center justify-center border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] text-[#423F39] dark:text-[#C4C0B6] hover:text-[#171714] dark:hover:text-[#F5F2EB] hover:border-[#8C734B] dark:hover:border-[#D9C8A5] transition-colors"
             >
               <Mail className="w-4 h-4" />

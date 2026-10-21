@@ -129,7 +129,8 @@ export default function Navbar({ theme, toggleTheme }) {
             <a
               href={portfolioData.personal.resumeUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label="Download Yash Tank Resume in PDF format"
               className="inline-flex items-center gap-1.5 px-3.5 py-2 font-mono text-xs sm:text-sm border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.18)] text-[#171714] dark:text-[#F5F2EB] hover:bg-[#E8E4DB] dark:hover:bg-[#1E1E1A] transition-colors min-h-[40px]"
             >
               <FileText className="w-4 h-4 text-[#8C734B] dark:text-[#D9C8A5]" />
@@ -200,7 +201,8 @@ export default function Navbar({ theme, toggleTheme }) {
             <a
               href={portfolioData.personal.resumeUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label="Download Yash Tank Resume in PDF format"
               className="w-full py-3 border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] flex items-center justify-center gap-2 text-[#171714] dark:text-[#F5F2EB]"
             >
               <FileText className="w-4 h-4" />

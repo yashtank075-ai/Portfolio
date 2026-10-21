@@ -4,8 +4,8 @@ import ProjectCard from './Projects/ProjectCard';
 
 export default function Projects() {
   const oraProject = portfolioData.featuredProject;
-  const foodProject = portfolioData.projects.find((p) => p.id === 'food-ordering');
-  const visibleProjects = [oraProject, foodProject].filter(Boolean);
+  const allList = [oraProject, ...portfolioData.projects].filter(Boolean);
+  const visibleProjects = allList.slice(0, 2);
 
   return (
     <section id="work" className="py-12 sm:py-14 lg:py-16 relative border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)]">

@@ -139,6 +139,7 @@ export default function Contact() {
               {/* Email */}
               <a
                 href={`mailto:${portfolioData.personal.email}`}
+                aria-label={`Send direct email to ${portfolioData.personal.email}`}
                 className="editorial-card p-4 sm:p-5 flex items-center justify-between group transition-all"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
@@ -161,7 +162,8 @@ export default function Contact() {
               <a
                 href={portfolioData.personal.githubUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label="View Yash Tank GitHub repositories (opens in new tab)"
                 className="editorial-card p-4 sm:p-5 flex items-center justify-between group transition-all"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
@@ -184,7 +186,8 @@ export default function Contact() {
               <a
                 href={portfolioData.personal.linkedinUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label="View Yash Tank LinkedIn profile (opens in new tab)"
                 className="editorial-card p-4 sm:p-5 flex items-center justify-between group transition-all"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
@@ -207,7 +210,8 @@ export default function Contact() {
               <a
                 href={portfolioData.personal.resumeUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label="Download Yash Tank Resume in PDF format (opens in new tab)"
                 className="editorial-card p-4 sm:p-5 flex items-center justify-between group transition-all"
               >
                 <div className="flex items-center gap-3.5 min-w-0">
@@ -297,44 +301,50 @@ export default function Contact() {
                   {/* Row 1: Name and Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-1.5">
-                      <label className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold block">
+                      <label htmlFor="contact-name" className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold block">
                         Full Name <span className="text-[#8C734B] dark:text-[#D9C8A5]">*</span>
                       </label>
                       <input
+                        id="contact-name"
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Alex Mercer"
                         disabled={status === 'loading'}
+                        aria-required="true"
+                        aria-describedby={errors.name ? 'contact-name-error' : undefined}
                         className={`w-full px-4 py-3 bg-[#FAF8F3] dark:bg-[#151512] border ${
                           errors.name ? 'border-[#B85C5C]' : 'border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] focus:border-[#8C734B] dark:focus:border-[#D9C8A5]'
                         } text-[#171714] dark:text-[#F5F2EB] placeholder:text-[#423F39]/50 font-sans text-base focus:outline-none transition-colors disabled:opacity-50`}
                       />
                       {errors.name && (
-                        <p role="alert" className="font-mono text-xs text-[#8C2A2A] dark:text-[#E07A7A] mt-1 font-semibold">
+                        <p id="contact-name-error" role="alert" className="font-mono text-xs text-[#8C2A2A] dark:text-[#E07A7A] mt-1 font-semibold">
                           {errors.name}
                         </p>
                       )}
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold block">
+                      <label htmlFor="contact-email" className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold block">
                         Email Address <span className="text-[#8C734B] dark:text-[#D9C8A5]">*</span>
                       </label>
                       <input
+                        id="contact-email"
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="alex@company.com"
                         disabled={status === 'loading'}
+                        aria-required="true"
+                        aria-describedby={errors.email ? 'contact-email-error' : undefined}
                         className={`w-full px-4 py-3 bg-[#FAF8F3] dark:bg-[#151512] border ${
                           errors.email ? 'border-[#B85C5C]' : 'border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] focus:border-[#8C734B] dark:focus:border-[#D9C8A5]'
                         } text-[#171714] dark:text-[#F5F2EB] placeholder:text-[#423F39]/50 font-sans text-base focus:outline-none transition-colors disabled:opacity-50`}
                       />
                       {errors.email && (
-                        <p role="alert" className="font-mono text-xs text-[#8C2A2A] dark:text-[#E07A7A] mt-1 font-semibold">
+                        <p id="contact-email-error" role="alert" className="font-mono text-xs text-[#8C2A2A] dark:text-[#E07A7A] mt-1 font-semibold">
                           {errors.email}
                         </p>
                       )}
@@ -343,22 +353,25 @@ export default function Contact() {
 
                   {/* Subject */}
                   <div className="space-y-1.5">
-                    <label className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold block">
+                    <label htmlFor="contact-subject" className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold block">
                       Subject / Project Scope <span className="text-[#8C734B] dark:text-[#D9C8A5]">*</span>
                     </label>
                     <input
+                      id="contact-subject"
                       type="text"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="Engineering Role Opening / Website Project Scope"
                       disabled={status === 'loading'}
+                      aria-required="true"
+                      aria-describedby={errors.subject ? 'contact-subject-error' : undefined}
                       className={`w-full px-4 py-3 bg-[#FAF8F3] dark:bg-[#151512] border ${
                         errors.subject ? 'border-[#B85C5C]' : 'border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] focus:border-[#8C734B] dark:focus:border-[#D9C8A5]'
                       } text-[#171714] dark:text-[#F5F2EB] placeholder:text-[#423F39]/50 font-sans text-base focus:outline-none transition-colors disabled:opacity-50`}
                     />
                     {errors.subject && (
-                      <p role="alert" className="font-mono text-xs text-[#8C2A2A] dark:text-[#E07A7A] mt-1 font-semibold">
+                      <p id="contact-subject-error" role="alert" className="font-mono text-xs text-[#8C2A2A] dark:text-[#E07A7A] mt-1 font-semibold">
                         {errors.subject}
                       </p>
                     )}
@@ -366,22 +379,25 @@ export default function Contact() {
 
                   {/* Message */}
                   <div className="space-y-1.5">
-                    <label className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold block">
+                    <label htmlFor="contact-message" className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold block">
                       Message &amp; Requirements <span className="text-[#8C734B] dark:text-[#D9C8A5]">*</span>
                     </label>
                     <textarea
+                      id="contact-message"
                       name="message"
                       rows="5"
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Hi Yash, we are evaluating candidates for a MERN stack role / interested in commissioning a web application..."
                       disabled={status === 'loading'}
+                      aria-required="true"
+                      aria-describedby={errors.message ? 'contact-message-error' : undefined}
                       className={`w-full px-4 py-3 bg-[#FAF8F3] dark:bg-[#151512] border ${
                         errors.message ? 'border-[#B85C5C]' : 'border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] focus:border-[#8C734B] dark:focus:border-[#D9C8A5]'
                       } text-[#171714] dark:text-[#F5F2EB] placeholder:text-[#423F39]/50 font-sans text-base focus:outline-none transition-colors disabled:opacity-50`}
                     />
                     {errors.message && (
-                      <p role="alert" className="font-mono text-xs text-[#8C2A2A] dark:text-[#E07A7A] mt-1 font-semibold">
+                      <p id="contact-message-error" role="alert" className="font-mono text-xs text-[#8C2A2A] dark:text-[#E07A7A] mt-1 font-semibold">
                         {errors.message}
                       </p>
                     )}

@@ -39,12 +39,12 @@ export default function Hero() {
           {/* Main Editorial Headline & Copy */}
           <div className="lg:col-span-8 space-y-6">
             <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal text-[#171714] dark:text-[#F5F2EB] leading-[1.08] tracking-tight">
-              Thoughtful design. <br className="hidden sm:inline" />
-              Well-engineered web applications.
+              Full-stack developer <br className="hidden sm:inline" />
+              building thoughtful digital experiences.
             </h1>
 
             <p className="font-sans text-base sm:text-lg lg:text-xl text-[#3D3B35] dark:text-[#D4D0C5] leading-relaxed max-w-2xl font-normal">
-              I develop full-stack applications and high-performance commercial websites using <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">React</strong>, <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Next.js</strong>, <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Node.js</strong>, <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Express</strong>, and <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">MongoDB</strong>. My approach prioritizes modular architecture, clean REST APIs, and tactile responsive design.
+              I develop accessible full-stack applications and high-performance commercial websites using <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">React</strong>, <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Next.js</strong>, <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Node.js</strong>, <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Express</strong>, and <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">MongoDB</strong>. My approach prioritizes modular architecture, clean REST APIs, and tactile responsive design.
             </p>
 
             {/* Clear Action CTAs */}
@@ -71,7 +71,8 @@ export default function Hero() {
               <a
                 href={portfolioData.personal.resumeUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label="Download Yash Tank Resume in PDF format"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.2)] text-[#3D3B35] dark:text-[#D4D0C5] hover:text-[#171714] dark:hover:text-[#F5F2EB] hover:border-[#8C734B] dark:hover:border-[#D9C8A5] transition-colors font-mono text-xs sm:text-sm text-center"
               >
                 <FileText className="w-4 h-4 text-[#8C734B] dark:text-[#D9C8A5] shrink-0" />
@@ -87,7 +88,8 @@ export default function Hero() {
               <a
                 href={portfolioData.personal.githubUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label="View Yash Tank GitHub profile (opens in new tab)"
                 className="editorial-link"
               >
                 <Github className="w-4 h-4" />
@@ -97,7 +99,8 @@ export default function Hero() {
               <a
                 href={portfolioData.personal.linkedinUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                aria-label="View Yash Tank LinkedIn profile (opens in new tab)"
                 className="editorial-link"
               >
                 <Linkedin className="w-4 h-4" />
@@ -106,6 +109,7 @@ export default function Hero() {
               </a>
               <a
                 href={`mailto:${portfolioData.personal.email}`}
+                aria-label={`Send direct email to ${portfolioData.personal.email}`}
                 className="editorial-link"
               >
                 <Mail className="w-4 h-4" />

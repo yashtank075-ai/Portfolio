@@ -35,7 +35,7 @@ export default function About() {
                 My name is <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Yash Tank</strong>. I am a full-stack developer based in Surat, Gujarat, specializing in the MERN stack and modern website development.
               </p>
               <p>
-                My computing foundation is backed by a formal <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Bachelor of Computer Applications (BCA)</strong> from Veer Narmad South Gujarat University. This academic training established core competencies in computer science fundamentals algorithms, relational and NoSQL databases, object-oriented systems, and software engineering methodologies.
+                My computing foundation is backed by a formal <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Bachelor of Computer Applications (BCA)</strong> from Veer Narmad South Gujarat University. This academic training established core competencies in computer science fundamentals, data structures and algorithms, relational and NoSQL databases, object-oriented systems, and software engineering methodologies.
               </p>
               <p>
                 When engineering applications, I treat both ends of the stack with deliberate care. On the client side, I write clean, modular React and Next.js interfaces with semantic HTML, accessible interaction states, and zero unnecessary script bloat. On the backend, I design structured Node.js and Express REST APIs backed by verified MongoDB schemas.
