@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Sun, Moon, FileText } from 'lucide-react';
+import { Menu, X, ArrowUpRight, FileText } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
 
 const navItems = [
@@ -11,7 +11,7 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar({ theme, toggleTheme }) {
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -70,7 +70,7 @@ export default function Navbar({ theme, toggleTheme }) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#FAFAF8]/90 dark:bg-[#0F1115]/90 backdrop-blur-md border-b border-[#E5E5E0] dark:border-white/10 py-3.5 shadow-sm'
+          ? 'bg-[#FAFAF8]/90 backdrop-blur-md border-b border-[#E5E5E0] py-3.5 shadow-sm'
           : 'bg-transparent py-5 sm:py-6'
       }`}
     >
@@ -83,14 +83,14 @@ export default function Navbar({ theme, toggleTheme }) {
             className="group flex items-center gap-2.5 focus:outline-none"
             aria-label="Yash Tank - Home"
           >
-            <div className="w-9 h-9 rounded-xl bg-[#171717] dark:bg-white text-white dark:text-[#171717] flex items-center justify-center font-bold text-sm tracking-tight transition-transform group-hover:scale-105 shadow-sm">
+            <div className="w-9 h-9 rounded-xl bg-[#171717] text-white flex items-center justify-center font-bold text-sm tracking-tight transition-transform group-hover:scale-105 shadow-sm">
               {portfolioData.personal.monogram || 'YT'}
             </div>
             <div className="flex flex-col text-left">
-              <span className="font-bold text-base sm:text-lg tracking-tight text-[#171717] dark:text-[#F3F4F6] group-hover:text-[#4169E1] transition-colors leading-snug">
+              <span className="font-bold text-base sm:text-lg tracking-tight text-[#171717] group-hover:text-[#4169E1] transition-colors leading-snug">
                 {portfolioData.personal.name}
               </span>
-              <span className="text-[11px] font-mono text-[#737373] dark:text-[#9CA3AF] leading-none">
+              <span className="text-[11px] font-mono text-[#737373] leading-none">
                 Developer Portfolio
               </span>
             </div>
@@ -98,7 +98,7 @@ export default function Navbar({ theme, toggleTheme }) {
 
           {/* Desktop Navigation Links */}
           <nav 
-            className="hidden md:flex items-center gap-1 bg-[#F2F3F0]/80 dark:bg-[#161920]/80 border border-[#E5E5E0] dark:border-white/10 px-3 py-1.5 rounded-full backdrop-blur-md shadow-xs"
+            className="hidden md:flex items-center gap-1 bg-[#F2F3F0]/80 border border-[#E5E5E0] px-3 py-1.5 rounded-full backdrop-blur-md shadow-xs"
             aria-label="Primary Navigation"
           >
             {navItems.map((item) => {
@@ -109,8 +109,8 @@ export default function Navbar({ theme, toggleTheme }) {
                   onClick={() => handleNavClick(item.href)}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-medium tracking-normal font-sans transition-all ${
                     isActive
-                      ? 'bg-white dark:bg-[#1C2029] text-[#4169E1] dark:text-[#5B82F6] shadow-xs'
-                      : 'text-[#737373] dark:text-[#9CA3AF] hover:text-[#171717] dark:hover:text-[#F3F4F6]'
+                      ? 'bg-white text-[#4169E1] shadow-xs'
+                      : 'text-[#737373] hover:text-[#171717]'
                   }`}
                 >
                   {item.label}
@@ -121,15 +121,6 @@ export default function Navbar({ theme, toggleTheme }) {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-2.5">
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              aria-label={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} mode`}
-              className="w-10 h-10 rounded-xl flex items-center justify-center border border-[#E5E5E0] dark:border-white/10 bg-white dark:bg-[#1C2029] text-[#171717] dark:text-[#F3F4F6] hover:border-[#4169E1] dark:hover:border-[#5B82F6] hover:text-[#4169E1] transition-all shadow-xs"
-            >
-              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-[#737373]" />}
-            </button>
-
             {/* Resume Button */}
             <a
               href={portfolioData.personal.resumeUrl}
@@ -152,24 +143,15 @@ export default function Navbar({ theme, toggleTheme }) {
             </a>
           </div>
 
-          {/* Mobile Menu & Theme Toggle */}
+          {/* Mobile Menu Toggle */}
           <div className="flex items-center gap-2 md:hidden">
-            <button
-              type="button"
-              onClick={toggleTheme}
-              aria-label={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} mode`}
-              className="w-9 h-9 rounded-xl flex items-center justify-center border border-[#E5E5E0] dark:border-white/10 text-[#171717] dark:text-[#F3F4F6] bg-white dark:bg-[#1C2029] active:scale-95 transition-all shadow-xs"
-            >
-              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-[#737373]" />}
-            </button>
-
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
               aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
-              className="w-9 h-9 rounded-xl flex items-center justify-center border border-[#E5E5E0] dark:border-white/10 text-[#171717] dark:text-[#F3F4F6] bg-white dark:bg-[#1C2029] active:scale-95 transition-all shadow-xs"
+              className="w-9 h-9 rounded-xl flex items-center justify-center border border-[#E5E5E0] text-[#171717] bg-white active:scale-95 transition-all shadow-xs"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -182,7 +164,7 @@ export default function Navbar({ theme, toggleTheme }) {
       {mobileMenuOpen && (
         <div 
           id="mobile-navigation"
-          className="fixed inset-x-0 top-[65px] bottom-0 bg-[#FAFAF8] dark:bg-[#0F1115] border-t border-[#E5E5E0] dark:border-white/10 p-6 z-50 flex flex-col justify-between overflow-y-auto md:hidden"
+          className="fixed inset-x-0 top-[65px] bottom-0 bg-[#FAFAF8] border-t border-[#E5E5E0] p-6 z-50 flex flex-col justify-between overflow-y-auto md:hidden"
         >
           <nav className="space-y-2 pt-2 text-left" aria-label="Mobile Navigation Links">
             {navItems.map((item, idx) => {
@@ -193,12 +175,12 @@ export default function Navbar({ theme, toggleTheme }) {
                   onClick={() => handleNavClick(item.href)}
                   className={`w-full text-left flex items-center justify-between p-3.5 rounded-xl font-medium font-sans text-base transition-colors ${
                     isActive 
-                      ? 'bg-[#E9E5FF] text-[#4169E1] dark:bg-white/10 dark:text-[#5B82F6]'
-                      : 'text-[#171717] dark:text-[#F3F4F6] hover:bg-[#F2F3F0] dark:hover:bg-[#161920]'
+                      ? 'bg-[#E9E5FF] text-[#4169E1]'
+                      : 'text-[#171717] hover:bg-[#F2F3F0]'
                   }`}
                 >
                   <span>{item.label}</span>
-                  <span className="font-mono text-xs text-[#737373] dark:text-[#9CA3AF]">
+                  <span className="font-mono text-xs text-[#737373]">
                     0{idx + 1}
                   </span>
                 </button>
@@ -206,7 +188,7 @@ export default function Navbar({ theme, toggleTheme }) {
             })}
           </nav>
 
-          <div className="pt-6 border-t border-[#E5E5E0] dark:border-white/10 space-y-3 font-mono text-xs">
+          <div className="pt-6 border-t border-[#E5E5E0] space-y-3 font-mono text-xs">
             <a
               href={portfolioData.personal.resumeUrl}
               target="_blank"
@@ -225,7 +207,7 @@ export default function Navbar({ theme, toggleTheme }) {
               <span>Get in Touch</span>
               <ArrowUpRight className="w-4 h-4" />
             </a>
-            <div className="text-center text-xs text-[#737373] dark:text-[#9CA3AF] pt-2">
+            <div className="text-center text-xs text-[#737373] pt-2">
               {portfolioData.personal.email}
             </div>
           </div>

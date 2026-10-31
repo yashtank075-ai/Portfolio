@@ -1,23 +1,30 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Info } from 'lucide-react';
 import { Github } from '../Icons';
 
-export default function CompactProjectCard({ project }) {
+export default function CompactProjectCard({ project, onOpenDetails }) {
   // Render genuine screenshot image with consistent 16:9 aspect ratio container
   const renderVisual = () => {
     if (project.id === 'orainfotech') {
       return (
-        <div className="relative aspect-video w-full overflow-hidden bg-slate-900 group">
+        <div className="relative aspect-video w-full overflow-hidden bg-slate-900 group/img cursor-pointer" onClick={onOpenDetails}>
           <img
             src="/orainfotech-preview.png"
             alt={`${project.title} - Official Corporate Website Redesign`}
-            className="w-full h-full object-cover object-[center_top] transition-transform duration-500 ease-out group-hover:scale-105"
+            className="w-full h-full object-cover object-[center_top] transition-transform duration-700 ease-out group-hover/img:scale-108"
             loading="lazy"
             width="1905"
             height="1007"
           />
-          <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-black/75 backdrop-blur-xs text-[10px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-xs">
-            Live Corporate Portal
+          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-sm flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Corporate Portal</span>
+          </div>
+          {/* Bottom quick overlay hint */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-3.5">
+            <span className="text-[11.5px] font-mono text-white/95 font-medium flex items-center gap-1.5">
+              <Info className="w-3.5 h-3.5 text-[#4169E1]" /> Click for Architecture Breakdown
+            </span>
           </div>
         </div>
       );
@@ -25,26 +32,26 @@ export default function CompactProjectCard({ project }) {
 
     if (project.id === 'dwarkadhish-car-rent') {
       return (
-        <div className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-[#121c2e] via-[#1a263d] to-[#0f1728] group">
+        <div className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-[#121c2e] via-[#1a263d] to-[#0f1728] group/img cursor-pointer" onClick={onOpenDetails}>
           <img
             src="/dwarkadhish-preview.png"
             alt={`${project.title} - Hyundai Venue Fleet Vehicle`}
-            className="w-full h-full object-cover object-[center_35%] transition-transform duration-500 ease-out group-hover:scale-105"
+            className="w-full h-full object-cover object-[center_35%] transition-transform duration-700 ease-out group-hover/img:scale-108"
             loading="lazy"
             width="1024"
             height="576"
           />
           {/* Top Status Badges */}
-          <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-none">
-            <span className="px-2 py-0.5 rounded bg-black/75 backdrop-blur-xs text-[10px] font-mono text-[#D8B66A] font-semibold border border-[#D8B66A]/30 shadow-xs">
+          <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+            <span className="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-[#D8B66A] font-semibold border border-[#D8B66A]/30 shadow-sm">
               Surat Fleet
             </span>
-            <span className="px-2 py-0.5 rounded bg-black/75 backdrop-blur-xs text-[10px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-xs">
-              Instant Booking
+            <span className="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-sm flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Direct Booking
             </span>
           </div>
-          {/* Subtle bottom rate bar */}
-          <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-2.5 flex items-center justify-between text-[11px] font-mono text-white pointer-events-none">
+          {/* Bottom rate bar */}
+          <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-3 flex items-center justify-between text-[11px] font-mono text-white">
             <span className="text-[#D8B66A] font-bold">12h: ₹2,500</span>
             <span className="text-emerald-400 font-bold">24h: ₹3,500</span>
           </div>
@@ -54,20 +61,25 @@ export default function CompactProjectCard({ project }) {
 
     if (project.id === 'food-ordering') {
       return (
-        <div className="relative aspect-video w-full overflow-hidden bg-slate-900 group">
+        <div className="relative aspect-video w-full overflow-hidden bg-slate-900 group/img cursor-pointer" onClick={onOpenDetails}>
           <img
             src="/food-del-preview.png"
             alt={`${project.title} - Online Food Ordering Web Application`}
-            className="w-full h-full object-cover object-[center_center] transition-transform duration-500 ease-out group-hover:scale-105"
+            className="w-full h-full object-cover object-[center_center] transition-transform duration-700 ease-out group-hover/img:scale-108"
             loading="lazy"
             width="1366"
             height="802"
           />
-          <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-black/75 backdrop-blur-xs text-[10px] font-mono text-[#8AB4FF] font-semibold border border-white/10 shadow-xs">
-            MERN Application
+          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-[#8AB4FF] font-semibold border border-white/10 shadow-sm">
+            MERN Full-Stack
           </div>
-          <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded bg-black/75 backdrop-blur-xs text-[10px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-xs">
-            Dynamic State
+          <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-sm flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Live Cart State
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-3.5">
+            <span className="text-[11.5px] font-mono text-white/95 font-medium flex items-center gap-1.5">
+              <Info className="w-3.5 h-3.5 text-[#4169E1]" /> Inspect Database & API Pipeline
+            </span>
           </div>
         </div>
       );
@@ -76,33 +88,56 @@ export default function CompactProjectCard({ project }) {
     return null;
   };
 
+  // Distinct styling & border glow per project
+  const getCardHoverAccent = () => {
+    if (project.id === 'orainfotech') return 'hover:border-[#4169E1] hover:shadow-[0_12px_32px_-10px_rgba(65,105,225,0.2)]';
+    if (project.id === 'dwarkadhish-car-rent') return 'hover:border-[#D8B66A] hover:shadow-[0_12px_32px_-10px_rgba(216,182,106,0.25)]';
+    return 'hover:border-[#10B981] hover:shadow-[0_12px_32px_-10px_rgba(16,185,129,0.2)]';
+  };
+
   return (
-    <article className="portfolio-card group flex flex-col justify-between overflow-hidden bg-white/90 dark:bg-[#1C2029]/90 backdrop-blur-md rounded-2xl border border-[#E5E5E0] dark:border-white/10 shadow-sm hover:shadow-premium hover:-translate-y-1 transition-all duration-300 text-left h-full">
+    <article className={`portfolio-card group flex flex-col justify-between overflow-hidden bg-white rounded-2xl border border-[#E5E5E0] shadow-subtle hover:-translate-y-1.5 transition-all duration-300 text-left h-full ${getCardHoverAccent()}`}>
       {/* 16:9 Image / Visual Banner at the Top */}
-      <div className="w-full border-b border-[#E5E5E0] dark:border-white/10 overflow-hidden shrink-0">
+      <div className="w-full border-b border-[#E5E5E0] overflow-hidden shrink-0">
         {renderVisual()}
       </div>
 
       {/* Card Content Body - Flex Column for Strict Equal Height & Alignment */}
-      <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between space-y-3.5">
-        <div className="space-y-2 flex-1">
-          {/* Top Category and Index */}
+      <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between space-y-4">
+        <div className="space-y-2.5 flex-1">
+          {/* Top Category, Index and Details Trigger */}
           <div className="flex items-center justify-between gap-2">
-            <span className="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#4169E1]">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#4169E1]">
               {project.category}
             </span>
-            <span className="text-[10.5px] font-mono px-2 py-0.5 rounded bg-[#FAFAF8] dark:bg-[#161920] border border-[#E5E5E0] dark:border-white/10 text-[#737373] dark:text-[#9CA3AF]">
-              {project.index}
-            </span>
+            <div className="flex items-center gap-1.5">
+              {onOpenDetails && (
+                <button
+                  type="button"
+                  onClick={onOpenDetails}
+                  className="text-[11px] font-mono text-[#737373] hover:text-[#4169E1] transition-colors flex items-center gap-1 px-2 py-0.5 rounded-md hover:bg-[#EEF2FF] cursor-pointer"
+                  title="View detailed overview"
+                >
+                  <Info className="w-3.5 h-3.5 text-[#4169E1]" />
+                  <span className="font-semibold">Overview</span>
+                </button>
+              )}
+              <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#FAFAF8] border border-[#E5E5E0] text-[#737373] font-semibold">
+                {project.index}
+              </span>
+            </div>
           </div>
 
           {/* Project Title: Space Grotesk, weight 600 */}
-          <h3 className="font-heading text-base sm:text-lg font-semibold text-[#171717] dark:text-[#F3F4F6] group-hover:text-[#4169E1] transition-colors line-clamp-1">
+          <h3 
+            className="font-heading text-lg sm:text-xl font-bold text-[#171717] group-hover:text-[#4169E1] transition-colors line-clamp-1 cursor-pointer"
+            onClick={onOpenDetails}
+          >
             {project.title}
           </h3>
 
           {/* Short Project Description strictly clamped to 3 lines */}
-          <p className="text-xs sm:text-[13px] text-[#525252] dark:text-[#9CA3AF] leading-relaxed line-clamp-3 min-h-[3.75rem]">
+          <p className="text-xs sm:text-[13.5px] text-[#525252] leading-relaxed line-clamp-3 min-h-[3.8rem]">
             {project.summary}
           </p>
 
@@ -111,13 +146,13 @@ export default function CompactProjectCard({ project }) {
             {project.stack.slice(0, 4).map((tech) => (
               <span
                 key={tech}
-                className="font-mono text-[10.5px] px-2 py-0.5 rounded-md bg-[#FAFAF8] dark:bg-[#161920] text-[#171717] dark:text-[#F3F4F6] border border-[#E5E5E0] dark:border-white/10 leading-normal"
+                className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-[#FAFAF8] text-[#171717] border border-[#E5E5E0] font-medium leading-normal shadow-2xs"
               >
                 {tech}
               </span>
             ))}
             {project.stack.length > 4 && (
-              <span className="font-mono text-[10px] px-1.5 py-0.5 rounded text-[#737373] dark:text-[#9CA3AF]">
+              <span className="font-mono text-[10.5px] px-2 py-0.5 rounded-md bg-[#EEF2FF] text-[#4169E1] font-semibold">
                 +{project.stack.length - 4}
               </span>
             )}
@@ -125,17 +160,17 @@ export default function CompactProjectCard({ project }) {
         </div>
 
         {/* Action Links Bar strictly positioned at the card bottom */}
-        <div className="flex items-center gap-2 pt-3 border-t border-[#E5E5E0] dark:border-white/10 shrink-0">
+        <div className="flex items-center gap-2.5 pt-3.5 border-t border-[#E5E5E0] shrink-0">
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`View ${project.title} source code on GitHub`}
-              className="btn-secondary !py-1.5 !px-3 !text-xs !rounded-lg flex-1 justify-center"
+              className="btn-secondary !py-2 !px-3.5 !text-xs !rounded-lg flex-1 justify-center hover:scale-[1.02] active:scale-[0.98] font-semibold shadow-2xs"
             >
               <Github className="w-3.5 h-3.5 shrink-0" />
-              <span>Source</span>
+              <span>Source Code</span>
             </a>
           )}
           {project.liveUrl && project.liveUrl !== '#' && (
@@ -144,7 +179,7 @@ export default function CompactProjectCard({ project }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Open ${project.title} live demo`}
-              className="btn-primary !py-1.5 !px-3.5 !text-xs !rounded-lg flex-1 justify-center"
+              className="btn-primary !py-2 !px-3.5 !text-xs !rounded-lg flex-1 justify-center hover:scale-[1.02] active:scale-[0.98] font-semibold shadow-2xs"
             >
               <span>{project.liveLabel || 'Live Demo'}</span>
               <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />

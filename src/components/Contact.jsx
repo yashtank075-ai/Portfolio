@@ -102,7 +102,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 lg:py-24 relative bg-[#F2F3F0]/60 dark:bg-[#161920]/40 border-t border-[#E5E5E0] dark:border-white/10">
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 relative bg-[#F2F3F0]/60 border-t border-[#E5E5E0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -111,10 +111,10 @@ export default function Contact() {
             <span className="w-2 h-2 rounded-full bg-[#4169E1]" />
             <span className="text-[#4169E1] font-bold">GET IN TOUCH</span>
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#171717] dark:text-[#F3F4F6]">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#171717]">
             Let's build something exceptional together.
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-[#525252] dark:text-[#9CA3AF] leading-relaxed">
+          <p className="mt-3 text-base sm:text-lg text-[#525252] leading-relaxed">
             Whether inquiring about engineering roles, technical collaboration, or discussing a new web project, I welcome your message.
           </p>
         </div>
@@ -125,10 +125,10 @@ export default function Contact() {
           {/* Left Column: Direct Coordinates */}
           <div className="lg:col-span-5 space-y-4">
             <div className="space-y-2 mb-6">
-              <h3 className="text-xl sm:text-2xl font-bold text-[#171717] dark:text-[#F3F4F6]">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#171717]">
                 Contact Coordinates
               </h3>
-              <p className="text-sm text-[#525252] dark:text-[#9CA3AF] leading-relaxed">
+              <p className="text-sm text-[#525252] leading-relaxed">
                 I review all direct inquiries personally. Reach out through email, verified code repositories, or professional networks.
               </p>
             </div>
@@ -136,17 +136,17 @@ export default function Contact() {
             {/* Email Card */}
             <a
               href={`mailto:${portfolioData.personal.email}`}
-              className="portfolio-card p-4 sm:p-5 flex items-center justify-between group bg-white dark:bg-[#1C2029] shadow-subtle hover:shadow-premium transition-all"
+              className="portfolio-card p-4 sm:p-5 flex items-center justify-between group bg-white shadow-subtle hover:shadow-premium hover:border-[#4169E1] transition-all border border-[#E5E5E0]"
             >
               <div className="flex items-center gap-3.5 min-w-0">
-                <div className="w-10 h-10 rounded-xl bg-[#E9E5FF] dark:bg-[#4169E1]/20 text-[#4169E1] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[#EEF2FF] text-[#4169E1] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="min-w-0">
-                  <span className="text-xs uppercase tracking-wider text-[#737373] dark:text-[#9CA3AF] font-bold block">
+                  <span className="text-xs uppercase tracking-wider text-[#737373] font-bold block">
                     Direct Email
                   </span>
-                  <span className="font-semibold text-sm sm:text-base text-[#171717] dark:text-[#F3F4F6] group-hover:text-[#4169E1] transition-colors truncate block">
+                  <span className="font-semibold text-sm sm:text-base text-[#171717] group-hover:text-[#4169E1] transition-colors truncate block">
                     {portfolioData.personal.email}
                   </span>
                 </div>
@@ -159,17 +159,17 @@ export default function Contact() {
               href={portfolioData.personal.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="portfolio-card p-4 sm:p-5 flex items-center justify-between group bg-white dark:bg-[#1C2029] shadow-subtle hover:shadow-premium transition-all"
+              className="portfolio-card p-4 sm:p-5 flex items-center justify-between group bg-white shadow-subtle hover:shadow-premium hover:border-[#4169E1] transition-all border border-[#E5E5E0]"
             >
               <div className="flex items-center gap-3.5 min-w-0">
-                <div className="w-10 h-10 rounded-xl bg-[#E9E5FF] dark:bg-[#4169E1]/20 text-[#4169E1] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[#EEF2FF] text-[#4169E1] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <Github className="w-5 h-5" />
                 </div>
                 <div className="min-w-0">
-                  <span className="text-xs uppercase tracking-wider text-[#737373] dark:text-[#9CA3AF] font-bold block">
-                    GitHub Repositories
+                  <span className="text-xs uppercase tracking-wider text-[#737373] font-bold block">
+                    Source Code
                   </span>
-                  <span className="font-semibold text-sm sm:text-base text-[#171717] dark:text-[#F3F4F6] group-hover:text-[#4169E1] transition-colors truncate block">
+                  <span className="font-semibold text-sm sm:text-base text-[#171717] group-hover:text-[#4169E1] transition-colors truncate block">
                     github.com/yashtank075-ai
                   </span>
                 </div>
@@ -182,17 +182,17 @@ export default function Contact() {
               href={portfolioData.personal.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="portfolio-card p-4 sm:p-5 flex items-center justify-between group bg-white dark:bg-[#1C2029] shadow-subtle hover:shadow-premium transition-all"
+              className="portfolio-card p-4 sm:p-5 flex items-center justify-between group bg-white shadow-subtle hover:shadow-premium hover:border-[#4169E1] transition-all border border-[#E5E5E0]"
             >
               <div className="flex items-center gap-3.5 min-w-0">
-                <div className="w-10 h-10 rounded-xl bg-[#E9E5FF] dark:bg-[#4169E1]/20 text-[#4169E1] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[#EEF2FF] text-[#4169E1] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <Linkedin className="w-5 h-5" />
                 </div>
                 <div className="min-w-0">
-                  <span className="text-xs uppercase tracking-wider text-[#737373] dark:text-[#9CA3AF] font-bold block">
+                  <span className="text-xs uppercase tracking-wider text-[#737373] font-bold block">
                     Professional Network
                   </span>
-                  <span className="font-semibold text-sm sm:text-base text-[#171717] dark:text-[#F3F4F6] group-hover:text-[#4169E1] transition-colors truncate block">
+                  <span className="font-semibold text-sm sm:text-base text-[#171717] group-hover:text-[#4169E1] transition-colors truncate block">
                     linkedin.com/in/yash-tank
                   </span>
                 </div>
@@ -205,17 +205,17 @@ export default function Contact() {
               href={portfolioData.personal.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="portfolio-card p-4 sm:p-5 flex items-center justify-between group bg-white dark:bg-[#1C2029] shadow-subtle hover:shadow-premium transition-all"
+              className="portfolio-card p-4 sm:p-5 flex items-center justify-between group bg-white shadow-subtle hover:shadow-premium hover:border-[#4169E1] transition-all border border-[#E5E5E0]"
             >
               <div className="flex items-center gap-3.5 min-w-0">
-                <div className="w-10 h-10 rounded-xl bg-[#E9E5FF] dark:bg-[#4169E1]/20 text-[#4169E1] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[#EEF2FF] text-[#4169E1] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <FileText className="w-5 h-5" />
                 </div>
                 <div className="min-w-0">
-                  <span className="text-xs uppercase tracking-wider text-[#737373] dark:text-[#9CA3AF] font-bold block">
+                  <span className="text-xs uppercase tracking-wider text-[#737373] font-bold block">
                     Curriculum Vitae
                   </span>
-                  <span className="font-semibold text-sm sm:text-base text-[#171717] dark:text-[#F3F4F6] group-hover:text-[#4169E1] transition-colors truncate block">
+                  <span className="font-semibold text-sm sm:text-base text-[#171717] group-hover:text-[#4169E1] transition-colors truncate block">
                     Download Resume (PDF)
                   </span>
                 </div>
@@ -223,8 +223,8 @@ export default function Contact() {
               <ArrowUpRight className="w-4 h-4 text-[#737373] group-hover:text-[#4169E1] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
             </a>
 
-            <div className="p-4 rounded-xl bg-white dark:bg-[#1C2029] border border-[#E5E5E0] dark:border-white/10 text-xs text-[#525252] dark:text-[#9CA3AF] space-y-1">
-              <div className="flex items-center gap-1.5 font-bold text-[#171717] dark:text-[#F3F4F6]">
+            <div className="p-4 rounded-xl bg-white border border-[#E5E5E0] text-xs text-[#525252] space-y-1">
+              <div className="flex items-center gap-1.5 font-bold text-[#171717]">
                 <MapPin className="w-3.5 h-3.5 text-[#4169E1]" />
                 <span>Location &amp; Working Model:</span>
               </div>
@@ -236,191 +236,175 @@ export default function Contact() {
 
           {/* Right Column: Interactive Contact Form */}
           <div className="lg:col-span-7 w-full">
-            <div className="portfolio-card p-6 sm:p-8 bg-white dark:bg-[#1C2029] shadow-premium">
-              <div className="border-b border-[#E5E5E0] dark:border-white/10 pb-4 mb-6 flex flex-wrap items-center justify-between gap-2">
+            <div className="portfolio-card p-6 sm:p-8 bg-white shadow-premium border border-[#E5E5E0]">
+              <div className="border-b border-[#E5E5E0] pb-4 mb-6 flex flex-wrap items-center justify-between gap-2">
                 <div>
-                  <h3 className="font-bold text-lg text-[#171717] dark:text-[#F3F4F6]">
+                  <h3 className="font-bold text-lg text-[#171717]">
                     Send a Message
                   </h3>
-                  <div className="flex items-center gap-1.5 text-xs text-[#737373] dark:text-[#9CA3AF] mt-0.5">
+                  <div className="flex items-center gap-1.5 text-xs text-[#737373] mt-0.5">
                     <Clock className="w-3.5 h-3.5 text-[#4169E1]" />
                     <span>Response turnaround: under 24 hours</span>
                   </div>
                 </div>
-                <span className="text-xs font-mono text-[#4169E1] bg-[#FAFAF8] dark:bg-[#161920] px-2.5 py-1 rounded-md border border-[#E5E5E0] dark:border-white/10 font-semibold">
+                <span className="text-xs font-mono text-[#4169E1] bg-[#EEF2FF] px-2.5 py-1 rounded-md border border-[#4169E1]/20 font-semibold">
                   Direct Dispatch
                 </span>
               </div>
 
               {status === 'success' ? (
-                <div className="p-8 text-center space-y-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800">
+                <div className="p-8 text-center space-y-4 rounded-xl bg-emerald-50 border border-emerald-200">
                   <div className="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto shadow-md">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
-                  <h4 className="text-xl font-bold text-[#171717] dark:text-[#F3F4F6]">
-                    Message Sent Successfully!
+                  <h4 className="text-xl font-bold text-[#171717]">
+                    Message Sent Successfully
                   </h4>
-                  <p className="text-sm text-[#525252] dark:text-[#9CA3AF] max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out. Your note has been delivered to my inbox and I will review your requirements promptly.
+                  <p className="text-sm text-[#525252] max-w-md mx-auto">
+                    Thank you for reaching out. Your transmission has been dispatched to my inbox. I will review it and reply promptly.
                   </p>
                   <button
+                    type="button"
                     onClick={() => setStatus('idle')}
-                    className="btn-secondary !text-xs"
+                    className="inline-flex items-center gap-2 btn-secondary !py-2 !px-4 !text-xs !rounded-xl"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
                     <span>Send Another Message</span>
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-                  {/* Honeypot field */}
-                  <div style={{ display: 'none' }} aria-hidden="true">
-                    <label htmlFor="_hp_company">Do not fill this field</label>
+                <form onSubmit={handleSubmit} className="space-y-4 text-left" noValidate>
+                  {/* Honeypot anti-spam field */}
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="_hp_company">Company</label>
                     <input
                       type="text"
                       id="_hp_company"
                       name="_hp_company"
-                      tabIndex="-1"
                       value={formData._hp_company}
                       onChange={handleChange}
+                      tabIndex={-1}
                       autoComplete="off"
                     />
                   </div>
 
-                  {/* Server error alert */}
                   {status === 'error' && (
-                    <div 
-                      role="alert"
-                      className="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 text-red-700 dark:text-red-400 text-xs font-mono flex items-start gap-3"
-                    >
-                      <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-                      <div>
-                        <strong className="block font-semibold mb-0.5">Notice</strong>
-                        <span>{serverErrorMessage}</span>
+                    <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-sm flex items-start gap-3">
+                      <AlertCircle className="w-5 h-5 shrink-0 mt-0.5 text-rose-500" />
+                      <div className="space-y-1">
+                        <span className="font-semibold block">Message Delivery Failed</span>
+                        <p className="text-xs leading-relaxed">
+                          {serverErrorMessage || `Please email directly at ${portfolioData.personal.email}.`}
+                        </p>
                       </div>
                     </div>
                   )}
 
-                  {/* Row 1: Name and Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Name */}
                     <div className="space-y-1.5">
-                      <label htmlFor="contact-name" className="text-xs font-mono uppercase tracking-wider text-[#171717] dark:text-[#F3F4F6] font-bold block">
-                        Full Name <span className="text-[#4169E1]">*</span>
+                      <label htmlFor="name" className="text-xs font-mono font-medium text-[#171717] block">
+                        Full Name <span className="text-rose-500">*</span>
                       </label>
                       <input
-                        id="contact-name"
                         type="text"
+                        id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Alex Mercer"
-                        disabled={status === 'loading'}
-                        className={`w-full px-4 py-2.5 rounded-lg bg-[#FAFAF8] dark:bg-[#161920] border ${
-                          errors.name ? 'border-red-500' : 'border-[#E5E5E0] dark:border-white/10 focus:border-[#4169E1]'
-                        } text-[#171717] dark:text-[#F3F4F6] placeholder:text-[#737373]/50 text-sm focus:outline-none transition-colors disabled:opacity-50`}
+                        placeholder="e.g. Alex Morgan"
+                        className={`w-full px-4 py-2.5 rounded-xl border ${
+                          errors.name ? 'border-rose-400 bg-rose-50/50' : 'border-[#E5E5E0] bg-[#FAFAF8]'
+                        } text-sm text-[#171717] focus:outline-none focus:ring-2 focus:ring-[#4169E1]/30 focus:border-[#4169E1] focus:bg-white transition-all`}
                       />
                       {errors.name && (
-                        <p role="alert" className="text-xs text-red-500 font-mono mt-1 font-semibold">
-                          {errors.name}
-                        </p>
+                        <p className="text-xs text-rose-600 font-medium">{errors.name}</p>
                       )}
                     </div>
 
+                    {/* Email */}
                     <div className="space-y-1.5">
-                      <label htmlFor="contact-email" className="text-xs font-mono uppercase tracking-wider text-[#171717] dark:text-[#F3F4F6] font-bold block">
-                        Email Address <span className="text-[#4169E1]">*</span>
+                      <label htmlFor="email" className="text-xs font-mono font-medium text-[#171717] block">
+                        Email Address <span className="text-rose-500">*</span>
                       </label>
                       <input
-                        id="contact-email"
                         type="email"
+                        id="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="alex@company.com"
-                        disabled={status === 'loading'}
-                        className={`w-full px-4 py-2.5 rounded-lg bg-[#FAFAF8] dark:bg-[#161920] border ${
-                          errors.email ? 'border-red-500' : 'border-[#E5E5E0] dark:border-white/10 focus:border-[#4169E1]'
-                        } text-[#171717] dark:text-[#F3F4F6] placeholder:text-[#737373]/50 text-sm focus:outline-none transition-colors disabled:opacity-50`}
+                        className={`w-full px-4 py-2.5 rounded-xl border ${
+                          errors.email ? 'border-rose-400 bg-rose-50/50' : 'border-[#E5E5E0] bg-[#FAFAF8]'
+                        } text-sm text-[#171717] focus:outline-none focus:ring-2 focus:ring-[#4169E1]/30 focus:border-[#4169E1] focus:bg-white transition-all`}
                       />
                       {errors.email && (
-                        <p role="alert" className="text-xs text-red-500 font-mono mt-1 font-semibold">
-                          {errors.email}
-                        </p>
+                        <p className="text-xs text-rose-600 font-medium">{errors.email}</p>
                       )}
                     </div>
                   </div>
 
                   {/* Subject */}
                   <div className="space-y-1.5">
-                    <label htmlFor="contact-subject" className="text-xs font-mono uppercase tracking-wider text-[#171717] dark:text-[#F3F4F6] font-bold block">
-                      Subject / Project Scope <span className="text-[#4169E1]">*</span>
+                    <label htmlFor="subject" className="text-xs font-mono font-medium text-[#171717] block">
+                      Subject / Scope <span className="text-rose-500">*</span>
                     </label>
                     <input
-                      id="contact-subject"
                       type="text"
+                      id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      placeholder="Engineering Role Opening / Website Project Scope"
-                      disabled={status === 'loading'}
-                      className={`w-full px-4 py-2.5 rounded-lg bg-[#FAFAF8] dark:bg-[#161920] border ${
-                        errors.subject ? 'border-red-500' : 'border-[#E5E5E0] dark:border-white/10 focus:border-[#4169E1]'
-                      } text-[#171717] dark:text-[#F3F4F6] placeholder:text-[#737373]/50 text-sm focus:outline-none transition-colors disabled:opacity-50`}
+                      placeholder="e.g. Full-Stack Developer Role / Project Proposal"
+                      className={`w-full px-4 py-2.5 rounded-xl border ${
+                        errors.subject ? 'border-rose-400 bg-rose-50/50' : 'border-[#E5E5E0] bg-[#FAFAF8]'
+                      } text-sm text-[#171717] focus:outline-none focus:ring-2 focus:ring-[#4169E1]/30 focus:border-[#4169E1] focus:bg-white transition-all`}
                     />
                     {errors.subject && (
-                      <p role="alert" className="text-xs text-red-500 font-mono mt-1 font-semibold">
-                        {errors.subject}
-                      </p>
+                      <p className="text-xs text-rose-600 font-medium">{errors.subject}</p>
                     )}
                   </div>
 
                   {/* Message */}
                   <div className="space-y-1.5">
-                    <label htmlFor="contact-message" className="text-xs font-mono uppercase tracking-wider text-[#171717] dark:text-[#F3F4F6] font-bold block">
-                      Message &amp; Requirements <span className="text-[#4169E1]">*</span>
+                    <label htmlFor="message" className="text-xs font-mono font-medium text-[#171717] block">
+                      Message <span className="text-rose-500">*</span>
                     </label>
                     <textarea
-                      id="contact-message"
+                      id="message"
                       name="message"
-                      rows="4"
+                      rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Hi Yash, we are evaluating candidates for a MERN stack role / interested in building a web application..."
-                      disabled={status === 'loading'}
-                      className={`w-full px-4 py-2.5 rounded-lg bg-[#FAFAF8] dark:bg-[#161920] border ${
-                        errors.message ? 'border-red-500' : 'border-[#E5E5E0] dark:border-white/10 focus:border-[#4169E1]'
-                      } text-[#171717] dark:text-[#F3F4F6] placeholder:text-[#737373]/50 text-sm focus:outline-none transition-colors disabled:opacity-50`}
+                      placeholder="Provide details about the opportunity, tech stack, timeline, or requirements..."
+                      className={`w-full px-4 py-2.5 rounded-xl border ${
+                        errors.message ? 'border-rose-400 bg-rose-50/50' : 'border-[#E5E5E0] bg-[#FAFAF8]'
+                      } text-sm text-[#171717] focus:outline-none focus:ring-2 focus:ring-[#4169E1]/30 focus:border-[#4169E1] focus:bg-white transition-all resize-y`}
                     />
                     {errors.message && (
-                      <p role="alert" className="text-xs text-red-500 font-mono mt-1 font-semibold">
-                        {errors.message}
-                      </p>
+                      <p className="text-xs text-rose-600 font-medium">{errors.message}</p>
                     )}
                   </div>
 
                   {/* Submit Button */}
-                  <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                  <div className="pt-2">
                     <button
                       type="submit"
                       disabled={status === 'loading'}
-                      className="btn-primary !py-2.5 !px-6 cursor-pointer"
+                      className="btn-primary w-full !py-3 !rounded-xl justify-center font-semibold text-sm shadow-subtle hover:shadow-premium active:scale-[0.99] disabled:opacity-60 transition-all flex items-center gap-2 cursor-pointer"
                     >
                       {status === 'loading' ? (
                         <>
                           <Loader2 className="w-4 h-4 animate-spin" />
-                          <span>Sending Message...</span>
+                          <span>Transmitting Message...</span>
                         </>
                       ) : (
                         <>
-                          <span>Send Message</span>
                           <Send className="w-4 h-4" />
+                          <span>Send Message</span>
                         </>
                       )}
                     </button>
-
-                    <span className="font-mono text-xs text-[#737373] dark:text-[#9CA3AF] text-center sm:text-right">
-                      Direct inbox dispatch • Secure REST
-                    </span>
                   </div>
                 </form>
               )}

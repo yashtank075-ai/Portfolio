@@ -6,8 +6,9 @@ export const portfolioData = {
     statusBadge: "Available for engineering roles & select web projects",
     tagline:
       "Architecting thoughtful web applications and bespoke digital experiences with engineering discipline and editorial restraint.",
-    bio: "I am a full-stack developer based in India with a formal degree in Computer Applications (BCA). My work bridges frontend craftsmanship with backend architectural discipline — translating real-world requirements into modular React interfaces, secure Express REST APIs, and reliable MongoDB data layers.",
-    email: "yash.dev.contact26@gmail.com",
+    bio: "Full Stack Developer Intern at Ora Infotech with hands-on experience developing backend workflows, booking systems, and responsive web interfaces. Skilled in JavaScript, React.js, Next.js, Node.js, Express.js, REST APIs, and database technologies including MongoDB and PostgreSQL.",
+    email: "yashtank075@gmail.com",
+    phone: "7359129382",
     location: "Surat, Gujarat, India",
     githubUrl: "https://github.com/yashtank075-ai",
     linkedinUrl: "https://www.linkedin.com/in/yash-tank-abab5b308",
@@ -41,6 +42,7 @@ export const portfolioData = {
     ],
     database: [
       { name: "MongoDB", detail: "Document Storage & Aggregation" },
+      { name: "PostgreSQL", detail: "Relational Queries & Schema Design" },
       { name: "Mongoose ODM", detail: "Schema Design & Validation" },
       { name: "Data Modeling", detail: "Normalized & Embedded Structures" },
     ],
@@ -236,25 +238,28 @@ export const portfolioData = {
 
   experience: [
     {
-      period: "Recent Internship",
+      period: "August 2026 – Present",
       role: "Full Stack Developer Intern",
       organization: "Ora Infotech",
-      location: "Surat, India",
+      location: "Surat, Gujarat",
       summary:
-        "Contributed to core development initiatives at Ora Infotech, focusing on modular full-stack web engineering, workflow orchestration systems, and booking logic implementation.",
+        "Full Stack Developer Intern at Ora Infotech contributing to production systems including Antim Ritual (agent workflow & advance kit booking system) and Ora Infotech corporate website redesign.",
       contributions: [
-        "Worked on an agent workflow system, developing component flows and backend services for automated agent pipeline execution.",
-        "Worked on an advanced kit booking system, handling scheduling flows, booking status management, and data persistence.",
-        "Participated in full-stack web development activities across both client-side React interfaces and backend service APIs.",
+        "Antim Ritual — Agent Workflow & Advance Kit Booking System: Developed an agent workflow to support service-request management and processing.",
+        "Built an advance kit booking system to support reservations and booking operations.",
+        "Implemented backend functionality and booking-related API flows using Node.js and Express.js with PostgreSQL.",
+        "Worked on application data handling to support coordination between users and service agents.",
+        "Ora Infotech Corporate Website Redesign: Contributed to the corporate website redesign using React.js, Next.js, and Tailwind CSS, improving interface consistency and page styling.",
+        "Developed reusable UI components and responsive layouts for desktop, tablet, and mobile devices.",
       ],
-      stack: ["React.js", "Node.js", "Express.js", "PostgreSQL / MySQL", "Git & GitHub"],
+      stack: ["React.js", "Next.js", "Node.js", "Express.js", "PostgreSQL", "Tailwind CSS", "Git & GitHub"],
       type: "internship",
     },
     {
-      period: "Academic Tenure",
+      period: "Completed, 2026",
       role: "Bachelor of Computer Applications (BCA)",
-      organization: "Veer Narmad South Gujarat University",
-      location: "Surat, India",
+      organization: "Shree Shambhubhai V. Patel College of CS & BM, VNSGU",
+      location: "Surat, Gujarat",
       summary:
         "Graduated with formal academic training in computer science, software engineering methodologies, data structures, and database systems.",
       contributions: [
@@ -269,9 +274,9 @@ export const portfolioData = {
 
   education: {
     degree: "Bachelor of Computer Applications (BCA)",
-    institution: "Veer Narmad South Gujarat University",
+    institution: "Shree Shambhubhai V. Patel College of CS & BM, VNSGU",
     location: "Surat, Gujarat, India",
-    status: "Graduated",
+    status: "Completed, 2026",
     summary:
       "Rigorous academic grounding in computer science fundamentals, data structures, software engineering, database management systems, and modern web application development.",
     coreSubjects: [

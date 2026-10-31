@@ -3,106 +3,165 @@ import {
   Server, 
   Database, 
   Wrench, 
-  Atom
+  Atom,
+  Check,
+  Globe,
+  Terminal,
+  ShieldCheck,
+  Layers,
+  FileCode,
+  GitBranch,
+  Cpu
 } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
+
+// Technology Icon Mapping for tactile visual recognition
+const TECH_ICONS = {
+  'React.js': Atom,
+  'Next.js': Globe,
+  'JavaScript (ES6+)': FileCode,
+  'HTML5 & Semantic Markup': Layers,
+  'CSS3 & Modern Layouts': Layers,
+  'Tailwind CSS': Layers,
+  'Node.js': Server,
+  'Express.js': Cpu,
+  'RESTful Architecture': Globe,
+  'Authentication Flow': ShieldCheck,
+  'MongoDB': Database,
+  'PostgreSQL': Database,
+  'Mongoose ODM': Database,
+  'Data Modeling': Layers,
+  'Git & GitHub': GitBranch,
+  'Postman': Globe,
+  'VS Code': Terminal,
+  'Vite & npm': Wrench,
+};
 
 export default function Skills() {
   const categories = [
     {
       id: 'frontend',
-      title: 'Frontend Development',
+      title: 'Frontend Architecture',
       badge: 'Client & UI',
       icon: Atom,
+      color: '#4169E1',
+      borderHover: 'hover:border-[#4169E1]',
       items: portfolioData.skills.frontend,
     },
     {
       id: 'backend',
-      title: 'Backend Development',
-      badge: 'Server & Logic',
+      title: 'Backend Engineering',
+      badge: 'APIs & Logic',
       icon: Server,
+      color: '#8B5CF6',
+      borderHover: 'hover:border-[#8B5CF6]',
       items: portfolioData.skills.backend,
     },
     {
       id: 'database',
       title: 'Database Systems',
-      badge: 'Data Persistence',
+      badge: 'Data Modeling',
       icon: Database,
+      color: '#10B981',
+      borderHover: 'hover:border-[#10B981]',
       items: portfolioData.skills.database,
     },
     {
       id: 'tools',
-      title: 'Tools & Technologies',
-      badge: 'Workflow & Tooling',
+      title: 'Developer Tooling & DevOps',
+      badge: 'Workflow & CI',
       icon: Wrench,
+      color: '#F59E0B',
+      borderHover: 'hover:border-[#F59E0B]',
       items: portfolioData.skills.tools,
     },
   ];
 
   return (
-    <section id="skills" className="py-16 sm:py-20 lg:py-24 relative">
+    <section id="skills" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16 text-left">
           <div className="badge-tag mb-3">
             <span className="w-2 h-2 rounded-full bg-[#4169E1]" />
-            <span className="text-[#4169E1] font-bold">TECH STACK</span>
+            <span className="text-[#4169E1] font-bold">TECHNICAL EXPERTISE</span>
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#171717] dark:text-[#F3F4F6]">
-            Skills &amp; Technology Stack
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#171717]">
+            Core Skills &amp; Technologies
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-[#525252] dark:text-[#9CA3AF] leading-relaxed">
-            Technologies, frameworks, and developer tooling I utilize to build and deploy production-ready full-stack applications.
+          <p className="mt-3 text-base sm:text-lg text-[#525252] leading-relaxed">
+            Practical technologies applied across real-world web development, backend APIs, and database-driven applications.
           </p>
         </div>
 
-        {/* 4-Category Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 text-left">
-          {categories.map((cat) => {
-            const CatIcon = cat.icon;
+        {/* 4 Categories Grid - Items Stretch to Equal Height per Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 text-left items-stretch">
+          {categories.map((category) => {
+            const CategoryIcon = category.icon;
             return (
               <div
-                key={cat.id}
-                className="portfolio-card p-6 sm:p-7 relative overflow-hidden space-y-5 bg-white dark:bg-[#1C2029] shadow-premium hover:shadow-premium-hover transition-all duration-300"
+                key={category.id}
+                className={`portfolio-card group p-5 sm:p-6 lg:p-7 bg-white flex flex-col justify-between shadow-subtle hover:shadow-premium hover:-translate-y-1 transition-all duration-300 relative border border-[#E5E5E0] h-full ${category.borderHover}`}
               >
-                {/* Category Header */}
-                <div className="flex items-center justify-between border-b border-[#E5E5E0] dark:border-white/10 pb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-[#E9E5FF] dark:bg-[#4169E1]/20 text-[#4169E1] flex items-center justify-center">
-                      <CatIcon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg text-[#171717] dark:text-[#F3F4F6]">
-                        {cat.title}
-                      </h3>
-                      <span className="text-xs font-mono text-[#737373] dark:text-[#9CA3AF]">
-                        {cat.badge}
-                      </span>
-                    </div>
-                  </div>
-                  <span className="text-xs font-mono text-[#4169E1] font-semibold bg-[#FAFAF8] dark:bg-[#161920] px-2.5 py-1 rounded-md border border-[#E5E5E0] dark:border-white/10">
-                    {cat.items.length} Techs
-                  </span>
-                </div>
-
-                {/* Tech Cards List */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                  {cat.items.map((skill) => (
-                    <div
-                      key={skill.name}
-                      className="p-3.5 rounded-xl bg-[#FAFAF8] dark:bg-[#161920] border border-[#E5E5E0] dark:border-white/10 hover:border-[#4169E1]/50 hover:bg-white dark:hover:bg-[#1E2330] hover:shadow-xs transition-all duration-200 group"
-                    >
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="font-bold text-xs sm:text-sm text-[#171717] dark:text-[#F3F4F6] group-hover:text-[#4169E1] transition-colors">
-                          {skill.name}
+                <div className="space-y-4">
+                  {/* Category Header */}
+                  <div className="flex items-center justify-between border-b border-[#E5E5E0] pb-3.5">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div 
+                        className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs"
+                        style={{ backgroundColor: `${category.color}15`, color: category.color }}
+                      >
+                        <CategoryIcon className="w-5 h-5" />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="font-heading text-base sm:text-lg lg:text-xl font-bold text-[#171717] truncate">
+                          {category.title}
+                        </h3>
+                        <span className="text-[11px] font-mono text-[#737373] block">
+                          {category.items.length} Core Technologies
                         </span>
                       </div>
-                      <p className="text-[11px] font-mono text-[#737373] dark:text-[#9CA3AF] line-clamp-1">
-                        {skill.detail}
-                      </p>
                     </div>
-                  ))}
+                    
+                    <span 
+                      className="text-xs font-mono font-semibold px-2.5 py-1 rounded-md border shrink-0"
+                      style={{ 
+                        backgroundColor: `${category.color}10`, 
+                        borderColor: `${category.color}30`,
+                        color: category.color 
+                      }}
+                    >
+                      {category.badge}
+                    </span>
+                  </div>
+
+                  {/* Individual Skill Cards with Tech Icons */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                    {category.items.map((skill) => {
+                      const SkillIcon = TECH_ICONS[skill.name] || Check;
+                      return (
+                        <div
+                          key={skill.name}
+                          className="p-3 rounded-xl bg-[#FAFAF8] border border-[#E5E5E0] hover:bg-white hover:border-[#4169E1]/50 hover:shadow-subtle hover:-translate-y-0.5 transition-all duration-200 group/pill flex items-start gap-2.5 min-h-[64px]"
+                        >
+                          <div 
+                            className="w-7 h-7 rounded-lg bg-white border border-[#E5E5E0] text-[#737373] group-hover/pill:text-[#4169E1] group-hover/pill:border-[#4169E1]/30 flex items-center justify-center shrink-0 transition-colors mt-0.5"
+                          >
+                            <SkillIcon className="w-3.5 h-3.5" />
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <span className="text-xs sm:text-[13px] font-semibold text-[#171717] block truncate group-hover/pill:text-[#4169E1] transition-colors leading-tight">
+                              {skill.name}
+                            </span>
+                            <span className="text-[11px] text-[#737373] line-clamp-1 mt-0.5">
+                              {skill.detail}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
 
               </div>
