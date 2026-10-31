@@ -1,4 +1,4 @@
-﻿export const portfolioData = {
+export const portfolioData = {
   personal: {
     name: "Yash Tank",
     monogram: "YT",
@@ -237,16 +237,18 @@
   experience: [
     {
       period: "Recent Internship",
-      role: "Full-Stack Development Intern",
-      organization: "Orainfotech",
+      role: "Full Stack Developer Intern",
+      organization: "Ora Infotech",
       location: "Surat, India",
       summary:
-        "Contributed to corporate frontend page redesigns and component engineering in Next.js and Tailwind CSS under senior engineering mentorship.",
-      highlights: [
-        "Implemented responsive, mobile-first page layouts adhering to company design tokens",
-        "Coded modular Next.js components and integrated client-side interface interactions",
-        "Participated in sprint reviews and code quality checks with senior developers",
+        "Contributed to core development initiatives at Ora Infotech, focusing on modular full-stack web engineering, workflow orchestration systems, and booking logic implementation.",
+      contributions: [
+        "Worked on an agent workflow system, developing component flows and backend services for automated agent pipeline execution.",
+        "Worked on an advanced kit booking system, handling scheduling flows, booking status management, and data persistence.",
+        "Participated in full-stack web development activities across both client-side React interfaces and backend service APIs.",
       ],
+      stack: ["React.js", "Node.js", "Express.js", "PostgreSQL / MySQL", "Git & GitHub"],
+      type: "internship",
     },
     {
       period: "Academic Tenure",
@@ -255,11 +257,13 @@
       location: "Surat, India",
       summary:
         "Graduated with formal academic training in computer science, software engineering methodologies, data structures, and database systems.",
-      highlights: [
-        "Relational (SQL) and document (NoSQL) database design",
-        "Object-Oriented Programming paradigms and modern JavaScript",
-        "Software development lifecycle, system analysis, and API fundamentals",
+      contributions: [
+        "Relational (SQL) and document (NoSQL) database design and optimization",
+        "Object-Oriented Programming paradigms, data structures, and modern JavaScript",
+        "Software development lifecycle (SDLC), system analysis, and API architecture fundamentals",
       ],
+      stack: ["Computer Science Fundamentals", "DBMS & SQL", "Data Structures", "Web Technologies"],
+      type: "education",
     },
   ],
 
