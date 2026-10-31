@@ -1,182 +1,210 @@
-import React from 'react';
-import { ArrowDown, ArrowUpRight, FileText, Mail } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowDown, ArrowUpRight, FileText, Sparkles, Terminal, Copy, Check } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { portfolioData } from '../data/portfolio';
 
 export default function Hero() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard?.writeText(portfolioData.personal.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <section 
       id="home" 
-      className="relative pt-24 pb-12 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 overflow-hidden border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)]"
+      className="relative pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 overflow-hidden"
     >
+      {/* Subtle Background Geometric Accents */}
+      <div className="absolute top-10 right-1/4 w-96 h-96 rounded-full bg-[#E9E5FF]/40 dark:bg-[#4169E1]/10 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-6 left-8 w-80 h-80 rounded-full bg-[#8AB4FF]/20 dark:bg-[#5B82F6]/10 blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Top Status & Discipline Row */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] pb-4 mb-7 text-left">
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs uppercase tracking-wider">
-            <div className="inline-flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#8C734B] dark:bg-[#D9C8A5] shrink-0" />
-              <span className="font-semibold text-[#171714] dark:text-[#F5F2EB]">
-                YASH TANK
-              </span>
-            </div>
-            <span className="text-[#5A574F] dark:text-[#A8A49A] text-[11px] sm:text-xs">
-              // MERN &amp; FULL-STACK DEVELOPER
+        {/* Availability Badge */}
+        <div className="flex items-center gap-2 mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 text-emerald-700 dark:text-emerald-400 text-xs font-semibold shadow-xs">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-          </div>
-          <div className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] flex flex-wrap items-center gap-x-2 gap-y-1">
-            <span>{portfolioData.personal.location}</span>
-            <span className="text-[#8C734B] dark:text-[#D9C8A5] shrink-0">●</span>
-            <span className="font-semibold text-[#171714] dark:text-[#F5F2EB]">
-              Available for Full-Time Roles &amp; Projects
-            </span>
+            <span>{portfolioData.personal.statusBadge || 'Available for engineering roles & select web projects'}</span>
           </div>
         </div>
 
         {/* Hero Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center text-left">
           
-          {/* Main Editorial Headline & Copy */}
-          <div className="lg:col-span-8 space-y-6">
-            <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal text-[#171714] dark:text-[#F5F2EB] leading-[1.08] tracking-tight">
-              Full-stack developer <br className="hidden sm:inline" />
-              building thoughtful digital experiences.
-            </h1>
+          {/* Main Headline & Information */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#4169E1]" />
+                <span className="text-xs sm:text-sm font-mono uppercase tracking-widest text-[#4169E1] font-bold">
+                  {portfolioData.personal.role}
+                </span>
+              </div>
+              
+              <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#171717] dark:text-[#F3F4F6] leading-[1.08]">
+                Hi, I'm <span className="text-[#4169E1]">{portfolioData.personal.name}</span>. <br />
+                Building modern full-stack web applications.
+              </h1>
+            </div>
 
-            <p className="font-sans text-base sm:text-lg lg:text-xl text-[#3D3B35] dark:text-[#D4D0C5] leading-relaxed max-w-2xl font-normal">
-              I develop accessible full-stack applications and high-performance commercial websites using <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">React</strong>, <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Next.js</strong>, <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Node.js</strong>, <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">Express</strong>, and <strong className="font-semibold text-[#171714] dark:text-[#F5F2EB]">MongoDB</strong>. My approach prioritizes modular architecture, clean REST APIs, and tactile responsive design.
+            <p className="text-base sm:text-lg text-[#525252] dark:text-[#9CA3AF] leading-relaxed max-w-2xl font-normal">
+              {portfolioData.personal.tagline || portfolioData.personal.bio}
             </p>
 
-            {/* Clear Action CTAs */}
-            <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 pt-1">
-              {/* Primary: View Projects */}
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              {/* Primary CTA: View Projects */}
               <a
-                href="#work"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#171714] dark:bg-[#F5F2EB] text-[#F5F2EB] dark:text-[#171714] hover:bg-[#8C734B] dark:hover:bg-[#D9C8A5] transition-all font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider text-center"
+                href="#projects"
+                className="btn-primary !py-3 !px-5 shadow-sm"
               >
-                <span>View Selected Work</span>
-                <ArrowDown className="w-4 h-4 shrink-0" />
+                <span>View Projects</span>
+                <ArrowDown className="w-4 h-4" />
               </a>
 
-              {/* Secondary: Discuss a Project / Contact */}
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#171714] dark:border-[#F5F2EB] text-[#171714] dark:text-[#F5F2EB] hover:border-[#8C734B] hover:text-[#8C734B] dark:hover:border-[#D9C8A5] dark:hover:text-[#D9C8A5] transition-all font-mono text-xs sm:text-sm font-semibold uppercase tracking-wider text-center"
-              >
-                <span>Discuss a Project</span>
-                <ArrowUpRight className="w-4 h-4 shrink-0" />
-              </a>
-
-              {/* Tertiary: Download Resume */}
+              {/* Secondary CTA: Download Resume */}
               <a
                 href={portfolioData.personal.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Download Yash Tank Resume in PDF format"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.2)] text-[#3D3B35] dark:text-[#D4D0C5] hover:text-[#171714] dark:hover:text-[#F5F2EB] hover:border-[#8C734B] dark:hover:border-[#D9C8A5] transition-colors font-mono text-xs sm:text-sm text-center"
+                className="btn-secondary !py-3 !px-5"
               >
-                <FileText className="w-4 h-4 text-[#8C734B] dark:text-[#D9C8A5] shrink-0" />
-                <span>Download Resume (PDF)</span>
+                <FileText className="w-4 h-4 text-[#4169E1]" />
+                <span>Download Resume</span>
+              </a>
+
+              {/* Contact Link */}
+              <a
+                href="#contact"
+                className="btn-secondary !py-3 !px-4 hover:border-[#4169E1]"
+              >
+                <span>Contact Me</span>
+                <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
 
-            {/* Direct Connect Quick Links */}
-            <div className="pt-6 border-t border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] flex flex-wrap items-center gap-5 sm:gap-7 font-mono text-xs sm:text-sm text-[#423F39] dark:text-[#C4C0B6]">
-              <span className="uppercase tracking-wider text-xs text-[#8C734B] dark:text-[#D9C8A5] font-semibold">
-                Direct Channels:
+            {/* Social Channels */}
+            <div className="pt-6 border-t border-[#E5E5E0] dark:border-white/10 flex flex-wrap items-center gap-5 sm:gap-6 text-sm text-[#737373] dark:text-[#9CA3AF]">
+              <span className="font-mono text-xs uppercase tracking-wider font-bold text-[#171717] dark:text-[#F3F4F6]">
+                Connect:
               </span>
               <a
                 href={portfolioData.personal.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="View Yash Tank GitHub profile (opens in new tab)"
-                className="editorial-link"
+                aria-label="View Yash Tank GitHub profile"
+                className="inline-flex items-center gap-1.5 hover:text-[#4169E1] transition-colors font-medium text-xs sm:text-sm"
               >
                 <Github className="w-4 h-4" />
                 <span>GitHub</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
               </a>
               <a
                 href={portfolioData.personal.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="View Yash Tank LinkedIn profile (opens in new tab)"
-                className="editorial-link"
+                aria-label="View Yash Tank LinkedIn profile"
+                className="inline-flex items-center gap-1.5 hover:text-[#4169E1] transition-colors font-medium text-xs sm:text-sm"
               >
                 <Linkedin className="w-4 h-4" />
                 <span>LinkedIn</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
               </a>
-              <a
-                href={`mailto:${portfolioData.personal.email}`}
-                aria-label={`Send direct email to ${portfolioData.personal.email}`}
-                className="editorial-link"
+              <button
+                onClick={handleCopyEmail}
+                className="inline-flex items-center gap-1.5 hover:text-[#4169E1] transition-colors font-mono text-xs cursor-pointer"
+                title="Copy email to clipboard"
               >
-                <Mail className="w-4 h-4" />
-                <span>{portfolioData.personal.email}</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
+                {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5 opacity-60" />}
+                <span>{copied ? 'Copied Email' : portfolioData.personal.email}</span>
+              </button>
             </div>
           </div>
 
-          {/* Right Column: Architectural Discipline Index */}
-          <div className="lg:col-span-4 space-y-6 w-full">
-            <div className="editorial-card p-6 sm:p-7 space-y-5">
-              <div className="flex items-center justify-between border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] pb-3">
-                <span className="font-mono text-xs uppercase tracking-wider text-[#171714] dark:text-[#F5F2EB] font-bold">
-                  Technical Architecture
+          {/* Right Column: Code Editor Visual Specimen */}
+          <div className="lg:col-span-5 w-full">
+            <div className="portfolio-card p-6 sm:p-7 relative overflow-hidden space-y-5 shadow-premium bg-white dark:bg-[#1C2029]">
+              {/* Window Header */}
+              <div className="flex items-center justify-between border-b border-[#E5E5E0] dark:border-white/10 pb-3.5">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
+                  <div className="w-3 h-3 rounded-full bg-[#F59E0B]" />
+                  <div className="w-3 h-3 rounded-full bg-[#10B981]" />
+                </div>
+                <div className="inline-flex items-center gap-1.5 text-xs font-mono text-[#737373] dark:text-[#9CA3AF] bg-[#FAFAF8] dark:bg-[#161920] px-2.5 py-1 rounded-md border border-[#E5E5E0] dark:border-white/10">
+                  <Terminal className="w-3.5 h-3.5 text-[#4169E1]" />
+                  <span>developer.config.ts</span>
+                </div>
+              </div>
+
+              {/* Code Editor Body */}
+              <div className="space-y-3 font-mono text-xs sm:text-[13px] leading-relaxed select-text">
+                <div>
+                  <span className="text-[#8B5CF6] dark:text-[#A78BFA] font-bold">export const</span>{' '}
+                  <span className="text-[#2563EB] dark:text-[#60A5FA] font-semibold">yashTank</span>{' '}
+                  <span className="text-[#737373]">=</span> {'{'}
+                </div>
+                
+                <div className="pl-5 space-y-1.5 text-[#525252] dark:text-[#9CA3AF]">
+                  <div>
+                    <span className="text-[#171717] dark:text-[#F3F4F6] font-medium">name</span>:{' '}
+                    <span className="text-emerald-600 dark:text-emerald-400">"{portfolioData.personal.name}"</span>,
+                  </div>
+                  <div>
+                    <span className="text-[#171717] dark:text-[#F3F4F6] font-medium">role</span>:{' '}
+                    <span className="text-emerald-600 dark:text-emerald-400">"MERN Stack Developer"</span>,
+                  </div>
+                  <div>
+                    <span className="text-[#171717] dark:text-[#F3F4F6] font-medium">specialization</span>:{' '}
+                    <span className="text-emerald-600 dark:text-emerald-400">"Full-Stack Web Applications"</span>,
+                  </div>
+                  <div>
+                    <span className="text-[#171717] dark:text-[#F3F4F6] font-medium">coreStack</span>:{' '}[
+                    <span className="text-emerald-600 dark:text-emerald-400">"React"</span>,{' '}
+                    <span className="text-emerald-600 dark:text-emerald-400">"Node.js"</span>,{' '}
+                    <span className="text-emerald-600 dark:text-emerald-400">"Express"</span>,{' '}
+                    <span className="text-emerald-600 dark:text-emerald-400">"MongoDB"</span>],
+                  </div>
+                  <div>
+                    <span className="text-[#171717] dark:text-[#F3F4F6] font-medium">education</span>:{' '}
+                    <span className="text-emerald-600 dark:text-emerald-400">"BCA (Computer Applications)"</span>,
+                  </div>
+                  <div>
+                    <span className="text-[#171717] dark:text-[#F3F4F6] font-medium">status</span>:{' '}
+                    <span className="text-[#4169E1] font-semibold">"Ready for New Opportunities"</span>
+                  </div>
+                </div>
+
+                <div>{'};'}</div>
+              </div>
+
+              {/* Bottom Feature Pill */}
+              <div className="p-3.5 rounded-xl bg-[#FAFAF8] dark:bg-[#161920] border border-[#E5E5E0] dark:border-white/10 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-7 h-7 rounded-lg bg-[#E9E5FF] dark:bg-[#4169E1]/20 text-[#4169E1] flex items-center justify-center shrink-0">
+                    <Sparkles className="w-3.5 h-3.5" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-[#171717] dark:text-[#F3F4F6] block leading-snug">
+                      Production Standards
+                    </span>
+                    <span className="text-[11px] text-[#737373] dark:text-[#9CA3AF] leading-none">
+                      Accessible, mobile-first &amp; tested
+                    </span>
+                  </div>
+                </div>
+                <span className="font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-800/40">
+                  Verified
                 </span>
-                <span className="font-mono text-xs text-[#8C734B] dark:text-[#D9C8A5] font-medium">
-                  FULL-STACK
-                </span>
               </div>
 
-              <div className="space-y-4 font-mono text-xs sm:text-sm">
-                <div className="space-y-1">
-                  <div className="flex justify-between items-center text-[#171714] dark:text-[#F5F2EB]">
-                    <span className="font-bold text-xs uppercase tracking-wider">01 / Frontend</span>
-                    <span className="text-xs text-[#8C734B] dark:text-[#D9C8A5]">React &amp; Next.js</span>
-                  </div>
-                  <p className="font-sans text-xs sm:text-sm text-[#423F39] dark:text-[#C4C0B6] leading-relaxed">
-                    Modular component systems, server-rendered views, custom hooks, and Tailwind design tokens.
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-[#D8D3C8]/60 dark:border-[rgba(245,242,235,0.08)] space-y-1">
-                  <div className="flex justify-between items-center text-[#171714] dark:text-[#F5F2EB]">
-                    <span className="font-bold text-xs uppercase tracking-wider">02 / Backend &amp; API</span>
-                    <span className="text-xs text-[#8C734B] dark:text-[#D9C8A5]">Node &amp; Express</span>
-                  </div>
-                  <p className="font-sans text-xs sm:text-sm text-[#423F39] dark:text-[#C4C0B6] leading-relaxed">
-                    RESTful endpoints, middleware routing, rate-limiting, and defensive error handlers.
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-[#D8D3C8]/60 dark:border-[rgba(245,242,235,0.08)] space-y-1">
-                  <div className="flex justify-between items-center text-[#171714] dark:text-[#F5F2EB]">
-                    <span className="font-bold text-xs uppercase tracking-wider">03 / Database Layer</span>
-                    <span className="text-xs text-[#8C734B] dark:text-[#D9C8A5]">MongoDB &amp; Mongoose</span>
-                  </div>
-                  <p className="font-sans text-xs sm:text-sm text-[#423F39] dark:text-[#C4C0B6] leading-relaxed">
-                    Flexible document schema modeling, collections indexing, and relationship integrity.
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-[#D8D3C8]/60 dark:border-[rgba(245,242,235,0.08)] space-y-1">
-                  <div className="flex justify-between items-center text-[#171714] dark:text-[#F5F2EB]">
-                    <span className="font-bold text-xs uppercase tracking-wider">04 / Academic Foundation</span>
-                    <span className="text-xs text-[#8C734B] dark:text-[#D9C8A5]">BCA Degree</span>
-                  </div>
-                  <p className="font-sans text-xs sm:text-sm text-[#423F39] dark:text-[#C4C0B6] leading-relaxed">
-                    Veer Narmad South Gujarat University. Core algorithms, DBMS, and software design.
-                  </p>
-                </div>
-              </div>
-
-              <div className="pt-3 border-t border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] flex items-center justify-between font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">
-                <span>Status</span>
-                <span className="text-[#8C734B] dark:text-[#D9C8A5] font-semibold">Open for Discussion</span>
-              </div>
             </div>
           </div>
 

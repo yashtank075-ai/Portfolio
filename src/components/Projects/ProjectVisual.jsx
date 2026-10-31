@@ -1,49 +1,159 @@
 import React from 'react';
-import { Utensils, BookOpen, ShoppingBag, Globe } from 'lucide-react';
+import { 
+  Utensils, 
+  BookOpen, 
+  ShoppingBag, 
+  Globe
+} from 'lucide-react';
 
 export default function ProjectVisual({ projectId }) {
   if (projectId === 'orainfotech') {
     return (
-      <div className="w-full bg-[#EFECE3] dark:bg-[#1A1A16] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)] p-3.5 sm:p-5 space-y-3.5 text-left transition-colors duration-300">
+      <div className="w-full bg-[#F2F3F0] dark:bg-[#161920] p-3.5 sm:p-4 space-y-3 text-left">
         {/* Browser Frame Header */}
-        <div className="flex flex-wrap items-center justify-between border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)] pb-3 gap-2">
-          <div className="flex items-center gap-3">
-            {/* Minimal Window Dots */}
+        <div className="flex flex-wrap items-center justify-between border-b border-[#E5E5E0] dark:border-white/10 pb-2.5 gap-2">
+          <div className="flex items-center gap-2.5">
             <div className="flex items-center gap-1.5" aria-hidden="true">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#E06C75]/80" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#E5C07B]/80" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#98C379]/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
             </div>
-            {/* Address Bar */}
-            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-[#FAF8F3] dark:bg-[#121210] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] text-[11px] font-mono text-[#3D3B35] dark:text-[#D4D0C5]">
-              <Globe className="w-3 h-3 text-[#8C734B] dark:text-[#D9C8A5] shrink-0" />
-              <span className="truncate max-w-[170px] sm:max-w-xs">https://www.orainfotech.com/</span>
+            {/* URL bar */}
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white dark:bg-[#1C2029] border border-[#E5E5E0] dark:border-white/10 text-[11px] font-mono text-[#525252] dark:text-[#9CA3AF]">
+              <Globe className="w-3 h-3 text-[#4169E1] shrink-0" />
+              <span className="truncate max-w-[180px] sm:max-w-xs">https://www.orainfotech.com/</span>
             </div>
           </div>
-          <span className="font-mono text-xs px-2.5 py-1 bg-[#FAF8F3] dark:bg-[#121210] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.18)] text-[#8C734B] dark:text-[#D9C8A5] uppercase tracking-wider font-semibold">
-            Live Production Website
+          <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 font-semibold border border-emerald-200 dark:border-emerald-800/40">
+            Live Corporate Portal
           </span>
         </div>
 
-        {/* Genuine Screenshot Specimen */}
-        <div className="relative overflow-hidden border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] bg-[#FAF8F3] dark:bg-[#151512] shadow-sm">
+        {/* Real Screenshot Preview */}
+        <div className="relative overflow-hidden rounded-xl border border-[#E5E5E0] dark:border-white/10 bg-white dark:bg-[#1C2029] aspect-video">
           <img 
             src="/orainfotech-preview.png" 
             alt="Orainfotech Corporate Website Redesign — Official Homepage Screenshot" 
-            className="w-full h-auto object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.01]"
+            className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
             loading="lazy"
             width="1440"
             height="810"
           />
-          <div className="absolute bottom-2.5 right-2.5 px-2.5 py-1 bg-[#171714]/85 text-[#F5F2EB] font-mono text-[10px] uppercase tracking-wider backdrop-blur-sm pointer-events-none border border-white/10">
-            Verified Production Interface
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <span className="text-xs font-mono text-white bg-black/70 backdrop-blur-md px-2.5 py-1 rounded">
+              Client: Orainfotech (Corporate IT Services)
+            </span>
           </div>
         </div>
 
         {/* Technical Sub-spec */}
-        <div className="flex flex-wrap items-center justify-between text-xs font-mono text-[#423F39] dark:text-[#C4C0B6] pt-0.5 gap-2">
-          <span>Engineered with Next.js &amp; Tailwind CSS</span>
-          <span className="text-[#8C734B] dark:text-[#D9C8A5]">Client: Orainfotech (Corporate Portal)</span>
+        <div className="flex flex-wrap items-center justify-between text-xs font-mono text-[#737373] dark:text-[#9CA3AF] pt-0.5 gap-2">
+          <span>Stack: Next.js, React.js &amp; Tailwind CSS</span>
+          <span className="text-[#4169E1] font-semibold">Scope: Service &amp; Marketing Pages</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (projectId === 'dwarkadhish-car-rent') {
+    return (
+      <div className="w-full bg-[#F2F3F0] dark:bg-[#161920] p-3.5 sm:p-4 space-y-3 text-left">
+        {/* Browser Frame Header */}
+        <div className="flex flex-wrap items-center justify-between border-b border-[#E5E5E0] dark:border-white/10 pb-2.5 gap-2">
+          <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-1.5" aria-hidden="true">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+            </div>
+            {/* URL bar */}
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white dark:bg-[#1C2029] border border-[#E5E5E0] dark:border-white/10 text-[11px] font-mono text-[#525252] dark:text-[#9CA3AF]">
+              <Globe className="w-3 h-3 text-[#4169E1] shrink-0" />
+              <span className="truncate max-w-[200px] sm:max-w-xs">https://dwarkadhish-car-rent.vercel.app/</span>
+            </div>
+          </div>
+          <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 font-semibold border border-emerald-200 dark:border-emerald-800/40">
+            Live Business Website
+          </span>
+        </div>
+
+        {/* Real Vehicle Catalog Banner & Visual Specimen */}
+        <div className="relative overflow-hidden rounded-xl border border-[#E5E5E0] dark:border-white/10 bg-[#0B1220] p-4 text-white shadow-inner">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="space-y-2 z-10">
+              <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#D8B66A]/20 border border-[#D8B66A]/40 text-[#D8B66A] text-[10px] font-mono font-bold uppercase tracking-wider">
+                Surat Car Rental Service
+              </div>
+              <h4 className="text-lg sm:text-xl font-bold tracking-tight text-white">
+                Dwarkadhish Car Rent
+              </h4>
+              <p className="text-xs text-slate-300 max-w-xs leading-relaxed">
+                Self-drive car rentals in Surat, Gujarat. Verified fleet options with instant WhatsApp reservation.
+              </p>
+              <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-[11px]">
+                <span className="px-2 py-0.5 rounded bg-white/10 text-[#D8B66A] border border-white/15">
+                  12h: ₹2,500
+                </span>
+                <span className="px-2 py-0.5 rounded bg-white/10 text-emerald-400 border border-white/15">
+                  24h: ₹3,500
+                </span>
+              </div>
+            </div>
+
+            <div className="w-full sm:w-1/2 relative aspect-[4/3] sm:aspect-auto sm:h-36 flex items-center justify-center">
+              <img 
+                src="/dwarkadhish-venue.png" 
+                alt="Dwarkadhish Car Rent — Hyundai Venue Fleet Vehicle" 
+                className="w-full max-h-32 object-contain drop-shadow-2xl transition-transform duration-500 ease-out group-hover:scale-105"
+                loading="lazy"
+                width="600"
+                height="400"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Fleet Inventory Sub-cards */}
+        <div className="grid grid-cols-2 gap-2.5 pt-0.5">
+          <div className="p-2.5 rounded-lg bg-white dark:bg-[#1C2029] border border-[#E5E5E0] dark:border-white/10 flex items-center gap-2.5">
+            <img 
+              src="/dwarkadhish-verna.png" 
+              alt="Hyundai Verna" 
+              className="w-14 h-10 object-contain shrink-0" 
+              loading="lazy"
+            />
+            <div className="min-w-0">
+              <span className="font-bold text-xs text-[#171717] dark:text-[#F3F4F6] block truncate">
+                Hyundai Verna
+              </span>
+              <span className="font-mono text-[10px] text-[#737373] dark:text-[#9CA3AF] block truncate">
+                Executive Sedan • ₹3,500 / 12h
+              </span>
+            </div>
+          </div>
+
+          <div className="p-2.5 rounded-lg bg-white dark:bg-[#1C2029] border border-[#E5E5E0] dark:border-white/10 flex items-center gap-2.5">
+            <img 
+              src="/dwarkadhish-swift.png" 
+              alt="Maruti Suzuki Swift" 
+              className="w-14 h-10 object-contain shrink-0" 
+              loading="lazy"
+            />
+            <div className="min-w-0">
+              <span className="font-bold text-xs text-[#171717] dark:text-[#F3F4F6] block truncate">
+                Maruti Swift
+              </span>
+              <span className="font-mono text-[10px] text-[#737373] dark:text-[#9CA3AF] block truncate">
+                Popular Hatchback • ₹2,500 / 12h
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Technical Sub-spec */}
+        <div className="flex flex-wrap items-center justify-between text-xs font-mono text-[#737373] dark:text-[#9CA3AF] pt-0.5 gap-2">
+          <span>Engineered with React 19, Tailwind CSS &amp; Vite</span>
+          <span className="text-[#4169E1] font-semibold">Direct WhatsApp Booking Integration</span>
         </div>
       </div>
     );
@@ -51,99 +161,104 @@ export default function ProjectVisual({ projectId }) {
 
   if (projectId === 'food-ordering') {
     return (
-      <div className="w-full bg-[#EFECE3] dark:bg-[#1A1A16] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)] p-4 sm:p-6 space-y-4 text-left transition-colors duration-300">
-        {/* Masthead Label */}
-        <div className="flex flex-wrap items-center justify-between border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)] pb-3 gap-2">
+      <div className="w-full bg-[#F2F3F0] dark:bg-[#161920] p-4 sm:p-5 space-y-3.5 text-left">
+        {/* Masthead Header */}
+        <div className="flex flex-wrap items-center justify-between border-b border-[#E5E5E0] dark:border-white/10 pb-3 gap-2">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 bg-[#171714] text-[#F5F2EB] dark:bg-[#FAF8F3] dark:text-[#171714] flex items-center justify-center text-xs shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-[#4169E1] text-white flex items-center justify-center text-xs shrink-0 shadow-xs">
               <Utensils className="w-4 h-4" />
             </div>
             <div>
-              <span className="font-mono text-xs sm:text-sm font-bold tracking-wider text-[#171714] dark:text-[#F5F2EB] uppercase block">
-                Food-Del Application Specimen
+              <span className="font-mono text-xs sm:text-sm font-bold text-[#171717] dark:text-[#F3F4F6] block">
+                Food-Del Application Mockup
               </span>
-              <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">
-                React Client // Express REST // MongoDB Schema
+              <span className="font-mono text-[11px] text-[#737373] dark:text-[#9CA3AF]">
+                React Dynamic State // Express Order Flow // MongoDB
               </span>
             </div>
           </div>
-          <span className="font-mono text-xs px-2.5 py-1 bg-[#FAF8F3] dark:bg-[#121210] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.18)] text-[#8C734B] dark:text-[#D9C8A5] uppercase tracking-wider font-semibold">
-            Verified Stack
+          <span className="font-mono text-xs px-2.5 py-1 rounded-md bg-white dark:bg-[#1C2029] border border-[#E5E5E0] dark:border-white/10 text-[#4169E1] font-semibold">
+            MERN Application
           </span>
         </div>
 
-        {/* Visual Composition: Menu UI & API Pipeline */}
-        <div className="grid grid-cols-1 sm:grid-cols-12 gap-3.5 pt-1">
-          {/* Menu Catalog Wireframe */}
-          <div className="sm:col-span-7 bg-[#FAF8F3] dark:bg-[#151512] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] p-4 space-y-3">
-            <div className="flex items-center justify-between text-xs font-mono text-[#423F39] dark:text-[#C4C0B6] border-b border-[#D8D3C8]/60 dark:border-[rgba(245,242,235,0.08)] pb-2">
-              <span>Catalog State: Filtered</span>
-              <span className="text-[#8C734B] dark:text-[#D9C8A5] font-semibold">Filter: All Items</span>
+        {/* High-fidelity interactive UI display */}
+        <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
+          {/* Menu Catalog Display */}
+          <div className="sm:col-span-7 bg-white dark:bg-[#1C2029] rounded-xl border border-[#E5E5E0] dark:border-white/10 p-3.5 space-y-2.5">
+            <div className="flex items-center justify-between text-xs font-mono text-[#737373] dark:text-[#9CA3AF] border-b border-[#E5E5E0] dark:border-white/10 pb-2">
+              <span className="font-bold text-[#171717] dark:text-[#F3F4F6]">Dynamic Menu Catalog</span>
+              <span className="text-[#4169E1] font-semibold bg-[#E9E5FF] dark:bg-[#4169E1]/20 px-2 py-0.5 rounded text-[10px]">Filter: All Dishes</span>
             </div>
             
-            {/* Sample Menu Items */}
-            <div className="space-y-2.5">
-              <div className="p-3 bg-[#EFECE3] dark:bg-[#1E1E1A] border border-[#D8D3C8]/70 dark:border-[rgba(245,242,235,0.1)] flex items-center justify-between gap-2">
+            <div className="space-y-2">
+              <div className="p-2.5 rounded-lg bg-[#FAFAF8] dark:bg-[#161920] border border-[#E5E5E0] dark:border-white/10 flex items-center justify-between gap-2 hover:border-[#4169E1]/40 transition-colors">
                 <div className="min-w-0">
-                  <div className="font-sans font-semibold text-xs sm:text-sm text-[#171714] dark:text-[#F5F2EB] truncate">
+                  <div className="font-bold text-xs sm:text-sm text-[#171717] dark:text-[#F3F4F6] truncate">
                     Artisan Margherita Pizza
                   </div>
-                  <div className="font-sans text-xs text-[#423F39] dark:text-[#C4C0B6] truncate">
-                    Fresh basil, mozzarella, marinara
+                  <div className="text-[11px] text-[#737373] dark:text-[#9CA3AF] truncate">
+                    San Marzano tomato, fresh mozzarella, basil
                   </div>
                 </div>
                 <div className="text-right shrink-0">
-                  <span className="font-mono text-xs sm:text-sm font-bold text-[#171714] dark:text-[#F5F2EB] block">
+                  <span className="font-mono text-xs font-bold text-[#171717] dark:text-[#F3F4F6] block">
                     $14.00
                   </span>
-                  <span className="font-mono text-xs text-[#8C734B] dark:text-[#D9C8A5] font-semibold">
-                    Qty: 1 [In Cart]
+                  <span className="font-mono text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">
+                    In Cart (1)
                   </span>
                 </div>
               </div>
 
-              <div className="p-3 bg-[#EFECE3] dark:bg-[#1E1E1A] border border-[#D8D3C8]/70 dark:border-[rgba(245,242,235,0.1)] flex items-center justify-between gap-2">
+              <div className="p-2.5 rounded-lg bg-[#FAFAF8] dark:bg-[#161920] border border-[#E5E5E0] dark:border-white/10 flex items-center justify-between gap-2 hover:border-[#4169E1]/40 transition-colors">
                 <div className="min-w-0">
-                  <div className="font-sans font-semibold text-xs sm:text-sm text-[#171714] dark:text-[#F5F2EB] truncate">
-                    Truffle Tagliatelle
+                  <div className="font-bold text-xs sm:text-sm text-[#171717] dark:text-[#F3F4F6] truncate">
+                    Truffle Wild Tagliatelle
                   </div>
-                  <div className="font-sans text-xs text-[#423F39] dark:text-[#C4C0B6] truncate">
-                    Wild mushroom &amp; shaved parmesan
+                  <div className="text-[11px] text-[#737373] dark:text-[#9CA3AF] truncate">
+                    Wild forest mushrooms, parmesan crisp
                   </div>
                 </div>
                 <div className="text-right shrink-0">
-                  <span className="font-mono text-xs sm:text-sm font-bold text-[#171714] dark:text-[#F5F2EB] block">
+                  <span className="font-mono text-xs font-bold text-[#171717] dark:text-[#F3F4F6] block">
                     $19.50
                   </span>
-                  <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">
-                    Qty: 0
+                  <span className="font-mono text-[10px] text-[#737373] dark:text-[#9CA3AF]">
+                    Add +
                   </span>
                 </div>
               </div>
+            </div>
+
+            {/* Cart preview bar */}
+            <div className="pt-2 border-t border-[#E5E5E0] dark:border-white/10 flex items-center justify-between text-xs font-mono">
+              <span className="text-[#737373] dark:text-[#9CA3AF]">Synchronized Cart:</span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-bold">$14.00 Total</span>
             </div>
           </div>
 
-          {/* Architecture Data Flow Column */}
-          <div className="sm:col-span-5 bg-[#FAF8F3] dark:bg-[#151512] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] p-4 space-y-3 flex flex-col justify-between">
+          {/* Endpoints & Architecture Column */}
+          <div className="sm:col-span-5 bg-white dark:bg-[#1C2029] rounded-xl border border-[#E5E5E0] dark:border-white/10 p-3.5 space-y-2.5 flex flex-col justify-between">
             <div>
-              <span className="font-mono text-xs text-[#8C734B] dark:text-[#D9C8A5] uppercase tracking-wider block font-bold mb-2">
-                REST Endpoints
+              <span className="font-mono text-[11px] text-[#4169E1] uppercase tracking-wider block font-bold mb-2">
+                REST API Pipeline
               </span>
-              <ul className="font-mono text-xs text-[#3D3B35] dark:text-[#D4D0C5] space-y-2">
+              <ul className="font-mono text-[11px] text-[#737373] dark:text-[#9CA3AF] space-y-2">
                 <li className="flex items-center gap-2">
-                  <span className="px-1.5 py-0.5 bg-[#EFECE3] dark:bg-[#1E1E1A] text-[#171714] dark:text-[#F5F2EB] font-bold text-[11px] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)]">
+                  <span className="px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 font-bold text-[10px]">
                     GET
                   </span>
                   <span className="truncate">/api/food/list</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="px-1.5 py-0.5 bg-[#EFECE3] dark:bg-[#1E1E1A] text-[#171714] dark:text-[#F5F2EB] font-bold text-[11px] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)]">
+                  <span className="px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-400 font-bold text-[10px]">
                     POST
                   </span>
                   <span className="truncate">/api/cart/update</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="px-1.5 py-0.5 bg-[#EFECE3] dark:bg-[#1E1E1A] text-[#171714] dark:text-[#F5F2EB] font-bold text-[11px] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)]">
+                  <span className="px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-400 font-bold text-[10px]">
                     POST
                   </span>
                   <span className="truncate">/api/order/place</span>
@@ -151,9 +266,9 @@ export default function ProjectVisual({ projectId }) {
               </ul>
             </div>
 
-            <div className="pt-2 border-t border-[#D8D3C8]/60 dark:border-[rgba(245,242,235,0.08)] font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] flex items-center justify-between">
+            <div className="pt-2 border-t border-[#E5E5E0] dark:border-white/10 font-mono text-[11px] text-[#737373] dark:text-[#9CA3AF] flex items-center justify-between">
               <span>Database:</span>
-              <span className="text-[#171714] dark:text-[#F5F2EB] font-semibold">MongoDB Atlas</span>
+              <span className="text-[#171717] dark:text-[#F3F4F6] font-semibold">MongoDB Atlas</span>
             </div>
           </div>
         </div>
@@ -163,178 +278,176 @@ export default function ProjectVisual({ projectId }) {
 
   if (projectId === 'library-management') {
     return (
-      <div className="w-full bg-[#EFECE3] dark:bg-[#1A1A16] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)] p-4 sm:p-6 space-y-4 text-left transition-colors duration-300">
-        {/* Masthead Label */}
-        <div className="flex flex-wrap items-center justify-between border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)] pb-3 gap-2">
+      <div className="w-full bg-[#F2F3F0] dark:bg-[#161920] p-4 sm:p-5 space-y-3.5 text-left">
+        {/* Masthead Header */}
+        <div className="flex flex-wrap items-center justify-between border-b border-[#E5E5E0] dark:border-white/10 pb-3 gap-2">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 bg-[#171714] text-[#F5F2EB] dark:bg-[#FAF8F3] dark:text-[#171714] flex items-center justify-center text-xs shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-[#4169E1] text-white flex items-center justify-center text-xs shrink-0 shadow-xs">
               <BookOpen className="w-4 h-4" />
             </div>
             <div>
-              <span className="font-mono text-xs sm:text-sm font-bold tracking-wider text-[#171714] dark:text-[#F5F2EB] uppercase block">
-                Library Inventory &amp; Loan Ledger
+              <span className="font-mono text-xs sm:text-sm font-bold text-[#171717] dark:text-[#F3F4F6] block">
+                Library Ledger &amp; Inventory System
               </span>
-              <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">
+              <span className="font-mono text-[11px] text-[#737373] dark:text-[#9CA3AF]">
                 Relational Modeling // Issue &amp; Return Handlers
               </span>
             </div>
           </div>
-          <span className="font-mono text-xs px-2.5 py-1 bg-[#FAF8F3] dark:bg-[#121210] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.18)] text-[#8C734B] dark:text-[#D9C8A5] uppercase tracking-wider font-semibold">
-            System Specimen
+          <span className="font-mono text-xs px-2.5 py-1 rounded-md bg-white dark:bg-[#1C2029] border border-[#E5E5E0] dark:border-white/10 text-[#4169E1] font-semibold">
+            Administrative Platform
           </span>
         </div>
 
-        {/* Ledger Layout (Responsive cards on mobile, grid on sm+) */}
-        <div className="bg-[#FAF8F3] dark:bg-[#151512] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] p-4 space-y-3 font-mono text-xs">
-          <div className="hidden sm:grid grid-cols-12 gap-2 text-[#423F39] dark:text-[#C4C0B6] uppercase text-xs font-bold border-b border-[#D8D3C8]/70 dark:border-[rgba(245,242,235,0.08)] pb-2">
+        {/* Ledger Layout */}
+        <div className="bg-white dark:bg-[#1C2029] rounded-xl border border-[#E5E5E0] dark:border-white/10 p-3.5 space-y-2.5 font-mono text-xs">
+          <div className="hidden sm:grid grid-cols-12 gap-2 text-[#737373] dark:text-[#9CA3AF] uppercase text-[11px] font-bold border-b border-[#E5E5E0] dark:border-white/10 pb-2">
             <span className="col-span-5">Book Title &amp; ISBN</span>
-            <span className="col-span-4">Borrower Record</span>
-            <span className="col-span-3 text-right">Status</span>
+            <span className="col-span-4">Member Record</span>
+            <span className="col-span-3 text-right">Loan Status</span>
           </div>
 
-          <div className="flex flex-col sm:grid sm:grid-cols-12 gap-1.5 sm:gap-2 items-start sm:items-center py-2 border-b border-[#D8D3C8]/40 dark:border-[rgba(245,242,235,0.06)]">
+          <div className="flex flex-col sm:grid sm:grid-cols-12 gap-1 sm:gap-2 items-start sm:items-center py-2 border-b border-[#E5E5E0]/60 dark:border-white/5">
             <div className="sm:col-span-5">
-              <span className="font-sans font-semibold text-xs sm:text-sm text-[#171714] dark:text-[#F5F2EB] block">
-                Clean Code by Robert Martin
+              <span className="font-sans font-bold text-xs sm:text-sm text-[#171717] dark:text-[#F3F4F6] block">
+                Clean Code by Robert C. Martin
               </span>
-              <span className="text-xs text-[#423F39] dark:text-[#C4C0B6]">ISBN 978-0132350884</span>
+              <span className="text-[10px] text-[#737373] dark:text-[#9CA3AF]">ISBN: 978-0132350884</span>
             </div>
-            <div className="sm:col-span-4 text-xs text-[#3D3B35] dark:text-[#D4D0C5]">
+            <div className="sm:col-span-4 text-xs text-[#525252] dark:text-[#9CA3AF]">
               Member: STD-2024-0419
             </div>
             <div className="sm:col-span-3 sm:text-right">
-              <span className="px-2 py-0.5 bg-[#EFECE3] dark:bg-[#1E1E1A] text-[#8C734B] dark:text-[#D9C8A5] text-xs font-bold border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] inline-block">
+              <span className="px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-400 text-[10px] font-bold border border-amber-200 dark:border-amber-800">
                 ISSUED
               </span>
             </div>
           </div>
 
-          <div className="flex flex-col sm:grid sm:grid-cols-12 gap-1.5 sm:gap-2 items-start sm:items-center py-2 border-b border-[#D8D3C8]/40 dark:border-[rgba(245,242,235,0.06)]">
+          <div className="flex flex-col sm:grid sm:grid-cols-12 gap-1 sm:gap-2 items-start sm:items-center py-2 border-b border-[#E5E5E0]/60 dark:border-white/5">
             <div className="sm:col-span-5">
-              <span className="font-sans font-semibold text-xs sm:text-sm text-[#171714] dark:text-[#F5F2EB] block">
-                Database System Concepts
+              <span className="font-sans font-bold text-xs sm:text-sm text-[#171717] dark:text-[#F3F4F6] block">
+                Database System Concepts (Silberschatz)
               </span>
-              <span className="text-xs text-[#423F39] dark:text-[#C4C0B6]">ISBN 978-0078022159</span>
+              <span className="text-[10px] text-[#737373] dark:text-[#9CA3AF]">ISBN: 978-0078022159</span>
             </div>
-            <div className="sm:col-span-4 text-xs text-[#3D3B35] dark:text-[#D4D0C5]">
+            <div className="sm:col-span-4 text-xs text-[#525252] dark:text-[#9CA3AF]">
               Member: STD-2024-0112
             </div>
             <div className="sm:col-span-3 sm:text-right">
-              <span className="px-2 py-0.5 bg-[#EFECE3] dark:bg-[#1E1E1A] text-[#423F39] dark:text-[#C4C0B6] text-xs font-bold border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] inline-block">
+              <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 text-[10px] font-bold border border-emerald-200 dark:border-emerald-800">
                 RETURNED
               </span>
             </div>
           </div>
 
-          <div className="flex flex-col sm:grid sm:grid-cols-12 gap-1.5 sm:gap-2 items-start sm:items-center py-2">
+          <div className="flex flex-col sm:grid sm:grid-cols-12 gap-1 sm:gap-2 items-start sm:items-center py-2">
             <div className="sm:col-span-5">
-              <span className="font-sans font-semibold text-xs sm:text-sm text-[#171714] dark:text-[#F5F2EB] block">
-                Introduction to Algorithms
+              <span className="font-sans font-bold text-xs sm:text-sm text-[#171717] dark:text-[#F3F4F6] block">
+                Introduction to Algorithms (CLRS)
               </span>
-              <span className="text-xs text-[#423F39] dark:text-[#C4C0B6]">ISBN 978-0262033848</span>
+              <span className="text-[10px] text-[#737373] dark:text-[#9CA3AF]">ISBN: 978-0262033848</span>
             </div>
-            <div className="sm:col-span-4 text-xs text-[#3D3B35] dark:text-[#D4D0C5]">
-              Available In Stacks
+            <div className="sm:col-span-4 text-xs text-[#525252] dark:text-[#9CA3AF]">
+              Stack: Available In Stacks
             </div>
             <div className="sm:col-span-3 sm:text-right">
-              <span className="px-2 py-0.5 bg-[#EFECE3] dark:bg-[#1E1E1A] text-[#171714] dark:text-[#F5F2EB] text-xs font-bold border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] inline-block">
+              <span className="px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-400 text-[10px] font-bold border border-blue-200 dark:border-blue-800">
                 IN STOCK
               </span>
             </div>
           </div>
         </div>
 
-        {/* Technical Sub-detail */}
-        <div className="flex flex-wrap items-center justify-between text-xs font-mono text-[#423F39] dark:text-[#C4C0B6] pt-1 gap-2">
-          <span>Concurrency Control: Status Locking</span>
-          <span>Records Indexed: MongoDB Collections</span>
+        <div className="flex flex-wrap items-center justify-between text-xs font-mono text-[#737373] dark:text-[#9CA3AF] pt-0.5 gap-2">
+          <span>Concurrency Control: Transactional Locks</span>
+          <span>Indexed: MongoDB Collections</span>
         </div>
       </div>
     );
   }
 
-  // E-Commerce Clothing Website
+  // E-Commerce
   return (
-    <div className="w-full bg-[#EFECE3] dark:bg-[#1A1A16] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)] p-4 sm:p-6 space-y-4 text-left transition-colors duration-300">
-      {/* Masthead Label */}
-      <div className="flex flex-wrap items-center justify-between border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)] pb-3 gap-2">
+    <div className="w-full bg-[#F2F3F0] dark:bg-[#161920] p-4 sm:p-5 space-y-3.5 text-left">
+      {/* Masthead Header */}
+      <div className="flex flex-wrap items-center justify-between border-b border-[#E5E5E0] dark:border-white/10 pb-3 gap-2">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 bg-[#171714] text-[#F5F2EB] dark:bg-[#FAF8F3] dark:text-[#171714] flex items-center justify-center text-xs shrink-0">
+          <div className="w-8 h-8 rounded-lg bg-[#4169E1] text-white flex items-center justify-center text-xs shrink-0 shadow-xs">
             <ShoppingBag className="w-4 h-4" />
           </div>
           <div>
-            <span className="font-mono text-xs sm:text-sm font-bold tracking-wider text-[#171714] dark:text-[#F5F2EB] uppercase block">
-              Apparel E-Commerce Storefront
+            <span className="font-mono text-xs sm:text-sm font-bold text-[#171717] dark:text-[#F3F4F6] block">
+              Contemporary Apparel Storefront
             </span>
-            <span className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">
+            <span className="font-mono text-[11px] text-[#737373] dark:text-[#9CA3AF]">
               Curated Cataloging // Persistent Cart // Responsive Flow
             </span>
           </div>
         </div>
-        <span className="font-mono text-xs px-2.5 py-1 bg-[#FAF8F3] dark:bg-[#121210] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.18)] text-[#8C734B] dark:text-[#D9C8A5] uppercase tracking-wider font-semibold">
+        <span className="font-mono text-xs px-2.5 py-1 rounded-md bg-white dark:bg-[#1C2029] border border-[#E5E5E0] dark:border-white/10 text-[#4169E1] font-semibold">
           Commercial App
         </span>
       </div>
 
       {/* Product Display Mock Wireframe */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <div className="bg-[#FAF8F3] dark:bg-[#151512] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] p-3.5 space-y-2.5">
-          <div className="h-24 bg-[#EFECE3] dark:bg-[#1E1E1A] flex items-center justify-center font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] border border-[#D8D3C8]/50 dark:border-[rgba(245,242,235,0.06)] font-medium">
-            [Product Visual]
+        <div className="bg-white dark:bg-[#1C2029] rounded-xl border border-[#E5E5E0] dark:border-white/10 p-3.5 space-y-2 hover:border-[#4169E1]/40 transition-colors">
+          <div className="h-24 rounded-lg bg-[#F2F3F0] dark:bg-[#161920] flex items-center justify-center font-mono text-xs text-[#737373] dark:text-[#9CA3AF]">
+            👕 [Product Item]
           </div>
           <div>
-            <div className="font-sans font-semibold text-xs sm:text-sm text-[#171714] dark:text-[#F5F2EB]">
+            <div className="font-bold text-xs sm:text-sm text-[#171717] dark:text-[#F3F4F6] truncate">
               Heavyweight Cotton Tee
             </div>
-            <div className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">
+            <div className="font-mono text-[10px] text-[#737373] dark:text-[#9CA3AF]">
               Natural Ivory // Size M, L
             </div>
           </div>
-          <div className="flex justify-between items-center pt-1 font-mono text-xs sm:text-sm">
-            <span className="font-bold text-[#171714] dark:text-[#F5F2EB]">$48.00</span>
-            <span className="text-xs text-[#8C734B] dark:text-[#D9C8A5] font-semibold">In Stock</span>
+          <div className="flex justify-between items-center pt-1 font-mono text-xs">
+            <span className="font-bold text-[#171717] dark:text-[#F3F4F6]">$48.00</span>
+            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">In Stock</span>
           </div>
         </div>
 
-        <div className="bg-[#FAF8F3] dark:bg-[#151512] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] p-3.5 space-y-2.5">
-          <div className="h-24 bg-[#EFECE3] dark:bg-[#1E1E1A] flex items-center justify-center font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] border border-[#D8D3C8]/50 dark:border-[rgba(245,242,235,0.06)] font-medium">
-            [Product Visual]
+        <div className="bg-white dark:bg-[#1C2029] rounded-xl border border-[#E5E5E0] dark:border-white/10 p-3.5 space-y-2 hover:border-[#4169E1]/40 transition-colors">
+          <div className="h-24 rounded-lg bg-[#F2F3F0] dark:bg-[#161920] flex items-center justify-center font-mono text-xs text-[#737373] dark:text-[#9CA3AF]">
+            🧥 [Product Item]
           </div>
           <div>
-            <div className="font-sans font-semibold text-xs sm:text-sm text-[#171714] dark:text-[#F5F2EB]">
+            <div className="font-bold text-xs sm:text-sm text-[#171717] dark:text-[#F3F4F6] truncate">
               Relaxed Wool Overshirt
             </div>
-            <div className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">
+            <div className="font-mono text-[10px] text-[#737373] dark:text-[#9CA3AF]">
               Stone Heather // Size S, M
             </div>
           </div>
-          <div className="flex justify-between items-center pt-1 font-mono text-xs sm:text-sm">
-            <span className="font-bold text-[#171714] dark:text-[#F5F2EB]">$140.00</span>
-            <span className="text-xs text-[#8C734B] dark:text-[#D9C8A5] font-semibold">Added to Cart</span>
+          <div className="flex justify-between items-center pt-1 font-mono text-xs">
+            <span className="font-bold text-[#171717] dark:text-[#F3F4F6]">$140.00</span>
+            <span className="text-[10px] text-[#4169E1] font-semibold">Added to Cart</span>
           </div>
         </div>
 
-        <div className="bg-[#FAF8F3] dark:bg-[#151512] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] p-3.5 space-y-2.5">
-          <div className="h-24 bg-[#EFECE3] dark:bg-[#1E1E1A] flex items-center justify-center font-mono text-xs text-[#423F39] dark:text-[#C4C0B6] border border-[#D8D3C8]/50 dark:border-[rgba(245,242,235,0.06)] font-medium">
-            [Product Visual]
+        <div className="bg-white dark:bg-[#1C2029] rounded-xl border border-[#E5E5E0] dark:border-white/10 p-3.5 space-y-2 hover:border-[#4169E1]/40 transition-colors">
+          <div className="h-24 rounded-lg bg-[#F2F3F0] dark:bg-[#161920] flex items-center justify-center font-mono text-xs text-[#737373] dark:text-[#9CA3AF]">
+            👖 [Product Item]
           </div>
           <div>
-            <div className="font-sans font-semibold text-xs sm:text-sm text-[#171714] dark:text-[#F5F2EB]">
+            <div className="font-bold text-xs sm:text-sm text-[#171717] dark:text-[#F3F4F6] truncate">
               Pleated Linen Trouser
             </div>
-            <div className="font-mono text-xs text-[#423F39] dark:text-[#C4C0B6]">
+            <div className="font-mono text-[10px] text-[#737373] dark:text-[#9CA3AF]">
               Deep Olive // 32W 32L
             </div>
           </div>
-          <div className="flex justify-between items-center pt-1 font-mono text-xs sm:text-sm">
-            <span className="font-bold text-[#171714] dark:text-[#F5F2EB]">$110.00</span>
-            <span className="text-xs text-[#423F39] dark:text-[#C4C0B6]">Low Stock</span>
+          <div className="flex justify-between items-center pt-1 font-mono text-xs">
+            <span className="font-bold text-[#171717] dark:text-[#F3F4F6]">$110.00</span>
+            <span className="text-[10px] text-amber-600 font-semibold">Low Stock</span>
           </div>
         </div>
       </div>
 
-      {/* Cart & Persistence Spec */}
-      <div className="flex flex-wrap items-center justify-between text-xs font-mono text-[#423F39] dark:text-[#C4C0B6] pt-1 gap-2">
+      <div className="flex flex-wrap items-center justify-between text-xs font-mono text-[#737373] dark:text-[#9CA3AF] pt-0.5 gap-2">
         <span>Cart Storage: LocalStorage Synchronization</span>
         <span>Inventory Model: MongoDB Multi-variant</span>
       </div>

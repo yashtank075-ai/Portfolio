@@ -1,39 +1,36 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolio';
-import ProjectCard from './Projects/ProjectCard';
+import CompactProjectCard from './Projects/CompactProjectCard';
 
 export default function Projects() {
   const oraProject = portfolioData.featuredProject;
-  const allList = [oraProject, ...portfolioData.projects].filter(Boolean);
-  const visibleProjects = allList.slice(0, 2);
+  // All three projects: Orainfotech (01), Dwarkadhish Car Rent (02), Food Ordering (03)
+  const allProjects = [oraProject, ...portfolioData.projects].filter(Boolean);
 
   return (
-    <section id="work" className="py-12 sm:py-14 lg:py-16 relative border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)]">
+    <section id="projects" className="py-14 sm:py-18 lg:py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Editorial Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] pb-6 mb-8 sm:mb-10">
-          <div className="space-y-3 text-left">
-            <div className="editorial-tag">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#8C734B] dark:bg-[#D9C8A5]" />
-              <span>01 // Selected Work</span>
-            </div>
-            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-[#171714] dark:text-[#F5F2EB] tracking-tight">
-              Selected Work
-            </h2>
+        {/* Section Header */}
+        <div className="max-w-3xl mb-10 sm:mb-12 text-left">
+          <div className="badge-tag mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#4169E1]" />
+            <span className="text-[#4169E1] font-bold">PORTFOLIO SHOWCASE</span>
           </div>
-          <p className="font-sans text-sm sm:text-base text-[#5A574F] dark:text-[#A8A49A] max-w-md text-left leading-relaxed">
-            Corporate web development and interface engineering from my full-stack internship alongside end-to-end MERN application architecture.
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#171717] dark:text-[#F3F4F6]">
+            Featured Projects
+          </h2>
+          <p className="mt-3 text-base sm:text-lg text-[#737373] dark:text-[#9CA3AF] leading-relaxed">
+            Corporate development internship work alongside full-stack engineering and real-world business websites.
           </p>
         </div>
 
-        {/* Selected Project Rhythms */}
-        <div className="space-y-8 sm:space-y-10">
-          {visibleProjects.map((project, idx) => (
-            <ProjectCard 
+        {/* Compact Responsive Grid: 3-cols on Desktop, 2-cols on Tablet, 1-col on Mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+          {allProjects.map((project) => (
+            <CompactProjectCard 
               key={project.id} 
               project={project} 
-              isFeatured={idx === 0} 
             />
           ))}
         </div>

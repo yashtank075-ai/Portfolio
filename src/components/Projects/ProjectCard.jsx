@@ -1,37 +1,43 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, Layers } from 'lucide-react';
 import { Github } from '../Icons';
 import ProjectVisual from './ProjectVisual';
 
 export default function ProjectCard({ project, isFeatured = false }) {
   return (
     <article 
-      className={`editorial-card group relative p-5 sm:p-7 lg:p-8 transition-all duration-300 ${
-        isFeatured ? 'bg-[#FAF8F3] dark:bg-[#151512]' : 'bg-[#FAF8F3] dark:bg-[#151512]'
+      className={`portfolio-card group p-6 sm:p-8 lg:p-9 bg-white dark:bg-[#1C2029] shadow-premium hover:shadow-premium-hover transition-all duration-300 relative overflow-hidden text-left ${
+        isFeatured ? 'border-[#4169E1]/30 ring-1 ring-[#4169E1]/10' : ''
       }`}
     >
       {/* Top Meta Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)] pb-4 mb-6">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="font-mono text-xs sm:text-sm font-bold text-[#8C734B] dark:text-[#D9C8A5] shrink-0">
-            {project.index} //
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#E5E5E0] dark:border-white/10 pb-4 mb-6">
+        <div className="flex flex-wrap items-center gap-2.5">
+          <span className="font-mono text-xs sm:text-sm font-bold text-[#4169E1] px-2.5 py-0.5 rounded-md bg-[#E9E5FF] dark:bg-[#4169E1]/20">
+            {project.index}
           </span>
-          <span className="font-mono text-xs uppercase tracking-wider text-[#3D3B35] dark:text-[#D4D0C5] font-semibold">
+          <span className="text-xs uppercase tracking-wider text-[#737373] dark:text-[#9CA3AF] font-bold">
             {project.category}
           </span>
+          {isFeatured && (
+            <span className="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-[#E9E5FF] text-[#4169E1] dark:bg-[#4169E1]/20 dark:text-[#5B82F6]">
+              Featured Production Project
+            </span>
+          )}
         </div>
         
-        <div className="flex flex-wrap items-center gap-2">
+        {/* Action Buttons */}
+        <div className="flex flex-wrap items-center gap-2.5">
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`View ${project.title} source code on GitHub`}
-              className="inline-flex items-center justify-center gap-2 px-3.5 py-2 font-mono text-xs font-semibold text-[#171714] dark:text-[#F5F2EB] bg-[#EFECE3] dark:bg-[#1E1E1A] hover:bg-[#E8E4DB] dark:hover:bg-[#262621] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.18)] transition-colors min-h-[38px] shrink-0"
+              className="btn-secondary !py-2 !px-3.5 !text-xs !rounded-lg"
             >
-              <Github className="w-4 h-4 shrink-0" />
-              <span>GitHub Source</span>
+              <Github className="w-3.5 h-3.5 shrink-0" />
+              <span>Source Code</span>
             </a>
           )}
           {project.liveUrl && project.liveUrl !== '#' && (
@@ -39,69 +45,72 @@ export default function ProjectCard({ project, isFeatured = false }) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Open ${project.title} live website`}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2 font-mono text-xs font-semibold text-[#FAF8F3] bg-[#171714] dark:bg-[#F5F2EB] dark:text-[#171714] hover:bg-[#8C734B] dark:hover:bg-[#D9C8A5] transition-colors min-h-[38px] shrink-0"
+              aria-label={`Open ${project.title} live demo`}
+              className="btn-primary !py-2 !px-4 !text-xs !rounded-lg"
             >
-              <span>{project.liveLabel || 'Explore Project'}</span>
-              <ArrowUpRight className="w-4 h-4 shrink-0" />
+              <span>{project.liveLabel || 'Live Demo'}</span>
+              <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
             </a>
           )}
         </div>
       </div>
 
-      {/* Main Grid: Visual Specimen & Editorial Narrative */}
-      <div className={isFeatured ? "grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start" : "grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"}>
+      {/* Main Grid: Visual Demo / Architecture & Narrative */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
         
-        {/* Visual Architectural Schematics */}
-        <div className={isFeatured ? "lg:col-span-7 order-1" : "lg:col-span-6 order-1"}>
-          <ProjectVisual projectId={project.id} />
+        {/* Visual Architectural / Screenshot Column */}
+        <div className="lg:col-span-6 space-y-4">
+          <div className="rounded-xl overflow-hidden border border-[#E5E5E0] dark:border-white/10 shadow-sm bg-[#F2F3F0] dark:bg-[#161920]">
+            <ProjectVisual projectId={project.id} />
+          </div>
           
           {/* Architecture Notes Box */}
           {project.caseStudyNotes && (
-            <div className="mt-4 p-4 bg-[#EFECE3]/80 dark:bg-[#1A1A16]/90 border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.1)] space-y-2 text-left font-mono text-xs sm:text-sm">
-              <div className="text-xs text-[#8C734B] dark:text-[#D9C8A5] uppercase font-bold tracking-wider">
-                {project.caseStudyNotes.headline || 'System Topology & Architecture'}
+            <div className="p-4 rounded-xl bg-[#FAFAF8] dark:bg-[#161920] border border-[#E5E5E0] dark:border-white/10 space-y-1.5 text-left font-mono text-xs">
+              <div className="text-[11px] text-[#4169E1] uppercase font-bold tracking-wider flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5" />
+                <span>{project.caseStudyNotes.headline || 'System Topology & Architecture'}</span>
               </div>
-              <div className="text-[#171714] dark:text-[#F5F2EB] font-sans font-medium text-xs sm:text-sm">
+              <div className="text-[#171717] dark:text-[#F3F4F6] font-sans font-medium text-xs sm:text-sm">
                 {project.caseStudyNotes.architecture}
               </div>
-              <div className="text-[#3D3B35] dark:text-[#D4D0C5] text-xs sm:text-sm pt-1">
-                <strong className="text-[#171714] dark:text-[#F5F2EB]">Key Implementation:</strong> {project.caseStudyNotes.technicalSolution}
+              <div className="text-[#525252] dark:text-[#9CA3AF] text-xs pt-1 font-sans">
+                <strong className="text-[#171717] dark:text-[#F3F4F6]">Implementation:</strong> {project.caseStudyNotes.technicalSolution}
               </div>
             </div>
           )}
         </div>
 
         {/* Narrative & Specification Column */}
-        <div className={isFeatured ? "lg:col-span-5 space-y-5 text-left order-2" : "lg:col-span-6 space-y-5 text-left order-2"}>
+        <div className="lg:col-span-6 space-y-5 text-left">
           <div>
-            <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#171714] dark:text-[#F5F2EB] leading-tight mb-2.5">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#171717] dark:text-[#F3F4F6] leading-tight mb-2.5">
               {project.title}
             </h3>
-            <p className="font-sans text-base sm:text-lg text-[#3D3B35] dark:text-[#D4D0C5] leading-relaxed">
+            <p className="text-base sm:text-lg text-[#525252] dark:text-[#9CA3AF] leading-relaxed">
               {project.summary}
             </p>
           </div>
 
           {/* Yash Tank's Contribution */}
-          <div className="space-y-1.5 py-3 border-y border-[#D8D3C8] dark:border-[rgba(245,242,235,0.12)]">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#8C734B] dark:text-[#D9C8A5] font-bold block">
-              Engineering Contribution
+          <div className="p-4 rounded-xl bg-[#F2F3F0]/60 dark:bg-[#161920]/60 border border-[#E5E5E0] dark:border-white/10 space-y-1">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#4169E1] font-bold block">
+              My Engineering Contribution:
             </span>
-            <p className="font-sans text-sm sm:text-base text-[#171714] dark:text-[#F5F2EB] leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm text-[#171717] dark:text-[#F3F4F6] leading-relaxed">
               {project.contribution}
             </p>
           </div>
 
           {/* Feature Highlights */}
-          <div className="space-y-2.5">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#3D3B35] dark:text-[#D4D0C5] font-bold block">
-              Core Capabilities &amp; Workflows
+          <div className="space-y-2">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#737373] dark:text-[#9CA3AF] font-bold block">
+              Core Capabilities &amp; Features:
             </span>
             <ul className="space-y-2">
               {project.features.map((feature, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 font-sans text-sm sm:text-base text-[#3D3B35] dark:text-[#D4D0C5] leading-normal">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#8C734B] dark:bg-[#D9C8A5] mt-2 shrink-0" />
+                <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#525252] dark:text-[#9CA3AF] leading-normal">
+                  <CheckCircle2 className="w-4 h-4 text-[#4169E1] shrink-0 mt-0.5" />
                   <span>{feature}</span>
                 </li>
               ))}
@@ -110,14 +119,14 @@ export default function ProjectCard({ project, isFeatured = false }) {
 
           {/* Technology Badges */}
           <div className="pt-2">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#3D3B35] dark:text-[#D4D0C5] font-bold block mb-2.5">
-              Verified Tech Stack
+            <span className="font-mono text-xs uppercase tracking-wider text-[#737373] dark:text-[#9CA3AF] font-bold block mb-2">
+              Technologies Used:
             </span>
             <div className="flex flex-wrap gap-2">
               {project.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="font-mono text-xs px-3 py-1 bg-[#EFECE3] dark:bg-[#1E1E1A] text-[#171714] dark:text-[#F5F2EB] border border-[#D8D3C8] dark:border-[rgba(245,242,235,0.15)] font-medium"
+                  className="font-mono text-xs px-3 py-1 rounded-md bg-[#FAFAF8] dark:bg-[#161920] text-[#171717] dark:text-[#F3F4F6] border border-[#E5E5E0] dark:border-white/10 font-medium hover:border-[#4169E1]/40 transition-colors"
                 >
                   {tech}
                 </span>

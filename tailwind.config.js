@@ -8,49 +8,44 @@ export default {
   theme: {
     extend: {
       colors: {
-        ivory: {
-          DEFAULT: '#F5F2EB',
-          elevated: '#FAF8F3',
-          warm: '#EFECE3',
+        bg: {
+          primary: '#FAFAF8',
+          secondary: '#F2F3F0',
+          card: '#FFFFFF',
+          dark: '#0F1115',
+          'dark-secondary': '#161920',
+          'dark-card': '#1C2029',
         },
-        ink: {
-          DEFAULT: '#171714',
-          muted: '#2A2925',
-          deep: '#0E0E0C',
+        charcoal: {
+          DEFAULT: '#171717',
+          muted: '#737373',
+          light: '#A3A3A3',
+          border: '#E5E5E0',
+          'border-dark': 'rgba(255, 255, 255, 0.1)',
         },
-        stone: {
-          surface: '#E8E4DB',
-          subtle: '#DFDBD1',
-          rule: '#D8D3C8',
-        },
-        brass: {
-          DEFAULT: '#D9C8A5',
-          dark: '#8C734B',
-          rich: '#9B804E',
-          muted: '#C5B492',
-          tint: 'rgba(217, 200, 165, 0.15)',
-        },
-        warmgray: {
-          DEFAULT: '#5A574F',
-          light: '#767268',
-          dark: '#3D3B35',
+        accent: {
+          blue: '#4169E1',
+          'blue-hover': '#3154C4',
+          'blue-subtle': '#EEF2FF',
+          lavender: '#E9E5FF',
+          'lavender-dark': '#C4B5FD',
         },
       },
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        heading: ['"Space Grotesk"', 'system-ui', '-apple-system', 'sans-serif'],
         sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['"JetBrains Mono"', '"Fira Code"', 'ui-monospace', 'monospace'],
       },
       boxShadow: {
-        'editorial': '0 4px 20px -2px rgba(23, 23, 20, 0.05)',
-        'editorial-hover': '0 12px 32px -4px rgba(23, 23, 20, 0.09)',
-        'editorial-brass': '0 8px 24px -4px rgba(140, 115, 75, 0.15)',
+        'subtle': '0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02)',
+        'premium': '0 10px 30px -10px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)',
+        'premium-hover': '0 20px 40px -15px rgba(65, 105, 225, 0.12), 0 8px 16px -4px rgba(0, 0, 0, 0.04)',
+        'accent-glow': '0 0 0 1px rgba(65, 105, 225, 0.2), 0 10px 30px -10px rgba(65, 105, 225, 0.25)',
       },
       transitionTimingFunction: {
-        'editorial': 'cubic-bezier(0.22, 1, 0.36, 1)',
+        'smooth': 'cubic-bezier(0.16, 1, 0.3, 1)',
       }
     },
   },
   plugins: [],
 }
-

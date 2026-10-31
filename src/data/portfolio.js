@@ -1,4 +1,4 @@
-export const portfolioData = {
+﻿export const portfolioData = {
   personal: {
     name: "Yash Tank",
     monogram: "YT",
@@ -55,7 +55,7 @@ export const portfolioData = {
   featuredProject: {
     id: "orainfotech",
     index: "01",
-    title: "Orainfotech Corporate Website — Selected Page Redesign",
+    title: "Orainfotech Corporate Website",
     category: "Full-Stack Development Internship",
     company: "Orainfotech",
     stack: [
@@ -89,8 +89,33 @@ export const portfolioData = {
 
   projects: [
     {
-      id: "food-ordering",
+      id: "dwarkadhish-car-rent",
       index: "02",
+      title: "Dwarkadhish Car Rent",
+      category: "Business Website / Car Rental Website",
+      stack: ["React.js", "Tailwind CSS", "React Router", "Vite"],
+      summary:
+        "Developed a modern car rental website for Dwarkadhish Car Rent, a car rental business based in Surat, Gujarat. The website presents the rental business and its services through a professional web experience.",
+      contribution:
+        "Engineered the responsive frontend web application featuring vehicle catalog browsing, package rate presentations, multi-step rental process flows, and direct WhatsApp enquiry message generation for customer bookings.",
+      features: [
+        "Curated fleet showcase with detailed vehicle specifications and rental options",
+        "12-hour and 24-hour rental pricing tiers customized for local and outstation travel",
+        "One-click WhatsApp booking workflow with prefilled vehicle and schedule details",
+        "Responsive, mobile-optimized interface with tailored touch targets and smooth navigation",
+      ],
+      githubUrl: "https://github.com/yashtank075-ai/CarRent",
+      liveUrl: "https://dwarkadhish-car-rent.vercel.app/",
+      caseStudyNotes: {
+        headline: "Business Architecture & Direct Inquiry Integration",
+        architecture: "React 19 SPA Architecture with Tailwind CSS Styling",
+        technicalSolution:
+          "Engineered a frictionless inquiry pipeline transforming chosen fleet packages into structured WhatsApp bookings directly connecting drivers to the business host.",
+      },
+    },
+    {
+      id: "food-ordering",
+      index: "03",
       title: "Online Food Ordering Platform",
       category: "Full-Stack Application",
       stack: ["React.js", "Node.js", "Express.js", "MongoDB", "REST APIs"],
@@ -113,60 +138,6 @@ export const portfolioData = {
           "Synchronizing cart state across navigation changes while maintaining responsive quantity mutation and order summary calculations.",
         technicalSolution:
           "Centralized state management with custom React hooks connected to transactional REST endpoints.",
-      },
-    },
-    {
-      id: "library-management",
-      index: "03",
-      title: "Library Management & Catalog System",
-      category: "Full-Stack Application",
-      stack: ["React.js", "Node.js", "Express.js", "MongoDB"],
-      summary:
-        "A structured administrative platform designed for managing book inventories, student member records, real-time availability tracking, and loan transactions.",
-      contribution:
-        "Designed the relational data model on MongoDB, built the issue/return transaction handlers, and crafted an intuitive administrative interface with status indicators.",
-      features: [
-        "Administrative controls for catalog indexing and book record maintenance",
-        "Student member profiles with comprehensive borrowing and return history",
-        "Issue and return transaction tracking with real-time availability status",
-        "MongoDB schema relationships connecting books, student IDs, and loan records",
-        "Defensive error handling and input validation on backend controllers",
-      ],
-      githubUrl: "https://github.com/yashtank075-ai",
-      liveUrl: "https://github.com/yashtank075-ai",
-      caseStudyNotes: {
-        architecture: "Modular Administrative Dashboard with REST Data Flow",
-        primaryChallenge:
-          "Preventing conflicting loan transactions and tracking book availability state accurately across multiple member accounts.",
-        technicalSolution:
-          "Enforced atomic transaction updates and status checks in Express controller logic before confirming loans.",
-      },
-    },
-    {
-      id: "ecommerce-clothing",
-      index: "04",
-      title: "Contemporary Apparel E-Commerce",
-      category: "Full-Stack Application",
-      stack: ["React.js", "Node.js", "Express.js", "MongoDB"],
-      summary:
-        "A modern commercial fashion storefront featuring curated product cataloging, category navigation, persistent guest shopping cart, and a mobile-optimized checkout view.",
-      contribution:
-        "Implemented the responsive storefront layout, multi-category filtering logic, persistent client-side cart storage, and backend product schema definitions.",
-      features: [
-        "Product catalog with tailored category navigation and attribute views",
-        "Persistent cart state allowing guest users to maintain selected items",
-        "Clean, responsive layout calibrated across mobile, tablet, and desktop screens",
-        "REST API endpoints supporting filtered queries for product subsets",
-        "MongoDB inventory collections modeling sizes, pricing, and stock status",
-      ],
-      githubUrl: "https://github.com/yashtank075-ai/e-commerce",
-      liveUrl: "https://github.com/yashtank075-ai/e-commerce",
-      caseStudyNotes: {
-        architecture: "Client-Rendered Storefront with Express Inventory API",
-        primaryChallenge:
-          "Maintaining fluid mobile performance during catalog filtering without layout shifts or redundant network requests.",
-        technicalSolution:
-          "Optimized component re-rendering and memoized filtered catalog results.",
       },
     },
   ],
