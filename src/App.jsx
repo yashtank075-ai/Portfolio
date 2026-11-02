@@ -15,7 +15,7 @@ import ScrollProgress from './components/ScrollProgress';
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-[#FAFAF8] text-[#171717] font-sans antialiased selection:bg-[#E9E5FF] selection:text-[#171717] overflow-x-hidden w-full max-w-full">
+    <div className="relative min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans antialiased overflow-x-hidden w-full max-w-full">
       {/* Scroll Progress Bar */}
       <ScrollProgress />
 
