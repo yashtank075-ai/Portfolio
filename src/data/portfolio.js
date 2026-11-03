@@ -91,8 +91,49 @@ export const portfolioData = {
 
   projects: [
     {
-      id: "dwarkadhish-car-rent",
+      id: "flowdesk-ai",
       index: "02",
+      title: "FlowDesk AI — Multi-Tenant CRM Platform",
+      category: "Full-Stack CRM & Business Operations",
+      stack: [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "PostgreSQL",
+        "Supabase",
+        "Prisma ORM",
+        "TanStack Query",
+        "Tailwind CSS",
+        "Zod",
+      ],
+      summary:
+        "Full-stack multi-tenant CRM and operations platform empowering businesses to manage pipelines, track recurring revenue, and drive customer retention through a unified dashboard.",
+      contribution:
+        "Architected full-stack multi-tenant architecture with 5-tier role-based access control (RBAC), JWT rotating refresh token authentication, PostgreSQL/Supabase database schemas with Prisma ORM, and explainable AI Business Insights.",
+      features: [
+        "Lead management with seven-stage sales pipeline tracking and status updates",
+        "Customer management with subscription tiers and recurring revenue tracking",
+        "Enquiry and support ticket management with activity logging",
+        "Follow-up scheduling and unified activity tracking",
+        "Dashboard analytics with PostgreSQL-backed metrics and reporting",
+        "AI Business Insights with explainable strategic recommendations",
+        "Global search across CRM modules and CSV/PDF report exports",
+        "Multi-tenant workspaces with five-level role-based access control (RBAC)",
+      ],
+      githubUrl: "https://github.com/yashtank075-ai/FlowDesk",
+      liveUrl: "https://flowdesk-flax.vercel.app",
+      image: "/flowdesk-preview.png",
+      caseStudyNotes: {
+        headline: "Multi-Tenant Enterprise Architecture & Real-Time CRM",
+        architecture: "React + TypeScript → Express.js REST API → PostgreSQL & Supabase via Prisma ORM",
+        technicalSolution:
+          "Engineered multi-tenant workspace isolation with 5-level RBAC, robust JWT refresh-token rotation, and AI-driven insights engine over relational metrics.",
+      },
+    },
+    {
+      id: "dwarkadhish-car-rent",
+      index: "03",
       title: "Dwarkadhish Car Rent",
       category: "Business Website / Car Rental Website",
       stack: ["React.js", "Tailwind CSS", "React Router", "Vite"],
@@ -117,7 +158,7 @@ export const portfolioData = {
     },
     {
       id: "food-ordering",
-      index: "03",
+      index: "04",
       title: "Online Food Ordering Platform",
       category: "Full-Stack Application",
       stack: ["React.js", "Node.js", "Express.js", "MongoDB", "REST APIs"],

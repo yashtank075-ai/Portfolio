@@ -6,7 +6,7 @@ import { Github } from './Icons';
 
 export default function Projects() {
   const oraProject = portfolioData.featuredProject;
-  // All three projects: Orainfotech (01), Dwarkadhish Car Rent (02), Food Ordering (03)
+  // All portfolio projects
   const allProjects = [oraProject, ...portfolioData.projects].filter(Boolean);
 
   const [activeModalProject, setActiveModalProject] = useState(null);
@@ -29,7 +29,7 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Compact Responsive Grid: 3-cols on Desktop, 2-cols on Tablet, 1-col on Mobile */}
+        {/* Compact Responsive Grid: 3-cols on Desktop/Large screens, 2-cols on Tablet, 1-col on Mobile */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {allProjects.map((project) => (
             <CompactProjectCard 

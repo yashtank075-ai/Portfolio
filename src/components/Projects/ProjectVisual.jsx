@@ -7,6 +7,54 @@ import {
 } from 'lucide-react';
 
 export default function ProjectVisual({ projectId }) {
+  if (projectId === 'flowdesk-ai') {
+    return (
+      <div className="w-full bg-[#F2F3F0] dark:bg-[#161920] p-3.5 sm:p-4 space-y-3 text-left">
+        {/* Browser Frame Header */}
+        <div className="flex flex-wrap items-center justify-between border-b border-[#E5E5E0] dark:border-white/10 pb-2.5 gap-2">
+          <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-1.5" aria-hidden="true">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+            </div>
+            {/* URL bar */}
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white dark:bg-[#1C2029] border border-[#E5E5E0] dark:border-white/10 text-[11px] font-mono text-[#525252] dark:text-[#9CA3AF]">
+              <Globe className="w-3 h-3 text-[#4169E1] shrink-0" />
+              <span className="truncate max-w-[200px] sm:max-w-xs">https://flowdesk-flax.vercel.app</span>
+            </div>
+          </div>
+          <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 font-semibold border border-emerald-200 dark:border-emerald-800/40">
+            Live Production CRM
+          </span>
+        </div>
+
+        {/* Real Screenshot Preview */}
+        <div className="relative overflow-hidden rounded-xl border border-[#E5E5E0] dark:border-white/10 bg-white dark:bg-[#1C2029] aspect-video">
+          <img 
+            src="/flowdesk-preview.png" 
+            alt="FlowDesk AI — Multi-Tenant CRM Dashboard" 
+            className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+            loading="lazy"
+            width="1920"
+            height="1080"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <span className="text-xs font-mono text-white bg-black/75 backdrop-blur-md px-2.5 py-1 rounded">
+              Platform: FlowDesk AI Dashboard &amp; Analytics
+            </span>
+          </div>
+        </div>
+
+        {/* Technical Sub-spec */}
+        <div className="flex flex-wrap items-center justify-between text-xs font-mono text-[#737373] dark:text-[#9CA3AF] pt-0.5 gap-2">
+          <span>React, TypeScript, Express, PostgreSQL, Supabase</span>
+          <span className="text-[#4169E1] font-semibold">Multi-Tenant 5-Tier RBAC</span>
+        </div>
+      </div>
+    );
+  }
+
   if (projectId === 'orainfotech') {
     return (
       <div className="w-full bg-[#F2F3F0] dark:bg-[#161920] p-3.5 sm:p-4 space-y-3 text-left">

@@ -5,6 +5,34 @@ import { Github } from '../Icons';
 export default function CompactProjectCard({ project, onOpenDetails }) {
   // Render genuine screenshot image with consistent 16:9 aspect ratio container
   const renderVisual = () => {
+    if (project.id === 'flowdesk-ai') {
+      return (
+        <div className="relative aspect-video w-full overflow-hidden bg-slate-900 group/img cursor-pointer" onClick={onOpenDetails}>
+          <img
+            src="/flowdesk-preview.png"
+            alt={`${project.title} - FlowDesk AI Dashboard`}
+            className="w-full h-full object-cover object-[center_top] transition-transform duration-700 ease-out group-hover/img:scale-108"
+            loading="lazy"
+            width="1920"
+            height="1080"
+          />
+          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-[#8AB4FF] font-semibold border border-white/10 shadow-sm flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#4169E1] animate-pulse" />
+            <span>CRM &amp; Ops Platform</span>
+          </div>
+          <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-sm flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Multi-Tenant
+          </div>
+          {/* Bottom quick overlay hint */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-3.5">
+            <span className="text-[11.5px] font-mono text-white/95 font-medium flex items-center gap-1.5">
+              <Info className="w-3.5 h-3.5 text-[#4169E1]" /> View Architecture Breakdown &amp; Features
+            </span>
+          </div>
+        </div>
+      );
+    }
+
     if (project.id === 'orainfotech') {
       return (
         <div className="relative aspect-video w-full overflow-hidden bg-slate-900 group/img cursor-pointer" onClick={onOpenDetails}>
@@ -90,6 +118,7 @@ export default function CompactProjectCard({ project, onOpenDetails }) {
 
   // Distinct styling & border glow per project
   const getCardHoverAccent = () => {
+    if (project.id === 'flowdesk-ai') return 'hover:border-[#6366F1] hover:shadow-[0_12px_32px_-10px_rgba(99,102,241,0.25)]';
     if (project.id === 'orainfotech') return 'hover:border-[#4169E1] hover:shadow-[0_12px_32px_-10px_rgba(65,105,225,0.2)]';
     if (project.id === 'dwarkadhish-car-rent') return 'hover:border-[#D8B66A] hover:shadow-[0_12px_32px_-10px_rgba(216,182,106,0.25)]';
     return 'hover:border-[#10B981] hover:shadow-[0_12px_32px_-10px_rgba(16,185,129,0.2)]';
