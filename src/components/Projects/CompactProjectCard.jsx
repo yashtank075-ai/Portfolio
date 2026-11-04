@@ -58,6 +58,64 @@ export default function CompactProjectCard({ project, onOpenDetails }) {
       );
     }
 
+    if (project.id === 'reelflow') {
+      return (
+        <div className="relative aspect-video w-full overflow-hidden bg-slate-950 group/img cursor-pointer" onClick={onOpenDetails}>
+          <img
+            src="/reelflow-preview.png"
+            alt={`${project.title} - Social Media Video Downloader & YouTube Preview Suite`}
+            className="w-full h-full object-cover object-[center_top] transition-transform duration-700 ease-out group-hover/img:scale-108"
+            loading="lazy"
+            width="1376"
+            height="768"
+          />
+          {/* Top Status Badges */}
+          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-[#F43F5E] font-semibold border border-[#F43F5E]/30 shadow-sm flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F43F5E] animate-pulse" />
+            <span>Media Engine</span>
+          </div>
+          <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-sm flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Node + yt-dlp
+          </div>
+          {/* Bottom quick overlay hint */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-3.5">
+            <span className="text-[11.5px] font-mono text-white/95 font-medium flex items-center gap-1.5">
+              <Info className="w-3.5 h-3.5 text-[#F43F5E]" /> Inspect Media Pipeline &amp; Token Architecture
+            </span>
+          </div>
+        </div>
+      );
+    }
+
+    if (project.id === 'milliard-agarbatti') {
+      return (
+        <div className="relative aspect-video w-full overflow-hidden bg-slate-950 group/img cursor-pointer" onClick={onOpenDetails}>
+          <img
+            src="/milliard-preview.png"
+            alt={`${project.title} - Luxury Incense & Heritage Brand Showcase`}
+            className="w-full h-full object-cover object-[center_center] transition-transform duration-700 ease-out group-hover/img:scale-108"
+            loading="lazy"
+            width="1376"
+            height="768"
+          />
+          {/* Top Status Badges */}
+          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-[#D8B66A] font-semibold border border-[#D8B66A]/30 shadow-sm flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D8B66A] animate-pulse" />
+            <span>Luxury Brand Experience</span>
+          </div>
+          <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-sm flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Next.js 16
+          </div>
+          {/* Bottom quick overlay hint */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-3.5">
+            <span className="text-[11.5px] font-mono text-white/95 font-medium flex items-center gap-1.5">
+              <Info className="w-3.5 h-3.5 text-[#D8B66A]" /> View Brand Architecture &amp; Features
+            </span>
+          </div>
+        </div>
+      );
+    }
+
     if (project.id === 'dwarkadhish-car-rent') {
       return (
         <div className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-[#121c2e] via-[#1a263d] to-[#0f1728] group/img cursor-pointer" onClick={onOpenDetails}>
@@ -119,6 +177,8 @@ export default function CompactProjectCard({ project, onOpenDetails }) {
   // Distinct styling & border glow per project
   const getCardHoverAccent = () => {
     if (project.id === 'flowdesk-ai') return 'hover:border-[#6366F1] hover:shadow-[0_12px_32px_-10px_rgba(99,102,241,0.25)]';
+    if (project.id === 'reelflow') return 'hover:border-[#F43F5E] hover:shadow-[0_12px_32px_-10px_rgba(244,63,94,0.25)]';
+    if (project.id === 'milliard-agarbatti') return 'hover:border-[#D8B66A] hover:shadow-[0_12px_32px_-10px_rgba(216,182,106,0.3)]';
     if (project.id === 'orainfotech') return 'hover:border-[#4169E1] hover:shadow-[0_12px_32px_-10px_rgba(65,105,225,0.2)]';
     if (project.id === 'dwarkadhish-car-rent') return 'hover:border-[#D8B66A] hover:shadow-[0_12px_32px_-10px_rgba(216,182,106,0.25)]';
     return 'hover:border-[#10B981] hover:shadow-[0_12px_32px_-10px_rgba(16,185,129,0.2)]';

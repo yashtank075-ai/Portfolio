@@ -103,6 +103,102 @@ export default function ProjectVisual({ projectId }) {
     );
   }
 
+  if (projectId === 'reelflow') {
+    return (
+      <div className="w-full bg-[#0F172A] p-3.5 sm:p-4 space-y-3 text-left">
+        {/* Browser Frame Header */}
+        <div className="flex flex-wrap items-center justify-between border-b border-white/10 pb-2.5 gap-2">
+          <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-1.5" aria-hidden="true">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+            </div>
+            {/* URL bar */}
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#1E293B] border border-white/10 text-[11px] font-mono text-[#94A3B8]">
+              <Globe className="w-3 h-3 text-[#F43F5E] shrink-0" />
+              <span className="truncate max-w-[200px] sm:max-w-xs">https://reelflow-fq7d.onrender.com</span>
+            </div>
+          </div>
+          <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-[#F43F5E]/20 text-[#FB7185] font-semibold border border-[#F43F5E]/30">
+            Live Web App
+          </span>
+        </div>
+
+        {/* Real Screenshot Preview */}
+        <div className="relative overflow-hidden rounded-xl border border-white/10 bg-slate-900 aspect-video">
+          <img 
+            src="/reelflow-preview.png" 
+            alt="ReelFlow — Social Media Media Suite Preview" 
+            className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+            loading="lazy"
+            width="1376"
+            height="768"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <span className="text-xs font-mono text-white bg-black/75 backdrop-blur-md px-2.5 py-1 rounded">
+              Platform: React 18 + Express + yt-dlp Video Pipeline
+            </span>
+          </div>
+        </div>
+
+        {/* Technical Sub-spec */}
+        <div className="flex flex-wrap items-center justify-between text-xs font-mono text-[#94A3B8] pt-0.5 gap-2">
+          <span>React 18, Express, PostgreSQL, yt-dlp, FFmpeg</span>
+          <span className="text-[#FB7185] font-semibold">Tokenized Streaming Architecture</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (projectId === 'milliard-agarbatti') {
+    return (
+      <div className="w-full bg-[#0F172A] p-3.5 sm:p-4 space-y-3 text-left">
+        {/* Browser Frame Header */}
+        <div className="flex flex-wrap items-center justify-between border-b border-white/10 pb-2.5 gap-2">
+          <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-1.5" aria-hidden="true">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+            </div>
+            {/* URL bar */}
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#1E293B] border border-white/10 text-[11px] font-mono text-[#94A3B8]">
+              <Globe className="w-3 h-3 text-[#D8B66A] shrink-0" />
+              <span className="truncate max-w-[200px] sm:max-w-xs">https://milliard-agarbatti.vercel.app</span>
+            </div>
+          </div>
+          <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-[#D8B66A]/20 text-[#D8B66A] font-semibold border border-[#D8B66A]/40">
+            Live Brand Showcase
+          </span>
+        </div>
+
+        {/* Real Screenshot Preview */}
+        <div className="relative overflow-hidden rounded-xl border border-white/10 bg-slate-900 aspect-video">
+          <img 
+            src="/milliard-preview.png" 
+            alt="Milliard Agarbatti – Tirth Agarbatti Luxury Website" 
+            className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+            loading="lazy"
+            width="1376"
+            height="768"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <span className="text-xs font-mono text-white bg-black/75 backdrop-blur-md px-2.5 py-1 rounded">
+              Next.js 16 + React 19 Cinematic Heritage Experience
+            </span>
+          </div>
+        </div>
+
+        {/* Technical Sub-spec */}
+        <div className="flex flex-wrap items-center justify-between text-xs font-mono text-[#94A3B8] pt-0.5 gap-2">
+          <span>Next.js 16, React 19, TypeScript, Tailwind CSS v4</span>
+          <span className="text-[#D8B66A] font-semibold">Luxury Heritage Experience</span>
+        </div>
+      </div>
+    );
+  }
+
   if (projectId === 'dwarkadhish-car-rent') {
     return (
       <div className="w-full bg-[#F2F3F0] dark:bg-[#161920] p-3.5 sm:p-4 space-y-3 text-left">

@@ -1,4 +1,4 @@
-export const portfolioData = {
+﻿export const portfolioData = {
   personal: {
     name: "Yash Tank",
     monogram: "YT",
@@ -121,19 +121,94 @@ export const portfolioData = {
         "Global search across CRM modules and CSV/PDF report exports",
         "Multi-tenant workspaces with five-level role-based access control (RBAC)",
       ],
-      githubUrl: "https://github.com/yashtank075-ai/FlowDesk",
       liveUrl: "https://flowdesk-flax.vercel.app",
+      liveLabel: "View Live Website",
       image: "/flowdesk-preview.png",
       caseStudyNotes: {
         headline: "Multi-Tenant Enterprise Architecture & Real-Time CRM",
-        architecture: "React + TypeScript → Express.js REST API → PostgreSQL & Supabase via Prisma ORM",
+        architecture:
+          "React + TypeScript → Express.js REST API → PostgreSQL & Supabase via Prisma ORM",
         technicalSolution:
           "Engineered multi-tenant workspace isolation with 5-level RBAC, robust JWT refresh-token rotation, and AI-driven insights engine over relational metrics.",
       },
     },
     {
-      id: "dwarkadhish-car-rent",
+      id: "reelflow",
       index: "03",
+      title: "ReelFlow — Social Media Media Suite",
+      category: "Full-Stack Web Application",
+      stack: [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "PostgreSQL",
+        "yt-dlp",
+        "FFmpeg",
+        "Vite",
+        "REST APIs",
+      ],
+      summary:
+        "Full-stack media utility application enabling public video downloads from Instagram Reels and Facebook, paired with YouTube link previewing, cryptographic token delivery, and analytics logging.",
+      contribution:
+        "Engineered the complete application end-to-end: built a modern responsive React SPA, implemented Express REST APIs with child-process yt-dlp & FFmpeg pipeline integration, token-based streaming downloads, in-memory rate limiting, and a PostgreSQL analytics audit log.",
+      features: [
+        "Public Instagram Reels and Facebook video extraction via dedicated yt-dlp child processes",
+        "YouTube link verification and metadata previewing without unverified downloads",
+        "Quality selector (Best available, 1080p, 720p, 480p, 360p) with graceful format fallback",
+        "Cryptographically signed, short-lived download tokens (15-min TTL) preventing link abuse",
+        "In-process sliding-window rate limiting, request validation, and safe process cleanup",
+        "PostgreSQL event logging pipeline with resilient in-memory ring-buffer fallback",
+        "Client-side search history with localStorage state persistence and clear controls",
+      ],
+      liveUrl: "https://reelflow-fq7d.onrender.com/",
+      liveLabel: "View Live Website",
+      image: "/reelflow-preview.png",
+      caseStudyNotes: {
+        headline:
+          "Media Extraction Pipeline & Tokenized Streaming Architecture",
+        architecture:
+          "React (Vite) → Node.js / Express REST API → yt-dlp & FFmpeg + PostgreSQL Analytics",
+        technicalSolution:
+          "Engineered secure, non-shell child process execution with strict host whitelisting, ephemeral download token validation, memory-managed streaming, and PostgreSQL analytics fallback.",
+      },
+    },
+    {
+      id: "milliard-agarbatti",
+      index: "04",
+      title: "Milliard Agarbatti – Tirth Agarbatti",
+      category: "Premium E-commerce / Brand Website",
+      stack: [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS v4",
+        "Responsive Design",
+      ],
+      summary:
+        "Designed and developed a premium cinematic brand website for Milliard Agarbatti (Tirth Agarbatti), celebrating traditional Indian heritage, craftsmanship, and luxury incense presentation.",
+      contribution:
+        "Architected the modern Next.js 16 and React 19 web application featuring a cinematic hero section, interactive fragrance experience, artisanal heritage storytelling, curated product catalog, and multi-channel distributor and wholesale inquiry workflows.",
+      features: [
+        "Cinematic hero and immersive brand heritage storytelling with editorial typography",
+        "Curated product catalog & fragrance detail pages for Sandalwood, Mogra, Rose, and Sambrani",
+        "Interactive fragrance olfactory profile experience and high-resolution photo gallery",
+        "Wholesale distributor inquiry portal and custom contact workflows",
+        "Responsive, mobile-first layouts styled with Tailwind CSS v4 in luxury navy & champagne gold",
+      ],
+      liveUrl: "https://milliard-agarbatti.vercel.app/",
+      liveLabel: "View Live Website",
+      image: "/milliard-preview.png",
+      caseStudyNotes: {
+        headline: "Heritage Brand Experience & Next.js Architecture",
+        architecture:
+          "Next.js 16 App Router + React 19 + TypeScript + Tailwind CSS v4",
+        technicalSolution:
+          "Engineered a responsive, high-fidelity luxury digital showcase balancing artisanal brand aesthetics with modern performance, clean semantic structure, and frictionless customer enquiry pathways.",
+      },
+    },
+    {
+      id: "dwarkadhish-car-rent",
+      index: "05",
       title: "Dwarkadhish Car Rent",
       category: "Business Website / Car Rental Website",
       stack: ["React.js", "Tailwind CSS", "React Router", "Vite"],
@@ -147,40 +222,14 @@ export const portfolioData = {
         "One-click WhatsApp booking workflow with prefilled vehicle and schedule details",
         "Responsive, mobile-optimized interface with tailored touch targets and smooth navigation",
       ],
-      githubUrl: "https://github.com/yashtank075-ai/CarRent",
       liveUrl: "https://dwarkadhish-car-rent.vercel.app/",
+      liveLabel: "View Live Website",
+      image: "/dwarkadhish-preview.png",
       caseStudyNotes: {
         headline: "Business Architecture & Direct Inquiry Integration",
         architecture: "React 19 SPA Architecture with Tailwind CSS Styling",
         technicalSolution:
           "Engineered a frictionless inquiry pipeline transforming chosen fleet packages into structured WhatsApp bookings directly connecting drivers to the business host.",
-      },
-    },
-    {
-      id: "food-ordering",
-      index: "04",
-      title: "Online Food Ordering Platform",
-      category: "Full-Stack Application",
-      stack: ["React.js", "Node.js", "Express.js", "MongoDB", "REST APIs"],
-      summary:
-        "An end-to-end ordering application featuring dynamic menu categorization, synchronized cart state management, and an Express/MongoDB order processing pipeline.",
-      contribution:
-        "Architected the full system end-to-end: built the modular React interface with quantity state handlers, configured Express REST endpoints for item retrieval, and designed MongoDB schemas for dish catalogs and customer orders.",
-      features: [
-        "Dynamic culinary menu with real-time category filtering",
-        "Synchronized shopping cart with quantity adjustments and state persistence",
-        "Structured checkout flow with customer delivery address capture",
-        "Custom REST API routes for catalog retrieval, cart updates, and order creation",
-        "MongoDB document collections structured for items, categories, and order history",
-      ],
-      githubUrl: "https://github.com/yashtank075-ai/food-del",
-      liveUrl: "https://github.com/yashtank075-ai/food-del",
-      caseStudyNotes: {
-        architecture: "React Client → Express REST Gateway → MongoDB Storage",
-        primaryChallenge:
-          "Synchronizing cart state across navigation changes while maintaining responsive quantity mutation and order summary calculations.",
-        technicalSolution:
-          "Centralized state management with custom React hooks connected to transactional REST endpoints.",
       },
     },
   ],
@@ -293,7 +342,15 @@ export const portfolioData = {
         "Ora Infotech Corporate Website Redesign: Contributed to the corporate website redesign using React.js, Next.js, and Tailwind CSS, improving interface consistency and page styling.",
         "Developed reusable UI components and responsive layouts for desktop, tablet, and mobile devices.",
       ],
-      stack: ["React.js", "Next.js", "Node.js", "Express.js", "PostgreSQL", "Tailwind CSS", "Git & GitHub"],
+      stack: [
+        "React.js",
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "Git & GitHub",
+      ],
       type: "internship",
     },
     {
@@ -308,7 +365,12 @@ export const portfolioData = {
         "Object-Oriented Programming paradigms, data structures, and modern JavaScript",
         "Software development lifecycle (SDLC), system analysis, and API architecture fundamentals",
       ],
-      stack: ["Computer Science Fundamentals", "DBMS & SQL", "Data Structures", "Web Technologies"],
+      stack: [
+        "Computer Science Fundamentals",
+        "DBMS & SQL",
+        "Data Structures",
+        "Web Technologies",
+      ],
       type: "education",
     },
   ],
