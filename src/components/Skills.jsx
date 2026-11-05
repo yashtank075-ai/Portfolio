@@ -3,39 +3,9 @@ import {
   Server, 
   Database, 
   Wrench, 
-  Atom,
-  Check,
-  Globe,
-  Terminal,
-  ShieldCheck,
-  Layers,
-  FileCode,
-  GitBranch,
-  Cpu
+  Atom
 } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
-
-// Technology Icon Mapping for tactile visual recognition
-const TECH_ICONS = {
-  'React.js': Atom,
-  'Next.js': Globe,
-  'JavaScript (ES6+)': FileCode,
-  'HTML5 & Semantic Markup': Layers,
-  'CSS3 & Modern Layouts': Layers,
-  'Tailwind CSS': Layers,
-  'Node.js': Server,
-  'Express.js': Cpu,
-  'RESTful Architecture': Globe,
-  'Authentication Flow': ShieldCheck,
-  'MongoDB': Database,
-  'PostgreSQL': Database,
-  'Mongoose ODM': Database,
-  'Data Modeling': Layers,
-  'Git & GitHub': GitBranch,
-  'Postman': Globe,
-  'VS Code': Terminal,
-  'Vite & npm': Wrench,
-};
 
 export default function Skills() {
   const categories = [
@@ -44,8 +14,6 @@ export default function Skills() {
       title: 'Frontend Architecture',
       badge: 'Client & UI',
       icon: Atom,
-      color: '#4169E1',
-      borderHover: 'hover:border-[#4169E1]',
       items: portfolioData.skills.frontend,
     },
     {
@@ -53,8 +21,6 @@ export default function Skills() {
       title: 'Backend Engineering',
       badge: 'APIs & Logic',
       icon: Server,
-      color: '#8B5CF6',
-      borderHover: 'hover:border-[#8B5CF6]',
       items: portfolioData.skills.backend,
     },
     {
@@ -62,27 +28,23 @@ export default function Skills() {
       title: 'Database Systems',
       badge: 'Data Modeling',
       icon: Database,
-      color: '#10B981',
-      borderHover: 'hover:border-[#10B981]',
       items: portfolioData.skills.database,
     },
     {
       id: 'tools',
-      title: 'Developer Tooling & DevOps',
-      badge: 'Workflow & CI',
+      title: 'Developer Tooling',
+      badge: 'Workflow & Tools',
       icon: Wrench,
-      color: '#F59E0B',
-      borderHover: 'hover:border-[#F59E0B]',
       items: portfolioData.skills.tools,
     },
   ];
 
   return (
-    <section id="skills" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+    <section id="skills" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden text-left">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-12 sm:mb-16 text-left">
+        <div className="max-w-3xl mb-12 sm:mb-16">
           <div className="badge-tag mb-3">
             <span className="w-2 h-2 rounded-full bg-[#4169E1]" />
             <span className="text-[#4169E1] font-bold">TECHNICAL EXPERTISE</span>
@@ -95,75 +57,54 @@ export default function Skills() {
           </p>
         </div>
 
-        {/* 4 Categories Grid - Items Stretch to Equal Height per Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 text-left items-stretch">
+        {/* 4 Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
           {categories.map((category) => {
             const CategoryIcon = category.icon;
             return (
               <div
                 key={category.id}
-                className={`portfolio-card group p-5 sm:p-6 lg:p-7 bg-white flex flex-col justify-between shadow-subtle hover:shadow-premium hover:-translate-y-1 transition-all duration-300 relative border border-[#E5E5E0] h-full ${category.borderHover}`}
+                className="portfolio-card group p-5 sm:p-6 lg:p-7 bg-white flex flex-col justify-between shadow-2xs hover:border-[#171717] hover:shadow-sm transition-all duration-300 relative border border-[#E5E5E0] rounded-2xl h-full"
               >
                 <div className="space-y-4">
                   {/* Category Header */}
                   <div className="flex items-center justify-between border-b border-[#E5E5E0] pb-3.5">
                     <div className="flex items-center gap-3 min-w-0">
-                      <div 
-                        className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-2xs"
-                        style={{ backgroundColor: `${category.color}15`, color: category.color }}
-                      >
-                        <CategoryIcon className="w-5 h-5" />
+                      <div className="w-9 h-9 rounded-xl bg-[#FAFAF8] border border-[#E5E5E0] text-[#171717] flex items-center justify-center shrink-0">
+                        <CategoryIcon className="w-4 h-4 text-[#4169E1]" />
                       </div>
                       <div className="min-w-0">
                         <h3 className="font-heading text-base sm:text-lg lg:text-xl font-bold text-[#171717] truncate">
                           {category.title}
                         </h3>
                         <span className="text-[11px] font-mono text-[#737373] block">
-                          {category.items.length} Core Technologies
+                          {category.items.length} Technologies
                         </span>
                       </div>
                     </div>
                     
-                    <span 
-                      className="text-xs font-mono font-semibold px-2.5 py-1 rounded-md border shrink-0"
-                      style={{ 
-                        backgroundColor: `${category.color}10`, 
-                        borderColor: `${category.color}30`,
-                        color: category.color 
-                      }}
-                    >
+                    <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded-md bg-[#FAFAF8] border border-[#E5E5E0] text-[#737373] shrink-0">
                       {category.badge}
                     </span>
                   </div>
 
-                  {/* Individual Skill Cards with Tech Icons */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
-                    {category.items.map((skill) => {
-                      const SkillIcon = TECH_ICONS[skill.name] || Check;
-                      return (
-                        <div
-                          key={skill.name}
-                          className="p-3 rounded-xl bg-[#FAFAF8] border border-[#E5E5E0] hover:bg-white hover:border-[#4169E1]/50 hover:shadow-subtle hover:-translate-y-0.5 transition-all duration-200 group/pill flex items-start gap-2.5 min-h-[64px]"
-                        >
-                          <div 
-                            className="w-7 h-7 rounded-lg bg-white border border-[#E5E5E0] text-[#737373] group-hover/pill:text-[#4169E1] group-hover/pill:border-[#4169E1]/30 flex items-center justify-center shrink-0 transition-colors mt-0.5"
-                          >
-                            <SkillIcon className="w-3.5 h-3.5" />
-                          </div>
-                          <div className="min-w-0 flex-1">
-                            <span className="text-xs sm:text-[13px] font-semibold text-[#171717] block truncate group-hover/pill:text-[#4169E1] transition-colors leading-tight">
-                              {skill.name}
-                            </span>
-                            <span className="text-[11px] text-[#737373] line-clamp-1 mt-0.5">
-                              {skill.detail}
-                            </span>
-                          </div>
-                        </div>
-                      );
-                    })}
+                  {/* Individual Skills */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {category.items.map((skill) => (
+                      <div
+                        key={skill.name}
+                        className="p-3 rounded-xl bg-[#FAFAF8] border border-[#E5E5E0] space-y-0.5"
+                      >
+                        <span className="text-xs sm:text-sm font-semibold text-[#171717] block">
+                          {skill.name}
+                        </span>
+                        <span className="text-[11px] font-mono text-[#737373] block leading-snug">
+                          {skill.detail}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-
               </div>
             );
           })}

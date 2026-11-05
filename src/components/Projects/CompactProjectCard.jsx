@@ -2,240 +2,108 @@ import React from 'react';
 import { ArrowUpRight, Info } from 'lucide-react';
 import { Github } from '../Icons';
 
+// Individual fine-tuned object positions ensuring prime UI hero content is visible
+const IMAGE_POSITIONS = {
+  'dwarkadhish-car-rent': 'object-[center_35%]',
+  'reelflow': 'object-[center_top]',
+  'flowdesk-ai': 'object-[center_top]',
+  'orainfotech': 'object-[center_top]',
+  'milliard-agarbatti': 'object-[center_center]',
+  'food-ordering': 'object-[center_top]',
+};
+
 export default function CompactProjectCard({ project, onOpenDetails }) {
-  // Render genuine screenshot image with consistent 16:9 aspect ratio container
+  const objectPosition = IMAGE_POSITIONS[project.id] || 'object-[center_top]';
+
+  // Render screenshot with consistent 16:9 aspect ratio and fine-tuned object position
   const renderVisual = () => {
-    if (project.id === 'flowdesk-ai') {
-      return (
-        <div className="relative aspect-video w-full overflow-hidden bg-slate-900 group/img cursor-pointer" onClick={onOpenDetails}>
-          <img
-            src="/flowdesk-preview.png"
-            alt={`${project.title} - FlowDesk AI Dashboard`}
-            className="w-full h-full object-cover object-[center_top] transition-transform duration-700 ease-out group-hover/img:scale-108"
-            loading="lazy"
-            width="1920"
-            height="1080"
-          />
-          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-[#8AB4FF] font-semibold border border-white/10 shadow-sm flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#4169E1] animate-pulse" />
-            <span>CRM &amp; Ops Platform</span>
-          </div>
-          <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-sm flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Multi-Tenant
-          </div>
-          {/* Bottom quick overlay hint */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-3.5">
-            <span className="text-[11.5px] font-mono text-white/95 font-medium flex items-center gap-1.5">
-              <Info className="w-3.5 h-3.5 text-[#4169E1]" /> View Architecture Breakdown &amp; Features
-            </span>
-          </div>
+    return (
+      <div 
+        className="relative aspect-video w-full overflow-hidden bg-[#0F172A] group/img cursor-pointer" 
+        onClick={onOpenDetails}
+        tabIndex={0}
+        role="button"
+        aria-label={`Open details for ${project.title}`}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            onOpenDetails();
+          }
+        }}
+      >
+        <img
+          src={project.image}
+          alt={`${project.title} screenshot`}
+          className={`w-full h-full object-cover ${objectPosition} transition-transform duration-500 ease-out group-hover/img:scale-[1.03] group-focus/img:scale-[1.03]`}
+          loading="lazy"
+        />
+
+        {/* Clean, subtle dark gradient at top to ensure label contrast and readability */}
+        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/75 via-black/35 to-transparent pointer-events-none" />
+
+        {/* Improved high-contrast, professional category label over screenshot */}
+        <div className="absolute top-3 left-3 px-3 py-1 rounded-md bg-[#18181B]/85 backdrop-blur-md text-[11.5px] font-mono text-zinc-100 font-medium border border-white/15 shadow-sm flex items-center gap-1.5 pointer-events-none">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6] shrink-0" />
+          <span className="tracking-wide">{project.category}</span>
         </div>
-      );
-    }
 
-    if (project.id === 'orainfotech') {
-      return (
-        <div className="relative aspect-video w-full overflow-hidden bg-slate-900 group/img cursor-pointer" onClick={onOpenDetails}>
-          <img
-            src="/orainfotech-preview.png"
-            alt={`${project.title} - Official Corporate Website Redesign`}
-            className="w-full h-full object-cover object-[center_top] transition-transform duration-700 ease-out group-hover/img:scale-108"
-            loading="lazy"
-            width="1905"
-            height="1007"
-          />
-          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-sm flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Corporate Portal</span>
-          </div>
-          {/* Bottom quick overlay hint */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-3.5">
-            <span className="text-[11.5px] font-mono text-white/95 font-medium flex items-center gap-1.5">
-              <Info className="w-3.5 h-3.5 text-[#4169E1]" /> Click for Architecture Breakdown
-            </span>
-          </div>
+        {/* Restrained hover and keyboard focus hint banner: visible strictly on hover/focus */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 group-focus/img:opacity-100 transition-opacity duration-200 flex items-end p-3.5 pointer-events-none">
+          <span className="text-xs font-mono text-white font-medium flex items-center gap-1.5">
+            <Info className="w-3.5 h-3.5 text-[#3B82F6]" /> Click to view details &amp; architecture
+          </span>
         </div>
-      );
-    }
-
-    if (project.id === 'reelflow') {
-      return (
-        <div className="relative aspect-video w-full overflow-hidden bg-slate-950 group/img cursor-pointer" onClick={onOpenDetails}>
-          <img
-            src="/reelflow-preview.png"
-            alt={`${project.title} - Social Media Video Downloader & YouTube Preview Suite`}
-            className="w-full h-full object-cover object-[center_top] transition-transform duration-700 ease-out group-hover/img:scale-108"
-            loading="lazy"
-            width="1376"
-            height="768"
-          />
-          {/* Top Status Badges */}
-          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-[#F43F5E] font-semibold border border-[#F43F5E]/30 shadow-sm flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#F43F5E] animate-pulse" />
-            <span>Media Engine</span>
-          </div>
-          <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-sm flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Node + yt-dlp
-          </div>
-          {/* Bottom quick overlay hint */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-3.5">
-            <span className="text-[11.5px] font-mono text-white/95 font-medium flex items-center gap-1.5">
-              <Info className="w-3.5 h-3.5 text-[#F43F5E]" /> Inspect Media Pipeline &amp; Token Architecture
-            </span>
-          </div>
-        </div>
-      );
-    }
-
-    if (project.id === 'milliard-agarbatti') {
-      return (
-        <div className="relative aspect-video w-full overflow-hidden bg-slate-950 group/img cursor-pointer" onClick={onOpenDetails}>
-          <img
-            src="/milliard-preview.png"
-            alt={`${project.title} - Luxury Incense & Heritage Brand Showcase`}
-            className="w-full h-full object-cover object-[center_center] transition-transform duration-700 ease-out group-hover/img:scale-108"
-            loading="lazy"
-            width="1376"
-            height="768"
-          />
-          {/* Top Status Badges */}
-          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-[#D8B66A] font-semibold border border-[#D8B66A]/30 shadow-sm flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D8B66A] animate-pulse" />
-            <span>Luxury Brand Experience</span>
-          </div>
-          <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-sm flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Next.js 16
-          </div>
-          {/* Bottom quick overlay hint */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-3.5">
-            <span className="text-[11.5px] font-mono text-white/95 font-medium flex items-center gap-1.5">
-              <Info className="w-3.5 h-3.5 text-[#D8B66A]" /> View Brand Architecture &amp; Features
-            </span>
-          </div>
-        </div>
-      );
-    }
-
-    if (project.id === 'dwarkadhish-car-rent') {
-      return (
-        <div className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-[#121c2e] via-[#1a263d] to-[#0f1728] group/img cursor-pointer" onClick={onOpenDetails}>
-          <img
-            src="/dwarkadhish-preview.png"
-            alt={`${project.title} - Hyundai Venue Fleet Vehicle`}
-            className="w-full h-full object-cover object-[center_35%] transition-transform duration-700 ease-out group-hover/img:scale-108"
-            loading="lazy"
-            width="1024"
-            height="576"
-          />
-          {/* Top Status Badges */}
-          <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-            <span className="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-[#D8B66A] font-semibold border border-[#D8B66A]/30 shadow-sm">
-              Surat Fleet
-            </span>
-            <span className="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-sm flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Direct Booking
-            </span>
-          </div>
-          {/* Bottom rate bar */}
-          <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-3 flex items-center justify-between text-[11px] font-mono text-white">
-            <span className="text-[#D8B66A] font-bold">12h: ₹2,500</span>
-            <span className="text-emerald-400 font-bold">24h: ₹3,500</span>
-          </div>
-        </div>
-      );
-    }
-
-    if (project.id === 'food-ordering') {
-      return (
-        <div className="relative aspect-video w-full overflow-hidden bg-slate-900 group/img cursor-pointer" onClick={onOpenDetails}>
-          <img
-            src="/food-del-preview.png"
-            alt={`${project.title} - Online Food Ordering Web Application`}
-            className="w-full h-full object-cover object-[center_center] transition-transform duration-700 ease-out group-hover/img:scale-108"
-            loading="lazy"
-            width="1366"
-            height="802"
-          />
-          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-[#8AB4FF] font-semibold border border-white/10 shadow-sm">
-            MERN Full-Stack
-          </div>
-          <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-[10.5px] font-mono text-emerald-400 font-semibold border border-white/10 shadow-sm flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Live Cart State
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-3.5">
-            <span className="text-[11.5px] font-mono text-white/95 font-medium flex items-center gap-1.5">
-              <Info className="w-3.5 h-3.5 text-[#4169E1]" /> Inspect Database & API Pipeline
-            </span>
-          </div>
-        </div>
-      );
-    }
-
-    return null;
-  };
-
-  // Distinct styling & border glow per project
-  const getCardHoverAccent = () => {
-    if (project.id === 'flowdesk-ai') return 'hover:border-[#6366F1] hover:shadow-[0_12px_32px_-10px_rgba(99,102,241,0.25)]';
-    if (project.id === 'reelflow') return 'hover:border-[#F43F5E] hover:shadow-[0_12px_32px_-10px_rgba(244,63,94,0.25)]';
-    if (project.id === 'milliard-agarbatti') return 'hover:border-[#D8B66A] hover:shadow-[0_12px_32px_-10px_rgba(216,182,106,0.3)]';
-    if (project.id === 'orainfotech') return 'hover:border-[#4169E1] hover:shadow-[0_12px_32px_-10px_rgba(65,105,225,0.2)]';
-    if (project.id === 'dwarkadhish-car-rent') return 'hover:border-[#D8B66A] hover:shadow-[0_12px_32px_-10px_rgba(216,182,106,0.25)]';
-    return 'hover:border-[#10B981] hover:shadow-[0_12px_32px_-10px_rgba(16,185,129,0.2)]';
+      </div>
+    );
   };
 
   return (
-    <article className={`portfolio-card group flex flex-col justify-between overflow-hidden bg-white rounded-2xl border border-[#E5E5E0] shadow-subtle hover:-translate-y-1.5 transition-all duration-300 text-left h-full ${getCardHoverAccent()}`}>
+    <article className="portfolio-card group flex flex-col justify-between overflow-hidden bg-white rounded-2xl border border-[#E5E5E0] shadow-2xs hover:border-[#171717] hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-left h-full">
       {/* 16:9 Image / Visual Banner at the Top */}
       <div className="w-full border-b border-[#E5E5E0] overflow-hidden shrink-0">
         {renderVisual()}
       </div>
 
-      {/* Card Content Body - Flex Column for Strict Equal Height & Alignment */}
+      {/* Card Content Body */}
       <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between space-y-4">
-        <div className="space-y-2.5 flex-1">
-          {/* Top Category, Index and Details Trigger */}
-          <div className="flex items-center justify-between gap-2">
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#4169E1]">
-              {project.category}
+        <div className="space-y-3 flex-1">
+          {/* Top Index & Details Quick Trigger */}
+          <div className="flex items-center justify-between gap-2 border-b border-[#E5E5E0]/70 pb-2.5">
+            <span className="font-mono text-xs font-bold text-[#4169E1] px-2 py-0.5 rounded bg-[#EEF2FF]">
+              Project {project.index}
             </span>
-            <div className="flex items-center gap-1.5">
-              {onOpenDetails && (
-                <button
-                  type="button"
-                  onClick={onOpenDetails}
-                  className="text-[11px] font-mono text-[#737373] hover:text-[#4169E1] transition-colors flex items-center gap-1 px-2 py-0.5 rounded-md hover:bg-[#EEF2FF] cursor-pointer"
-                  title="View detailed overview"
-                >
-                  <Info className="w-3.5 h-3.5 text-[#4169E1]" />
-                  <span className="font-semibold">Overview</span>
-                </button>
-              )}
-              <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#FAFAF8] border border-[#E5E5E0] text-[#737373] font-semibold">
-                {project.index}
-              </span>
-            </div>
+            {onOpenDetails && (
+              <button
+                type="button"
+                onClick={onOpenDetails}
+                className="text-[11px] font-mono text-[#737373] hover:text-[#4169E1] transition-colors flex items-center gap-1 px-2 py-0.5 rounded-md hover:bg-[#EEF2FF] cursor-pointer"
+                title="View full project details"
+              >
+                <Info className="w-3.5 h-3.5 text-[#4169E1]" />
+                <span className="font-semibold">Case Study</span>
+              </button>
+            )}
           </div>
 
-          {/* Project Title: Space Grotesk, weight 600 */}
+          {/* Project Title: Space Grotesk, natural 2-line wrap without artificial truncation ellipses */}
           <h3 
-            className="font-heading text-lg sm:text-xl font-bold text-[#171717] group-hover:text-[#4169E1] transition-colors line-clamp-1 cursor-pointer"
+            className="font-heading text-lg sm:text-[1.28rem] font-bold text-[#171717] group-hover:text-[#4169E1] transition-colors line-clamp-2 cursor-pointer leading-snug min-h-[2.8rem] flex items-start"
             onClick={onOpenDetails}
           >
             {project.title}
           </h3>
 
-          {/* Short Project Description strictly clamped to 3 lines */}
-          <p className="text-xs sm:text-[13.5px] text-[#525252] leading-relaxed line-clamp-3 min-h-[3.8rem]">
-            {project.summary}
+          {/* Project Description: Clean naturally ending sentence with no mid-thought cutoffs */}
+          <p className="text-[14px] sm:text-[14.5px] text-[#525252] leading-[1.65] min-h-[4.9rem]">
+            {project.cardSummary || project.summary}
           </p>
 
-          {/* Compact Technology Badges with Consistent Gap */}
+          {/* Technology Badges */}
           <div className="flex flex-wrap gap-1.5 pt-1">
             {project.stack.slice(0, 4).map((tech) => (
               <span
                 key={tech}
-                className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-[#FAFAF8] text-[#171717] border border-[#E5E5E0] font-medium leading-normal shadow-2xs"
+                className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-[#FAFAF8] text-[#171717] border border-[#E5E5E0] font-medium leading-normal"
               >
                 {tech}
               </span>
@@ -248,15 +116,15 @@ export default function CompactProjectCard({ project, onOpenDetails }) {
           </div>
         </div>
 
-        {/* Action Links Bar strictly positioned at the card bottom */}
-        <div className="flex items-center gap-2.5 pt-3.5 border-t border-[#E5E5E0] shrink-0">
+        {/* Action Links Bar: Strictly positioned and verified labels */}
+        <div className="flex items-center gap-2.5 pt-4 border-t border-[#E5E5E0] shrink-0">
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`View ${project.title} source code on GitHub`}
-              className="btn-secondary !py-2 !px-3.5 !text-xs !rounded-lg flex-1 justify-center hover:scale-[1.02] active:scale-[0.98] font-semibold shadow-2xs"
+              className="btn-secondary !py-2.5 !px-3.5 !text-xs !rounded-xl flex-1 justify-center font-semibold"
             >
               <Github className="w-3.5 h-3.5 shrink-0" />
               <span>Source Code</span>
@@ -267,10 +135,10 @@ export default function CompactProjectCard({ project, onOpenDetails }) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Open ${project.title} live demo`}
-              className="btn-primary !py-2 !px-3.5 !text-xs !rounded-lg flex-1 justify-center hover:scale-[1.02] active:scale-[0.98] font-semibold shadow-2xs"
+              aria-label={`Open ${project.title} live website`}
+              className="btn-primary !py-2.5 !px-3.5 !text-xs !rounded-xl flex-1 justify-center font-semibold"
             >
-              <span>{project.liveLabel || 'Live Demo'}</span>
+              <span>Live Website</span>
               <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
             </a>
           )}
