@@ -18,7 +18,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-[#E5E5E0] bg-[#FAFAF8] text-[#171714] py-12 sm:py-14 transition-colors duration-300">
+    <footer className="relative z-10 w-full border-t border-[#E5E5E0] bg-[#FAFAF8] text-[#171714] py-12 sm:py-14 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Content */}

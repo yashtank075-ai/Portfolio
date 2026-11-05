@@ -19,7 +19,7 @@ export default function App() {
       {/* Scroll Progress Bar */}
       <ScrollProgress />
 
-      {/* Google Flow Ambient Animated Background System (z-0, fixed, non-blocking) */}
+      {/* Ambient Animated Background System (z-0, fixed, non-blocking) */}
       <FlowBackground />
 
       <Navbar />
@@ -32,8 +32,8 @@ export default function App() {
         <Services />
         <Process />
         <Contact />
+        <Footer />
       </main>
-      <Footer />
       <Analytics />
     </div>
   );

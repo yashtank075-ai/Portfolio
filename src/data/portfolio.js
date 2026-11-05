@@ -1,4 +1,4 @@
-﻿export const portfolioData = {
+export const portfolioData = {
   personal: {
     name: "Yash Tank",
     monogram: "YT",
@@ -67,6 +67,8 @@
       "JavaScript (ES6+)",
       "Responsive Design",
     ],
+    cardSummary:
+      "Corporate web platform redesign coded with Next.js and Tailwind CSS, presenting technology services, case studies, and responsive marketing layouts.",
     summary:
       "Redesign of selected key pages for the official corporate website of Orainfotech, an IT services and product engineering firm. The project presents company capabilities, offshore development services, and portfolio case studies in a modern, responsive layout.",
     contribution:
@@ -107,6 +109,8 @@
         "Tailwind CSS",
         "Zod",
       ],
+      cardSummary:
+        "Full-stack multi-tenant CRM platform featuring sales pipelines, recurring revenue metrics, RBAC workspace isolation, and an explainable AI business insights engine.",
       summary:
         "Full-stack multi-tenant CRM and operations platform empowering businesses to manage pipelines, track recurring revenue, and drive customer retention through a unified dashboard.",
       contribution:
@@ -135,7 +139,7 @@
     {
       id: "reelflow",
       index: "03",
-      title: "ReelFlow — Social Media Media Suite",
+      title: "ReelFlow — Social Media Suite",
       category: "Full-Stack Web Application",
       stack: [
         "React.js",
@@ -147,6 +151,8 @@
         "Vite",
         "REST APIs",
       ],
+      cardSummary:
+        "Full-stack media utility facilitating public video downloads from Instagram Reels and Facebook, with YouTube link previewing and tokenized streaming pipelines.",
       summary:
         "Full-stack media utility application enabling public video downloads from Instagram Reels and Facebook, paired with YouTube link previewing, cryptographic token delivery, and analytics logging.",
       contribution:
@@ -184,6 +190,8 @@
         "Tailwind CSS v4",
         "Responsive Design",
       ],
+      cardSummary:
+        "Cinematic brand website built with Next.js 16 and React 19, featuring an interactive olfactory fragrance experience and wholesale distributor inquiry portal.",
       summary:
         "Designed and developed a premium cinematic brand website for Milliard Agarbatti (Tirth Agarbatti), celebrating traditional Indian heritage, craftsmanship, and luxury incense presentation.",
       contribution:
@@ -212,6 +220,8 @@
       title: "Dwarkadhish Car Rent",
       category: "Business Website / Car Rental Website",
       stack: ["React.js", "Tailwind CSS", "React Router", "Vite"],
+      cardSummary:
+        "Commercial car rental web platform featuring vehicle fleet catalog browsing, 12h and 24h rental pricing packages, and direct WhatsApp booking dispatch.",
       summary:
         "Developed a modern car rental website for Dwarkadhish Car Rent, a car rental business based in Surat, Gujarat. The website presents the rental business and its services through a professional web experience.",
       contribution:
@@ -238,6 +248,8 @@
       title: "Online Food Ordering Platform",
       category: "Full-Stack Application",
       stack: ["React.js", "Node.js", "Express.js", "MongoDB", "REST APIs"],
+      cardSummary:
+        "Full-stack culinary application featuring real-time menu categorization, synchronized client shopping cart state, and an Express/MongoDB order processing API.",
       summary:
         "An end-to-end ordering application featuring dynamic menu categorization, synchronized cart state management, and an Express/MongoDB order processing pipeline.",
       contribution:
